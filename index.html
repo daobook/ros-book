@@ -70,7 +70,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "xinetzone/sanstyle-starter");
+    script.setAttribute("repo", "xinetzone/ros-book");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -94,11 +94,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/sanstyle-starter/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/index.html" />
     <link rel="shortcut icon" href="_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Sanstyle Strater" href="README.html" />
+    <link rel="next" title="ROS2 手册" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -138,7 +138,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="README.html">
-   Sanstyle Strater
+   ROS2 手册
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -152,15 +152,50 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="docs/start/build-ai.html">
-     从零开始搭建 AI 环境
+    <a class="reference internal" href="docs/start/00_intro.html">
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/start/naming.html">
+     ROS 专有词汇中英对照列表
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="docs/basics/index.html">
-   指南
+  <a class="reference internal" href="docs/tutorials/index.html">
+   教程
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -168,34 +203,22 @@ commentsRunWhenDOMLoaded(addUtterances);
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="docs/basics/topic.html">
-     基础
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="docs/tutorials/beginner/index.html">
+     入门
     </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  主题
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="docs/topics/index.html">
-   主题1
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="docs/topics/topic.html">
-     某个主题
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="docs/tutorials/beginner/cli.html">
+       CLI 工具
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -354,11 +377,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/xinetzone/sanstyle-starter"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/sanstyle-starter/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -386,12 +409,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   笔记
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   他山之石
+   中文资料
   </a>
  </li>
 </ul>
@@ -407,107 +425,26 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>上善若水<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2>中文资料<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="sphinx-bs container pb-4 full-width text-center docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 w3-round-large docutils">
+<div class="d-flex col-lg-12 px-2 py-2 w3-round-large docutils">
 <div class="card w-100 w3-pale-red w3-card docutils">
 <div class="card-header w3-pale-yellow w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/ai-world/">AI World</a></p>
+<p class="card-text"><a class="reference external" href="http://wiki.ros.org/cn/community">ROS中文社区</a></p>
 </div>
 <div class="card-body text-justify w3-padding docutils">
-<p class="card-text">AI World!</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="id2">
-<h2>笔记<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="sphinx-bs container pb-4 full-width text-center docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/write/">写作</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">与写作相关的一切。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-aqua w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/study/">学习</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">学习相关。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-grey w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/tips/">tips</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">技巧。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-gray w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/daily-notes/">日报</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">记录每一天。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-red w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/cbook/">cbook</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">C/C++ 学习笔记。</p>
+<p class="card-text">本页面收集了国内 ROS 相关 QQ 群、论坛及博客专栏等社区资源，排名不分先后，欢迎补充，请勿添加无关内容！</p>
+<ul class="simple">
+<li><p class="card-text"><a class="reference external" href="https://www.guyuehome.com/">古月居</a>全球中文地区领先的 ROS 机器人知识分享社区。</p></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="id3">
-<h2>他山之石<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>收录一些优质的资源，并进行二次整合。</p>
-<div class="sphinx-bs container pb-4 full-width text-center docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-pale-green w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/wiki/">Wiki</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">百科。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/crack-book/">crack-book</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">裂缝检测。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="toctree-wrapper compound">
-</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -520,7 +457,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     {
         requestKernel: true,
         binderOptions: {
-            repo: "xinetzone/sanstyle-starter",
+            repo: "xinetzone/ros-book",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -549,7 +486,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <a class="right-next" href="README.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">Sanstyle Strater</p>
+                <p class="prevnext-title">ROS2 手册</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>快速上手</title>
+    <title>文档指南</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -94,12 +94,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/start/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/start/02_docs-guide.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="ROS 简介" href="00_intro.html" />
-    <link rel="prev" title="ROS2 手册" href="../../README.html" />
+    <link rel="next" title="How-to 指南" href="04_how-to-guides.html" />
+    <link rel="prev" title="安装" href="01_installation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -143,7 +143,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="index.html">
    快速上手
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -151,7 +151,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="00_intro.html">
      ROS 简介
@@ -162,8 +162,8 @@ commentsRunWhenDOMLoaded(addUtterances);
      安装
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_docs-guide.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      文档指南
     </a>
    </li>
@@ -362,7 +362,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/start/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/start/02_docs-guide.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -382,7 +382,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/start/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/start/02_docs-guide.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -403,6 +403,69 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-answers">
+   ROS Answers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-design">
+   ROS Design
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-discourse">
+   ROS Discourse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-docs">
+   ROS Docs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-enhancement-proposals-reps">
+   ROS Enhancement Proposals (REPs)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-index">
+   ROS Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-prerelease">
+   ROS Prerelease
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-robots">
+   ROS Robots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-wiki">
+   ROS Wiki
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-org">
+   ROS.org
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   废弃
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -411,10 +474,264 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>快速上手<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="ros-docs-guide">
+<span id="id1"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html">文档指南</a><a class="headerlink" href="#ros-docs-guide" title="永久链接至标题">¶</a></h1>
+<p>本指南解释了 ROS 1 和 ROS 2 文档基础结构。它有助于理解具体资源在哪里，如何提问，以及维护哪些站点。</p>
+<section id="ros-answers">
+<h2><a class="reference external" href="https://answers.ros.org/questions/">ROS Answers</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-answers-section"></a><a class="headerlink" href="#ros-answers" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
 </div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">类似于 <a class="reference external" href="https://stackexchange.com/">Stack Exchange</a> 的 ROS 1 和 ROS2 的问答社区网站。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">参考</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">如何使用 ROS Answers 请参见 <a class="reference external" href="https://docs.ros.org/en/galactic/Contact.html#using-ros-answers">联系</a> 页面。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-design">
+<h2><a class="reference external" href="http://design.ros2.org/">ROS Design</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-design-section"></a><a class="headerlink" href="#ros-design" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">一个记录许多早期 ROS 2 设计决策的地方。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">说明</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">在 ROS 设计中，更可取的是 ROS <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#reps-section">改善建议（REPs）</a>。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-discourse">
+<h2><a class="reference external" href="https://discourse.ros.org/">ROS Discourse</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-discourse-section"></a><a class="headerlink" href="#ros-discourse" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">一个为 ROS 社区提供一般性讨论和公告的论坛。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">参考</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">有关 ROS 讨论的更多信息，请参见 <a class="reference external" href="https://docs.ros.org/en/galactic/Contact.html#using-ros-answers">联系</a> 页面。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-docs">
+<h2><a class="reference external" href="https://docs.ros.org/">ROS Docs</a><a class="headerlink" href="#ros-docs" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<ul class="simple">
+<li><p class="card-text">ROS 1 和 ROS 2 API 文档</p></li>
+<li><p class="card-text">ROS2 核心文档，如安装说明、教程、指南、路线图等。</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-enhancement-proposals-reps">
+<h2><a class="reference external" href="https://ros.org/reps/rep-0000.html">ROS Enhancement Proposals (REPs)</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#reps-section"></a><a class="headerlink" href="#ros-enhancement-proposals-reps" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">一个 ROS1 和 ROS2 设计和约定的地方。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">注解</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">代表比 <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-design-section">ROS 设计</a> 更可取，因为他们有一个更成熟的审查过程。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-index">
+<h2><a class="reference external" href="https://index.ros.org/">ROS Index</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-index-section"></a><a class="headerlink" href="#ros-index" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">链接到附加信息的所有包的索引列表。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">注解</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">ROS 索引</p>
+<ul class="simple">
+<li><p class="card-text">查看软件包支持哪些 ROS 发行版（ROS 1 和 ROS 2）</p></li>
+<li><p class="card-text">链接到包存储库、API 文档或网站</p></li>
+<li><p class="card-text">检查包的许可、构建类型、维护人员、状态和依赖项</p></li>
+<li><p class="card-text">在 <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-answers-section">ROS Answers</a> 中找到涉及包的问题</p></li>
+</ul>
+<p class="card-text">您可以将 ROS 2 索引看作类似于 ROS 包的 Python 包索引（<a class="reference external" href="https://pypi.org/">PyPi</a>）。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-prerelease">
+<h2><a class="reference external" href="http://prerelease.ros.org/">ROS Prerelease</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#id6"></a><a class="headerlink" href="#ros-prerelease" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">一个网站，帮助您生成命令来模拟本地机器上的 <a class="reference external" href="https://build.ros.org/">ROS Buildfarm</a>。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">注解</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">目前，这个网站的前端只显示ROS 1的分布。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-robots">
+<h2><a class="reference external" href="https://robots.ros.org/">ROS Robots</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#id7"></a><a class="headerlink" href="#ros-robots" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">一个展示使用 ROS 1 或 ROS 2 的机器人的地方。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">注解</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">本页上的机器人由社区贡献，请参阅该网站了解如何贡献机器人。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-wiki">
+<h2><a class="reference external" href="http://wiki.ros.org/">ROS Wiki</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#id8"></a><a class="headerlink" href="#ros-wiki" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">目的</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">ROS1 文档和用户可修改的内容。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">注解</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<ul class="simple">
+<li><p class="card-text">我们不会在 ROS 2 中使用 wiki，因为审核 wiki 的开销太大。ROS2 的 wiki 功能将被 <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-docs-section">ROS Docs (this site)</a>, <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-index-section">ROS Index</a>, <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-discourse-section">ROS Discourse</a>，和 <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-answers-section">ROS Answers</a> 替换。</p></li>
+<li><p class="card-text">wiki 将至少在最后一个 ROS 1 发行版 EOL 之前激活。</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-org">
+<h2><a class="reference external" href="https://www.ros.org/">ROS.org</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#id9"></a><a class="headerlink" href="#ros-org" title="永久链接至标题">¶</a></h2>
+<p>ROS 1 和 ROS 2 产品登陆页面，提供了 ROS 的高级描述，并链接到其他 ROS 站点。</p>
+</section>
+<section id="id2">
+<h2>废弃<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://docs.ros2.org/">ROS 2 Docs</a><a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#id10"></a></p>
+<p>ROS 2 文档为包括 Galactic 在内的发行版提供 API 文档。从 Humble 开始，API 文档将托管在 <a class="reference external" href="https://docs.ros.org/en/galactic/Docs-Guide.html#ros-docs-section">ROS Docs</a> 上。</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -447,19 +764,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../../README.html" title="上一页 页">
+        <a class="left-prev" href="01_installation.html" title="上一页 页">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">ROS2 手册</p>
+                <p class="prevnext-title">安装</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="00_intro.html" title="下一页 页">
+        <a class="right-next" href="04_how-to-guides.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">ROS 简介</p>
+                <p class="prevnext-title">How-to 指南</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

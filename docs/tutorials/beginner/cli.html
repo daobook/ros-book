@@ -1,0 +1,1203 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CLI 工具</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ros-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/beginner/cli.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="解释" href="../../principle/index.html" />
+    <link rel="prev" title="入门" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   ROS2 手册
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../start/index.html">
+   快速上手
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/00_intro.html">
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/naming.html">
+     ROS 专有词汇中英对照列表
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   教程
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     入门
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       CLI 工具
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  原理
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../principle/index.html">
+   解释
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../principle/topic.html">
+     高级教程
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  混沌
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/zreferences.html">
+     参考文献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://xinetzone.github.io/sanstyle-book/">
+   Sanstyle Book
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../other/index.html">
+   外部资源
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../other/topic.html">
+     话题
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sanstyle">上善若水</a> 版权所有</div>
+</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/beginner/cli.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/beginner/cli.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-2">
+   配置 ROS 2 环境
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros-domain-id">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ROS_DOMAIN_ID
+        </span>
+       </code>
+       变量
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     总结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#turtlesim-rqt">
+   介绍 turtlesim 和 rqt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       5.1 尝试刷出服务
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#set-pen">
+       5.2 尝试使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         set_pen
+        </span>
+       </code>
+       服务
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     6 重新映射
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#turtlesim">
+     7 关闭 turtlesim
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros2">
+   理解 ROS2 节点
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       2.1 重新映射
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ros2-node-info">
+     3
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ros2
+      </span>
+      <span class="pre">
+       node
+      </span>
+      <span class="pre">
+       info
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     总结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-understanding-ros2-topics">
+   了解 ROS 2 话题
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     先决条件
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cli">
+<h1>CLI 工具<a class="headerlink" href="#cli" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p>2021 年 09 月 28 日 | 阅读时长 1 分</p>
+</div></blockquote>
+<section id="ros-2">
+<span id="ros-configuring-ros2-environment"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html">配置 ROS 2 环境</a><a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h2>
+<section id="id1">
+<h3>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>ROS 2 依赖于使用 shell 环境组合工作空间（workspaces）的概念。“<strong>工作区</strong>”（workspaces）是一个 ROS 术语，指的是你使用 ROS 2 进行开发的系统上的位置。核心 ROS 2 工作空间称为<strong>底层</strong>（underlay）。随后的本地工作区称为<strong>覆盖</strong>（overlays）。在使用 ROS 2 进行开发时，通常会同时有几个工作区处于活动状态。</p>
+<p>组合工作空间使得针对不同版本的 ROS 2 或针对不同的包集进行开发更加容易。它还允许在同一台计算机上安装多个 ROS 2 发行版（或 “distros”，例如 Dashing 和 Eloquent）并在它们之间进行切换。</p>
+<p>这可以通过每次打开新的 shell 时都提供安装文件，或者将 source 命令添加到 shell 启动脚本一次来实现。没有来源的安装文件，你将无法访问 ROS 2 命令，或找到或使用 ROS 2 包。换句话说，你不能使用 ROS 2。</p>
+</section>
+<section id="id2">
+<h3>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>在开始这些教程之前，按照 <a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html#installationguide">ROS 2 安装</a> 页面上的说明安装 ROS 2。</p>
+<p>本教程中使用的命令假设您遵循了操作系统的二进制包安装指南（Linux 的 Debian 包）。如果您是从源代码构建的，您仍然可以按照下面的方法进行操作，但是安装文件的路径可能会有所不同。如果你从源代码安装，你也不能使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-&lt;package&gt;</span></code> 命令（在新手教程中经常使用）。</p>
+<p>如果您正在使用 Linux 或 macOS，但不熟悉 shell，<a class="reference external" href="http://www.ee.surrey.ac.uk/Teaching/Unix/">Unix 教程</a> 将有所帮助。</p>
+</section>
+<section id="id3">
+<h3>任务<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 Source 安装文件</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">你需要在你打开的每一个 shell 上运行这个命令来访问 ROS 2 命令，就像这样：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source /opt/ros/{DISTRO}/setup.bash</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">call C:\dev\ros2\local_setup.bat</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">macOS</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">. ~/ros2_install/ros2-osx/setup.bash</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p class="card-text">确切的命令取决于您安装 ROS 2 的位置。如果遇到问题，请确保文件路径指向您的安装。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 在 shell 启动脚本中添加“source”</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">如果你不想每次打开一个新的shell（跳过任务 1）时都要获取安装文件，那么你可以将这个命令添加到 shell 启动脚本中：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;source /opt/ros/galactic/setup.bash&quot; &gt;&gt; ~/.bashrc</span>
+</pre></div>
+</div>
+<p class="card-text">要撤消此命令，请找到系统的 shell 启动脚本并删除附加的 source 命令。</p>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Windows</label><div class="tab-content docutils">
+<p class="card-text">仅对 PowerShell 用户，在“我的文档”中创建一个名为“WindowsPowerShell”的文件夹。在’WindowsPowerShell’中，创建文件’Microsoft.PowerShell_profile.ps1’。在文件内部，粘贴：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:\</span><span class="n">dev</span><span class="p">\</span><span class="n">ros2_galactic</span><span class="p">\</span><span class="n">local_setup</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<p class="card-text">每次打开一个新的 shell 时，PowerShell 都会请求运行此脚本的权限。为了避免这个问题，你可以运行：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Unblock-File</span> <span class="n">C</span><span class="p">:\</span><span class="n">dev</span><span class="p">\</span><span class="n">ros2_galactic</span><span class="p">\</span><span class="n">local_setup</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<p class="card-text">要撤消此操作，请删除新的 ‘Microsoft.PowerShell_profile.ps1’ 的文件。</p>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">macOS</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;source ~/ros2_install/ros2-osx/setup.bash&quot; &gt;&gt; ~/.bash_profile</span>
+</pre></div>
+</div>
+<p class="card-text">要撤消此命令，请找到系统的 shell 启动脚本并删除附加的 source命令。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">3 将 <code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 添加到 shell 启动脚本中</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 命令允许您快速地将 shell 的当前工作目录更改为包的目录。例如，<code class="docutils literal notranslate"><span class="pre">colcon_cd</span> <span class="pre">some_ros_package</span></code> 会很快将您带到 <code class="docutils literal notranslate"><span class="pre">~/ros2_install/src/some_ros_package</span></code> 目录。</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;source /usr/share/colcon_cd/function/colcon_cd.sh&quot; &gt;&gt; ~/.bashrc</span>
+<span class="go">echo &quot;export _colcon_cd_root=~/ros2_install&quot; &gt;&gt; ~/.bashrc</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Windows</label><div class="tab-content docutils">
+<p class="card-text">没有可用的</p>
+</div>
+<input class="tab-input" id="tab-set--2-input--3" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--3">macOS</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="card-text">根据您安装 <code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 的方式和您的工作空间所在的位置，上面的说明可能会有所不同，请参阅<a class="reference external" href="https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes">文档</a>了解更多细节。要在 Linux 和 macOS 中撤消此操作，请定位系统的 shell 启动脚本并删除附加的源和导出命令。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">4 检查环境变量</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">获取 ROS 2 安装文件将设置操作 ROS 2 所需的几个环境变量。如果你在寻找或使用你的 ROS 2 包时遇到问题，请确保使用以下命令正确设置你的环境：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">printenv | grep -i ROS</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">set | findstr -i ROS</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--3" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--3">macOS</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">printenv | grep -i ROS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="card-text">检查是否设置了 <code class="docutils literal notranslate"><span class="pre">ROS_DISTRO</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ROS_VERSION</span></code> 等变量。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ROS_VERSION=2</span>
+<span class="go">ROS_PYTHON_VERSION=3</span>
+<span class="go">ROS_DISTRO=galactic</span>
+</pre></div>
+</div>
+<p class="card-text">如果环境变量设置不正确，请返回安装指南中的安装 ROS 2 包章节。如果您需要更具体的帮助（因为环境设置文件可能来自不同的地方），您可以从社区<a class="reference external" href="https://answers.ros.org/">获得答案</a>。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="ros-domain-id">
+<h4><code class="docutils literal notranslate"><span class="pre">ROS_DOMAIN_ID</span></code> 变量<a class="headerlink" href="#ros-domain-id" title="永久链接至标题">¶</a></h4>
+<p>有关 ROS 域 ID 的详细信息，请参阅 <a class="reference external" href="https://docs.ros.org/en/galactic/Concepts/About-Domain-ID.html">domain ID</a> 文章。</p>
+<p>一旦您为您的 ROS 2 代理组确定了一个唯一的整数，您可以使用以下命令设置环境变量：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ROS_DOMAIN_ID=&lt;your_domain_id&gt;</span>
+</pre></div>
+</div>
+<p>为了在 shell 会话之间保持这个设置，你可以在 shell 启动脚本中添加这个命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;export ROS_DOMAIN_ID=&lt;your_domain_id&gt;&quot; &gt;&gt; ~/.bashrc</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">set ROS_DOMAIN_ID=&lt;your_domain_id&gt;</span>
+</pre></div>
+</div>
+<p>如果你想让这个在 shell 会话之间永久存在，也可以运行：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">setx ROS_DOMAIN_ID &lt;your_domain_id&gt;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--3" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--3">macOS</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ROS_DOMAIN_ID=&lt;your_domain_id&gt;</span>
+</pre></div>
+</div>
+<p>为了在 shell 会话之间保持这个设置，你可以在 shell 启动脚本中添加这个命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;export ROS_DOMAIN_ID=&lt;your_domain_id&gt;&quot; &gt;&gt; ~/.bash_profile</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h3>总结<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>ROS 2 开发环境在使用前需要进行正确配置。这可以通过两种方式实现：要么在每个打开的新 shell 中获取安装文件，要么将 <code class="docutils literal notranslate"><span class="pre">source</span></code> 命令添加到启动脚本中。</p>
+<p>如果您在定位或使用 ros2 包时遇到任何问题，您应该做的第一件事是检查环境变量，并确保它们被设置为您想要的版本和发行版。</p>
+</section>
+</section>
+<section id="turtlesim-rqt">
+<span id="ros-introducing-turtlesim"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html">介绍 turtlesim 和 rqt</a><a class="headerlink" href="#turtlesim-rqt" title="永久链接至标题">¶</a></h2>
+<p>Turtlesim 是一个轻量级的学习 ROS 2 的模拟器。它说明了 ROS 2 在最基本的水平上的作用，让你对以后使用真实机器人或机器人模拟做什么有一个概念。</p>
+<p>rqt 是 ROS2 的 GUI 工具。在 rqt 中完成的所有操作都可以在命令行上完成，但它提供了一种更简单、更用户友好的方式来操作 ROS 2 元素。</p>
+<p>本教程涉及核心 ROS 2 概念，如节点、主题和服务的分离。所有这些概念将在后面的教程中详细阐述；现在，您只需设置这些工具并对它们有一些感觉。</p>
+<section id="id5">
+<h3>先决条件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>前面的教程，<a class="reference internal" href="#ros-configuring-ros2-environment"><span class="std std-ref">配置 ROS 2 环境</span></a>，向您展示如何设置您的环境。</p>
+</section>
+<section id="id6">
+<h3>任务<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 安装 turtlesim</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">像往常一样，首先在一个新的终端中找到安装文件，如 <a class="reference internal" href="#ros-configuring-ros2-environment"><span class="std std-ref">上一节教程</span></a> 中所述。</p>
+<p class="card-text">为您的 ROS 2 发行版安装 turtlesim 包：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt update</span>
+
+<span class="go">sudo apt install ros-galactic-turtlesim</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">Windows</label><div class="tab-content docutils">
+<p class="card-text">只要您从 ROS2 中安装的归档文件包含 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 存储库，就应该已经安装了 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>。</p>
+</div>
+<input class="tab-input" id="tab-set--5-input--3" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--3">macOS</label><div class="tab-content docutils">
+<p class="card-text">只要您从 ROS2 中安装的归档文件包含 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 存储库，就应该已经安装了 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>。</p>
+</div>
+</div>
+<p class="card-text">检查安装包：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg executables turtlesim
+</pre></div>
+</div>
+<p class="card-text">上面的命令应该返回 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 的可执行文件列表：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>turtlesim draw_square
+turtlesim mimic
+turtlesim turtle_teleop_key
+turtlesim turtlesim_node
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 启动 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">要启动 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，在终端输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p class="card-text">模拟器窗口将出现，中间随机出现一只海龟。</p>
+<p class="card-text"><img alt="" src="../../../_images/turtlesim.png" /></p>
+<p class="card-text">在命令下的终端中，您将看到来自该节点的消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: Starting turtlesim with node name /turtlesim
+
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: Spawning turtle <span class="o">[</span>turtle1<span class="o">]</span> at <span class="nv">x</span><span class="o">=[</span><span class="m">5</span>.544445<span class="o">]</span>, <span class="nv">y</span><span class="o">=[</span><span class="m">5</span>.544445<span class="o">]</span>, <span class="nv">theta</span><span class="o">=[</span><span class="m">0</span>.000000<span class="o">]</span>
+</pre></div>
+</div>
+<p class="card-text">这里你可以看到你的默认海龟的名字是 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code>，以及它生成的默认坐标。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">3 使用 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">再次打开一个新的终端和 source ROS 2。</p>
+<p class="card-text">现在你要运行一个新节点来控制第一个节点中的 <code class="docutils literal notranslate"><span class="pre">turtle</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+<p class="card-text">此时，您应该打开了三个窗口：一个运行 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code> 的终端、一个运行 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 的终端和 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 窗口。安排这些窗口，以便您可以看到 <code class="docutils literal notranslate"><span class="pre">turtlelesim</span></code> 窗口，但也让终端运行 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 活动，以便您可以在 <code class="docutils literal notranslate"><span class="pre">turtlelesim</span></code> 中控制 turtle。</p>
+<p class="card-text">使用键盘上的方向键来控制海龟。它将在屏幕上移动，使用它所附的“笔”来绘制到目前为止它所遵循的路径。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p class="card-text">按下箭头键只会使海龟移动一小段距离，然后停止。这是因为，实际上，如果操作员失去了与机器人的连接，你不会希望机器人继续执行指令。</p>
+</div>
+<p class="card-text">您可以使用 <code class="docutils literal notranslate"><span class="pre">list</span></code> 命令查看节点及其相关的服务、主题和操作：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node list
+ros2 topic list
+ros2 service list
+ros2 action list
+</pre></div>
+</div>
+<p class="card-text">在接下来的教程中，您将学习更多关于这些概念的知识。由于本教程的目标只是对 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 进行总体概述，我们将使用 <code class="docutils literal notranslate"><span class="pre">rqt</span></code>（ROS 2 的图形用户界面）来更近距离地了解服务。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">4 安装 rqt</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">打开一个新的终端安装 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 和它的插件：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Linux（apt 2.0/Ubuntu 20.04 或更新）</label><div class="tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt update</span>
+
+<span class="go">sudo apt install ~nros-galactic-rqt*</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Windows/macOS</label><div class="tab-content docutils">
+<p class="card-text">在 Windows/macOS 上安装 ROS 2 的标准归档文件包含 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 和它的插件，所以你应该已经安装了 <code class="docutils literal notranslate"><span class="pre">rqt</span></code>。</p>
+</div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">rqt</span></code> 运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rqt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">5 使用 rqt</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">第一次运行 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 后，窗口将为空。不用担心；只需从顶部的菜单栏中选择 <code class="docutils literal notranslate"><span class="pre">Plugins</span> <span class="pre">&gt;</span> <span class="pre">Services</span> <span class="pre">&gt;</span> <span class="pre">Service</span> <span class="pre">Caller</span></code> 即可。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p class="card-text">rqt 本身可能需要一些时间来定位所有的插件。如果你点击了 <code class="docutils literal notranslate"><span class="pre">Plugins</span></code>，但是没有看到 <code class="docutils literal notranslate"><span class="pre">Services</span></code> 或任何其他选项，你应该关闭 <code class="docutils literal notranslate"><span class="pre">rqt</span></code>，在终端输入命令 <code class="docutils literal notranslate"><span class="pre">rqt</span> <span class="pre">--force-discover</span></code>。</p>
+</div>
+<p class="card-text"><img alt="" src="../../../_images/rqt.png" /></p>
+<p class="card-text">使用 <code class="docutils literal notranslate"><span class="pre">Service</span></code> 下拉列表左侧的刷新按钮，以确保 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 节点的所有服务都可用。</p>
+<p class="card-text">点击服务下拉列表查看 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 的服务，并选择 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 服务。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="id7">
+<h4>5.1 尝试刷出服务<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>让我们使用 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 来调用 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 服务。你可以从它的名字猜到 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 将在 turtlesim 窗口中创建另一只海龟。</p>
+<p>通过在 <code class="docutils literal notranslate"><span class="pre">Expression</span></code> 列的空单引号之间双击，为新海龟指定一个唯一的名称，如 <code class="docutils literal notranslate"><span class="pre">turtle2</span></code>。您可以看到这个表达式对应于 <code class="docutils literal notranslate"><span class="pre">name</span></code> 值，并且是 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的。</p>
+<p>输入海龟产卵的新坐标，如 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1.0</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">1.0</span></code>。</p>
+<p><img alt="" src="../../../_images/spawn.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果你试图生成一个与现有海龟同名的新海龟，比如默认的 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code>，你会在运行 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code> 的终端中得到一个错误消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ERROR<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: A turtle named <span class="o">[</span>turtle1<span class="o">]</span> already exists
+</pre></div>
+</div>
+</div>
+<p>要生成 <code class="docutils literal notranslate"><span class="pre">turtle2</span></code>，您必须通过单击 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 窗口右上角的 <code class="docutils literal notranslate"><span class="pre">call</span></code> 按钮来调用服务。</p>
+<p>你会在你输入的 <code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 坐标处看到一只新的海龟（同样是随机设计的）。</p>
+<p>如果您刷新 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 中的服务列表，您还将看到现在除了 <code class="docutils literal notranslate"><span class="pre">/turtle1/....</span></code> 之外，还有与新的 <code class="docutils literal notranslate"><span class="pre">turtle</span></code> 相关的服务，<code class="docutils literal notranslate"><span class="pre">/turtle2/…</span></code>。</p>
+</section>
+<section id="set-pen">
+<h4>5.2 尝试使用 <code class="docutils literal notranslate"><span class="pre">set_pen</span></code> 服务<a class="headerlink" href="#set-pen" title="永久链接至标题">¶</a></h4>
+<p>现在让我们使用 <code class="docutils literal notranslate"><span class="pre">/set_pen</span></code> 服务给 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code> 一个唯一的笔：</p>
+<p><img alt="" src="../../../_images/set_pen.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b</span></code> 的值在 0 到 255 之间，将设置画笔 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code> 绘制的颜色，<code class="docutils literal notranslate"><span class="pre">width</span></code> 设置线条的粗细。</p>
+<p>要让 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code> 用清晰的红线绘制，请将 <code class="docutils literal notranslate"><span class="pre">r</span></code> 的值更改为 <code class="docutils literal notranslate"><span class="pre">255</span></code>，将 <code class="docutils literal notranslate"><span class="pre">width</span></code> 的值更改为 <code class="docutils literal notranslate"><span class="pre">5</span></code>。不要忘记在更新值之后 call 服务。</p>
+<p>如果您返回 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_node</span></code> 运行的终端并按下方向键，您将看到 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code> 的钢笔已经更改。</p>
+<p><img alt="" src="../../../_images/new_pen.png" /></p>
+<p>你可能已经注意到海龟是无法移动的。可以通过将 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code> 的 <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> 主题重新映射到 <code class="docutils literal notranslate"><span class="pre">turtle2</span></code> 来实现这一点。</p>
+</section>
+</section>
+<section id="id8">
+<h3>6 重新映射<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>在一个新的终端中，source ROS 2，并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:<span class="o">=</span>turtle2/cmd_vel
+</pre></div>
+</div>
+<p>现在，您可以在这个终端激活时移动 <code class="docutils literal notranslate"><span class="pre">turtle2</span></code>，在运行 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 的另一个终端激活时移动 <code class="docutils literal notranslate"><span class="pre">turtle1</span></code>。</p>
+<p><img alt="" src="../../../_images/remap.png" /></p>
+</section>
+<section id="turtlesim">
+<h3>7 关闭 turtlesim<a class="headerlink" href="#turtlesim" title="永久链接至标题">¶</a></h3>
+<p>在 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code> 终端输入 <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code>，在 <code class="docutils literal notranslate"><span class="pre">teleop</span></code> 终端输入 <code class="docutils literal notranslate"><span class="pre">q</span></code>，可以停止模拟。</p>
+</section>
+</section>
+<section id="ros2">
+<span id="ros-understanding-ros2-nodes"></span><h2>理解 ROS2 节点<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h2>
+<section id="id9">
+<h3>背景<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 ROS 2 graph</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">在接下来的教程中，你将学习一系列构成“ROS2 graph”的核心 ROS 2 概念。</p>
+<p class="card-text">ROS graph 是 ROS 2 元素同时处理数据的网络。它包含所有可执行文件以及它们之间的连接，如果您要将它们全部映射出来并可视化的话。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 ROS 2 中的节点</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">ROS 中的每个节点应负责单个模块用途（例如，一个节点用于控制轮电机，一个节点用于控制激光测距仪，等等）。每个节点可以通过话题（topics）、服务（services）、动作（actions）或参数（parameters）向其他节点发送和接收数据。</p>
+<p class="card-text"><img alt="" src="../../../_images/Nodes-TopicandService.gif" /></p>
+<p class="card-text">一个完整的机器人系统由许多协同工作的节点组成。在 ROS 2 中，一个可执行文件（C++程序、Python 程序等）可以包含一个或多个节点。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h3>先决条件<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p><a class="reference internal" href="#ros-introducing-turtlesim"><span class="std std-ref">前面的教程</span></a> 向您展示了如何安装这里使用的 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包。</p>
+<p>和往常一样，不要忘记在你打开的每一个<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html#configros2">新终端中都输入 ROS 2</a>。</p>
+</section>
+<section id="id11">
+<h3>任务<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">命令 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code> 从包中启动一个可执行文件。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run &lt;package_name&gt; &lt;executable_name&gt;
+</pre></div>
+</div>
+<p class="card-text">运行 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，打开一个新的终端，并输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p class="card-text">这里，包名是 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，可执行文件名是 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code>。</p>
+<p class="card-text">然而，我们仍然不知道节点名。您可以使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 查找节点名称。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 将显示所有运行节点的名称。当您希望与某个节点进行交互，或者当您的系统运行多个节点并需要跟踪它们时，这一点特别有用。</p>
+<p class="card-text">当 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 在另一个终端中运行时，打开一个新的终端，并输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node list
+</pre></div>
+</div>
+<p class="card-text">终端将返回节点名：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtlesim
+</pre></div>
+</div>
+<p class="card-text">打开另一个新的终端并使用以下命令启动 <code class="docutils literal notranslate"><span class="pre">teleop</span></code> 节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+<p class="card-text">在这里，我们再次搜索 turtlesim 包，这次搜索的是名为 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 的可执行文件。</p>
+<p class="card-text">返回到运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 的终端，并再次运行它。现在您将看到两个活动节点的名称：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtlesim
+/teleop_turtle
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="id12">
+<h4>2.1 重新映射<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules">重新映射</a> 允许您将默认节点属性（如节点名称、主题名称、服务名称等）重新分配给自定义值。在上一篇教程中，您使用 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 上的重映射来更改正在控制的默认海龟。</p>
+<p>现在，让我们重新分配 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点的名称。在新的终端中运行如下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node --ros-args --remap __node:<span class="o">=</span>my_turtle
+</pre></div>
+</div>
+<p>既然你再次调用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code>，另一个 turtlesim 窗口将打开。但是，现在如果您返回到运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 的终端，并再次运行它，您将看到三个节点名：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/my_turtle
+/turtlesim
+/teleop_turtle
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros2-node-info">
+<h3>3 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code><a class="headerlink" href="#ros2-node-info" title="永久链接至标题">¶</a></h3>
+<p>现在您知道了节点的名称，可以使用以下方法访问更多关于节点的信息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node info &lt;node_name&gt;
+</pre></div>
+</div>
+<p>要检查最新的节点 <code class="docutils literal notranslate"><span class="pre">my_turtle</span></code>，运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node info /my_turtle
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code> 返回与该节点交互的订阅者、发布者、服务和操作（ROS graph 连接）的列表。输出应该是这样的：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/my_turtle
+  Subscribers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /turtle1/cmd_vel: geometry_msgs/msg/Twist
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /turtle1/color_sensor: turtlesim/msg/Color
+    /turtle1/pose: turtlesim/msg/Pose
+  Service Servers:
+    /clear: std_srvs/srv/Empty
+    /kill: turtlesim/srv/Kill
+    /my_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /my_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /my_turtle/get_parameters: rcl_interfaces/srv/GetParameters
+    /my_turtle/list_parameters: rcl_interfaces/srv/ListParameters
+    /my_turtle/set_parameters: rcl_interfaces/srv/SetParameters
+    /my_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+    /reset: std_srvs/srv/Empty
+    /spawn: turtlesim/srv/Spawn
+    /turtle1/set_pen: turtlesim/srv/SetPen
+    /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
+    /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
+  Service Clients:
+
+  Action Servers:
+    /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+  Action Clients:
+</pre></div>
+</div>
+<p>现在尝试在 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点上运行相同的命令，看看它的连接与 <code class="docutils literal notranslate"><span class="pre">my_turtle</span></code> 有何不同。</p>
+<p>您将在接下来的教程中了解更多关于 ROS graph 连接的概念，包括消息类型。</p>
+</section>
+<section id="id13">
+<h3>总结<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>节点是一个基本的 ROS 2 元素，在机器人系统中为一个单一的、模块化的目的服务。</p>
+<p>在本教程中，通过运行可执行文件 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code> 和 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code>，您使用了从 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包中创建的节点。</p>
+<p>您了解了如何使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 来发现活动节点名称和 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code>，以便在单个节点上进行内省。这些工具对于理解复杂的、真实世界的机器人系统中的数据流至关重要。</p>
+</section>
+</section>
+<section id="ros-understanding-ros2-topics">
+<span id="id14"></span><h2>了解 ROS 2 话题<a class="headerlink" href="#ros-understanding-ros2-topics" title="永久链接至标题">¶</a></h2>
+<section id="id15">
+<h3>背景<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>ROS 2 将复杂的系统分解成许多模块化节点。话题是 ROS graph 的一个重要元素，它充当节点交换消息的总线。</p>
+<p><img alt="" src="../../../_images/Topic-SinglePublisherandSingleSubscriber.gif" /></p>
+<p>节点可以向任意数量的话题发布数据，并同时订阅任意数量的话题。</p>
+<p><img alt="" src="../../../_images/Topic-MultiplePublisherandMultipleSubscriber.gif" /></p>
+<p>话题是数据在节点之间以及系统的不同部分之间移动的主要方式之一。</p>
+</section>
+<section id="id16">
+<h3>先决条件<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p><a class="reference internal" href="#ros-understanding-ros2-nodes"><span class="std std-ref">前面的教程</span></a> 提供了一些关于在此基础上构建的节点的有用背景信息。</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ros-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/beginner"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="index.html" title="上一页 页">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">上一页</p>
+                <p class="prevnext-title">入门</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../../principle/index.html" title="下一页 页">
+            <div class="prevnext-info">
+                <p class="prevnext-label">下一页</p>
+                <p class="prevnext-title">解释</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p class="w3-card w3-pale-blue w3-padding">
+  Copyright © 2021
+  <a href="https://sanstylelab.github.io/">SanstyleLab</a> | 
+  Powered by <a href="https://github.com/executablebooks/jupyter-book">Jupyter Book</a>.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

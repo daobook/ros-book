@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>基础</title>
+    <title>ROS 简介</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "xinetzone/sanstyle-starter");
+    script.setAttribute("repo", "xinetzone/ros-book");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -94,12 +94,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/sanstyle-starter/docs/basics/topic.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/start/00_intro.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="主题1" href="../topics/index.html" />
-    <link rel="prev" title="指南" href="index.html" />
+    <link rel="next" title="安装" href="01_installation.html" />
+    <link rel="prev" title="快速上手" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,64 +139,87 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
-   Sanstyle Strater
+   ROS2 手册
   </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../start/index.html">
-   快速上手
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../start/build-ai.html">
-     从零开始搭建 AI 环境
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
-   指南
+   快速上手
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     基础
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="naming.html">
+     ROS 专有词汇中英对照列表
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  主题
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../topics/index.html">
-   主题1
+  <a class="reference internal" href="../tutorials/index.html">
+   教程
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../topics/topic.html">
-     某个主题
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../tutorials/beginner/index.html">
+     入门
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tutorials/beginner/cli.html">
+       CLI 工具
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -339,7 +362,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/basics/topic.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/start/00_intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -355,11 +378,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/xinetzone/sanstyle-starter"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/sanstyle-starter/issues/new?title=Issue%20on%20page%20%2Fdocs/basics/topic.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/start/00_intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -380,6 +403,24 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros2">
+   ROS2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   关于 ROS2
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -388,15 +429,75 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ros">
+<h1>ROS 简介<a class="headerlink" href="#ros" title="永久链接至标题">¶</a></h1>
+<p>参考：<a class="reference external" href="http://wiki.ros.org/">Documentation - ROS Wiki</a></p>
+<p>ROS（Robot Operating System）是一种用于编写机器人软件的灵活框架。它是一个工具（tools）、库（libraries）和约定（conventions）的集合，旨在简化在各种机器人平台上创建复杂而健壮的机器人行为的任务。</p>
+<dl class="simple myst">
+<dt>ROS</dt><dd><p>ROS 是适用于机器人的开源的元操作系统。它提供了操作系统应有的服务，包括硬件抽象，底层设备控制，常用函数的实现，进程间消息传递，以及包管理。它也提供用于获取、编译、编写、和跨计算机运行代码所需的工具和库函数。在某些方面 ROS 相当于一种“机器人框架（robot frameworks）”类似的“机器人框架”有：<a class="reference external" href="http://playerstage.sf.net/">Player</a>，<a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a>，<a class="reference external" href="http://www.orocos.org/">Orocos</a>，<a class="reference external" href="http://carmen.sourceforge.net/">CARMEN</a>，<a class="reference external" href="http://orca-robotics.sourceforge.net/">Orca</a>，<a class="reference external" href="http://www.robots.ox.ac.uk/~pnewman/TheMOOS/index.html">MOOS</a>和 <a class="reference external" href="http://msdn.microsoft.com/en-us/robotics/default.aspx">Microsoft Robotics Studio</a>。</p>
+<p>ROS 运行时的“graph”是一种基于 ROS 通信基础结构的松耦合点对点进程网络。ROS 实现了几种不同的通信方式，包括基于同步 RPC 样式通信的<a class="reference external" href="http://wiki.ros.org/Services">服务（services）</a>机制，基于异步流媒体数据的<a class="reference external" href="http://wiki.ros.org/Topics">话题（topics）</a>机制以及用于数据存储的<a class="reference external" href="http://wiki.ros.org/Parameter%20Server">参数服务器（Parameter Server）</a>。想更加深入的解释这些概念，请参见<a class="reference external" href="http://wiki.ros.org/ROS/Concepts">概念综述</a>。</p>
+<p>ROS 并不是一个实时的框架，但 ROS 可以嵌入实时程序。Willow Garage 的 PR2 机器人使用了一种叫做<a class="reference external" href="http://wiki.ros.org/pr2_etherCAT">pr2_etherCAT</a>的系统来实时发送或接收ROS消息。ROS也可以<a class="reference external" href="http://www.willowgarage.com/blog/2009/06/10/orocos-rtt-and-ros-integrated">与Orocos实时工具包无缝集成</a>。</p>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">ROS 的目标</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">ROS 的主要目标是为机器人研究和开发提供代码<strong>复用</strong>的支持。ROS 是一个分布式的进程（也就是节点）框架，这些进程被封装在易于被分享和发布的程序包和功能包集中。ROS 也支持一种类似于代码储存库的联合系统，这个系统也可以实现工程的协作及发布。这个设计可以使一个工程的开发和实现从文件系统到用户接口完全独立决策（不受 ROS 限制）。同时，所有的工程都可以被 ROS 的基础工具整合在一起。</p>
+<p class="card-text">为了支持分享和协作的主要目的，ROS 框架也有其它几个目标：</p>
+<ul class="simple">
+<li><p class="card-text">小型化：ROS 尽可能设计的很小 – 我们不封装您的 <code class="docutils literal notranslate"><span class="pre">main()</span></code> 函数 – 所以为 ROS 编写的代码可以轻松的在其它机器人软件平台上使用。由此得出的必然结论是 ROS 可以轻松集成在其它机器人软件平台：ROS 已经可以与 OpenRAVE，Orocos 和 Player（非常适合简洁的非铰接的移动平台）集成。</p></li>
+<li><p class="card-text">ROS 不敏感库：ROS 的首选开发模型都是用不依赖 ROS 的干净的库函数编写而成。</p></li>
+<li><p class="card-text">语言独立：ROS 框架可以简单地使用任何的现代编程语言实现。我们已经实现了 <a class="reference external" href="http://wiki.ros.org/rospy">Python版本</a>，<a class="reference external" href="http://wiki.ros.org/roscpp">C++版本</a>和 <a class="reference external" href="http://wiki.ros.org/roslisp">Lisp版本</a>。同时，我们也拥有 Java 和 Lua 版本的实验库。</p></li>
+<li><p class="card-text">方便测试：ROS 内建一个了叫做 <code class="docutils literal notranslate"><span class="pre">rostest</span></code> 的单元/集成测试框架，可以轻松安装或卸载测试模块。</p></li>
+<li><p class="card-text">可扩展：ROS 可以适用于大型运行时系统和大型开发进程。</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+<section id="ros2">
+<h2>ROS2<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h2>
+<p>参考：<a class="reference external" href="https://docs.ros.org/en/galactic/index.html">ROS 2 Documentation — ROS 2 Documentation: Galactic documentation</a></p>
+<p>ROS 是一套用于构建机器人应用程序的软件库和工具。从驱动程序到最先进的算法，以及强大的开发工具，ROS 拥有您下一个机器人项目所需的一切。而且都是开源的。</p>
+<p>自 ROS 于 2007 年启动以来，机器人和 ROS 社区发生了很多变化。ROS 2 项目的目标是适应这些变化，利用 ROS 1 的优点并改进缺点。</p>
+<p>如果你正在寻找关于 ROS 1 的文档，请查看 <a class="reference external" href="https://wiki.ros.org/">ROS wiki</a>。</p>
+<p>导航：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="01_installation.html#ros-install"><span class="std std-ref">安装</span></a> 页面将帮助您首次安装 ROS 2。您可以选择适合您需要的平台以及安装类型和分发版。</p></li>
+<li><p><a class="reference internal" href="02_docs-guide.html#ros-docs-guide"><span class="std std-ref">文档指南</span></a> 解释了 ROS 1 和 ROS 2 文档基础结构。它有助于理解具体资源在哪里，如何提问，以及维护哪些站点。</p></li>
+<li><p><a class="reference internal" href="../tutorials/index.html#ros-tutorials"><span class="std std-ref">教程</span></a> 将引导你完成小型项目和 ROS2 的示例使用，所以你可以通过实际使用工具来学习诀窍。它们是根据必要技能的发展来组织的，这使它成为新用户开始的最佳场所。</p></li>
+<li><p><a class="reference internal" href="04_how-to-guides.html#ros-how-to-guides"><span class="std std-ref">How-to 指南</span></a> 回答了你所有的“我如何……?”问题尽可能简短而直接，这样你就可以在不需要通过教程的叙述性质的背景下找到你需要的信息。</p></li>
+<li><p><a class="reference internal" href="05_concepts.html#ros-concepts"><span class="std std-ref">概念</span></a> 是关于核心 ROS 2 概念的高级解释和背景信息，应该为教程中涉及的主题提供一些上下文。</p></li>
+<li><p><a class="reference internal" href="06_contributing.html#ros-contributing"><span class="std std-ref">贡献</span></a> 是使 ROS 2 伟大的原因！我们有关于贡献新的 ROS 2 内容以及将现有内容从 ROS 1 迁移到 ROS 2 的最佳实践和方法指南。</p></li>
+<li><p><a class="reference internal" href="07_contact.html#ros-contact"><span class="std std-ref">寻求帮助</span></a> 总是被鼓励的。在这里，你会找到几种方法来回答你的问题或开始一场讨论。</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>关于 ROS2<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Releases.html#releases">Releases</a>：过去，现在和未来的 ROS 2 发行版，包括发行版之间的日期和变化。</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Features.html#features">Features</a>：当前 ROS 2 版本的一部分功能，以及详细介绍每个新功能的内容。</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Roadmap.html#roadmap">Roadmap</a>：一组尚未实现但即将实现的 ROS 2 的特性想法。</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/ROSCon-Content.html#roscon">ROSCon talks</a>：关于整个社区对 ROS 2 的最新使用和更新的介绍。</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Governance.html#governance">Project governance</a>：由技术指导委员会处理的，您可以在这里了解更多。</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Marketing.html#marketing">Marketing</a>：推广 ROS 2 的资料可从此网页下载。</p></li>
+<li><p><a class="reference external" href="http://design.ros2.org/">ROS 2 Design</a>：包含了许多关于 ROS2 背后的设计决策的文章。</p></li>
+</ul>
+<p>更多内容见：<a class="reference external" href="https://github.com/ros2/ros2_documentation">ros2/ros2_documentation: ROS 2 docs repository (github.com)</a>。</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "xinetzone/sanstyle-starter",
+            repo: "xinetzone/ros-book",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -405,7 +506,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/basics"
+            path: "./docs/start"
         },
         predefinedOutput: true
     }
@@ -426,15 +527,15 @@ commentsRunWhenDOMLoaded(addUtterances);
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">指南</p>
+                <p class="prevnext-title">快速上手</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../topics/index.html" title="下一页 页">
+        <a class="right-next" href="01_installation.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">主题1</p>
+                <p class="prevnext-title">安装</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
