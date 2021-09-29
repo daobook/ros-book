@@ -1,0 +1,825 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>使用 colcon 构建包</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ros-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/intermediate/Colcon-Tutorial.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="解释" href="../../principle/index.html" />
+    <link rel="prev" title="中级教程" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   ROS2 手册
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../start/index.html">
+   快速上手
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/00_intro.html">
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/naming.html">
+     ROS 专有词汇中英对照列表
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   教程
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../beginner/cli.html">
+     CLI 工具
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../client-libraries/index.html">
+     客户端库
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../client-libraries/00_Creating-A-Workspace.html">
+       创建一个工作区
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../client-libraries/Creating-Your-First-ROS2-Package.html">
+       创建你的第一个 ROS 2 包
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     中级教程
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         colcon
+        </span>
+       </code>
+       构建包
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  原理
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../principle/index.html">
+   解释
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../principle/topic.html">
+     高级教程
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  混沌
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/zreferences.html">
+     参考文献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://xinetzone.github.io/sanstyle-book/">
+   Sanstyle Book
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../other/index.html">
+   外部资源
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../other/errors.html">
+     ROS2 常见错误
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sanstyle">上善若水</a> 版权所有</div>
+</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/intermediate/Colcon-Tutorial.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/intermediate/Colcon-Tutorial.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   背景
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   先决条件
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     安装
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       colcon
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ros-2">
+     安装 ROS 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   基础
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     创建一个新工作区
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     添加一些源文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     激活覆盖层
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     构建工作区
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     运行测试
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     激活环境
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     尝试演示
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   创建您自己的包
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   小贴士
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="colcon">
+<span id="ros-colcon-tutorial"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Colcon-Tutorial.html">使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建包</a><a class="headerlink" href="#colcon" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这是一个简单的教程，如何使用  <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 创建一个 ROS 2 工作区。这是一个实用的教程，而不是设计来取代核心文档。</p>
+</div>
+<section id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 是对 ROS 构建工具 <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>、<code class="docutils literal notranslate"><span class="pre">catkin_make_isolate</span></code>、<code class="docutils literal notranslate"><span class="pre">catkin_tools</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ament_tools</span></code> 的迭代。有关 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 设计的更多信息，请参阅<a class="reference external" href="https://design.ros2.org/articles/build_tool.html">此文档</a>。</p>
+<p>源代码可以在 <a class="reference external" href="https://github.com/colcon">colcon GitHub</a> 组织中找到。</p>
+</section>
+<section id="id2">
+<h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3>安装 <code class="docutils literal notranslate"><span class="pre">colcon</span></code><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-colcon-common-extensions
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m pip install colcon-common-extensions
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -U colcon-common-extensions
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ros-2">
+<h3>安装 ROS 2<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h3>
+<p>为了构建样本，您将需要安装 ROS 2。</p>
+<p>按照<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装说明操作</a>。</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>如果使用 Debian 软件包进行安装，本教程要求进行<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#linux-install-debians-install-ros-2-packages">桌面安装</a>。</p>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>基础<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>ROS 工作区是具有特定结构的目录。通常有一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 子目录。在这个子目录中是存放 ROS 包源代码的地方。通常情况下，目录启动时为空。</p>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 是基于源代码构建的。默认情况下，它将创建以下目录作为 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录的对等体：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build</span></code> 目录将是存储中间文件的地方。对于每个包，将创建一个子文件夹，例如 CMake 被调用。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install</span></code> 目录是每个包将要安装到的目录。默认情况下，每个包将被安装到单独的子目录中。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code> 目录包含关于每个 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 调用的各种日志信息。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>与 <code class="docutils literal notranslate"><span class="pre">catkin</span></code> 相比，没有 <code class="docutils literal notranslate"><span class="pre">devel</span></code> 目录。</p>
+</div>
+<section id="id5">
+<h3>创建一个新工作区<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>首先，创建一个目录（ros2_example_ws）来包含我们的工作区：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/ros2_example_ws/src
+<span class="nb">cd</span> ~/ros2_example_ws
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>md <span class="se">\d</span>ev<span class="se">\r</span>os2_example_ws<span class="se">\s</span>rc
+<span class="nb">cd</span> <span class="se">\d</span>ev<span class="se">\r</span>os2_example_ws
+</pre></div>
+</div>
+</div>
+</div>
+<p>此时，工作区包含一个空目录 <code class="docutils literal notranslate"><span class="pre">src</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.
+└── src
+
+<span class="m">1</span> directory, <span class="m">0</span> files
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>添加一些源文件<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>让我们将示例库克隆到工作区的 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com.cnpmjs.org/ros2/examples src/examples -b galactic
+</pre></div>
+</div>
+<p>现在工作区应该有 ROS 2 示例的源代码：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.
+└── src
+    └── examples
+        ├── CONTRIBUTING.md
+        ├── LICENSE
+        ├── rclcpp
+        ├── rclpy
+        └── README.md
+
+<span class="m">4</span> directories, <span class="m">3</span> files
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>激活覆盖层<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>重要的是，我们已经为现有的 ROS 2 安装提供了环境，它将为示例包提供必要的构建依赖。这是通过获取二进制安装或源安装提供的安装脚本来实现的。另一个 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 工作区（请参阅<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装</a>）。我们称这种环境为底层。</p>
+<p>我们的工作区，<code class="docutils literal notranslate"><span class="pre">ros2_examples_ws</span></code>，将覆盖在现有的 ROS 2 安装之上。通常，当您计划在少量包上进行迭代时，建议使用覆盖，而不是将所有包放到同一个工作区中。</p>
+</section>
+<section id="id8">
+<h3>构建工作区<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>要在 Windows 上构建包，你需要在 Visual Studio 环境中，参见构建 <a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Windows-Development-Setup.html#windows-dev-build-ros2">ROS 2 代码</a> 了解更多细节。</p>
+</div>
+<p>在工作区的根目录下，运行 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>。因为像 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 这样的构建类型不支持 <code class="docutils literal notranslate"><span class="pre">devel</span></code> 空间的概念，并且需要安装包，所以 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 支持 <code class="docutils literal notranslate"><span class="pre">--symlink-install</span></code> 选项。这允许通过更改 <code class="docutils literal notranslate"><span class="pre">source</span></code> 空间中的文件（例如 Python 文件或其他未编译资源）来更改已安装的文件，以更快地迭代。</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --symlink-install
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --symlink-install --merge-install
+</pre></div>
+</div>
+<p>Windows 不允许长路径，所以 <code class="docutils literal notranslate"><span class="pre">merge-install</span></code> 将把所有路径合并到安装目录中。</p>
+</div>
+</div>
+<p>在构建完成后，我们应该看到 <code class="docutils literal notranslate"><span class="pre">build</span></code>、<code class="docutils literal notranslate"><span class="pre">install</span></code> 和 <code class="docutils literal notranslate"><span class="pre">log</span></code> 目录：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.
+├── build
+├── install
+├── log
+└── src
+
+<span class="m">4</span> directories, <span class="m">0</span> files
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3>运行测试<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>要对我们刚刚构建的包运行测试，请运行以下命令：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Windows</label><div class="tab-content docutils">
+<p>记住使用 <code class="docutils literal notranslate"><span class="pre">x64</span> <span class="pre">Native</span> <span class="pre">Tools</span> <span class="pre">Command</span> <span class="pre">Prompt</span> <span class="pre">for</span> <span class="pre">VS</span> <span class="pre">2019</span></code> 来执行以下命令，因为我们将构建一个工作区。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon <span class="nb">test</span> --merge-install
+</pre></div>
+</div>
+<p>您还需要在这里指定 <code class="docutils literal notranslate"><span class="pre">--merge-install</span></code>，因为我们在上面构建时使用了它。</p>
+</div>
+</div>
+</section>
+<section id="id10">
+<h3>激活环境<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>当 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 成功地完成构建时，输出将位于 <code class="docutils literal notranslate"><span class="pre">install</span></code> 目录中。在使用任何已安装的可执行文件或库之前，您需要将它们添加到您的路径和库路径中。colcon 将在 <code class="docutils literal notranslate"><span class="pre">install</span></code> 目录中生成 <code class="docutils literal notranslate"><span class="pre">bash/bat</span></code> 文件，以帮助设置环境。这些文件将向您的路径和库路径中添加所有必需的元素，并提供由包导出的 bash 或 shell 命令。</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. install/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call install<span class="se">\s</span>etup.bat
+</pre></div>
+</div>
+<p>或 Powershell：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>install<span class="se">\s</span>etup.ps1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>尝试演示<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>有了环境源，我们可以运行由 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建的可执行文件。让我们运行示例中的订阅服务器节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+</pre></div>
+</div>
+<p>在另一个终端中，让我们运行一个发布者节点（不要忘记获取设置脚本的源代码）：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+</pre></div>
+</div>
+<p>您应该看到来自发布者和订阅者的消息，消息的数量在递增。</p>
+</section>
+</section>
+<section id="id12">
+<h2>创建您自己的包<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 使用 <a class="reference external" href="https://www.ros.org/reps/rep-0149.html">REP 149</a> 中定义的 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 规范（也支持<a class="reference external" href="https://www.ros.org/reps/rep-0140.html">格式2</a>）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 支持多种构建类型。推荐的构建类型是 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ament_python</span></code>。也支持纯 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 包。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ament_python</span></code> 构建的一个例子是 <a class="reference external" href="https://github.com/ament/ament_index/tree/master/ament_index_python">ament_index_python 包</a>，其中 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 是构建的主要入口点。</p>
+<p>像 <a class="reference external" href="https://github.com/ros2/demos/tree/master/demo_nodes_cpp">demo_nodes_cpp</a> 这样的包使用 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 构建类型，并使用 CMake 作为构建工具。</p>
+<p>为了方便起见，您可以使用工具 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">pkg</span> <span class="pre">create</span></code> 来基于模板创建一个新的包。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">catkin</span></code> 用户，这相当于 <code class="docutils literal notranslate"><span class="pre">catkin_create_package</span></code>。</p>
+</div>
+</section>
+<section id="id13">
+<h2>小贴士<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>如果您不想构建一个特定的包，那么在目录中放置一个名为 <code class="docutils literal notranslate"><span class="pre">COLCON_IGNORE</span></code> 的空文件，它将不会被索引。</p></li>
+<li><p>如果你想避免在 CMake 包中配置和构建测试，你可以通过：<code class="docutils literal notranslate"><span class="pre">--cmake-args</span> <span class="pre">-DBUILD_TESTING=0</span></code>。</p></li>
+<li><p>如果你想从一个包中运行一个特定的测试：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon <span class="nb">test</span> --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ros-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/intermediate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="index.html" title="上一页 页">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">上一页</p>
+                <p class="prevnext-title">中级教程</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../../principle/index.html" title="下一页 页">
+            <div class="prevnext-info">
+                <p class="prevnext-label">下一页</p>
+                <p class="prevnext-title">解释</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p class="w3-card w3-pale-blue w3-padding">
+  Copyright © 2021
+  <a href="https://sanstylelab.github.io/">SanstyleLab</a> | 
+  Powered by <a href="https://github.com/executablebooks/jupyter-book">Jupyter Book</a>.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

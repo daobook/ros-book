@@ -233,6 +233,29 @@ commentsRunWhenDOMLoaded(addUtterances);
      </li>
     </ul>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../intermediate/index.html">
+     中级教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../intermediate/Colcon-Tutorial.html">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         colcon
+        </span>
+       </code>
+       构建包
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -246,8 +269,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../principle/index.html">
    解释
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -270,8 +293,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -297,15 +320,15 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../other/index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../other/topic.html">
-     话题
+    <a class="reference internal" href="../../other/errors.html">
+     ROS2 常见错误
     </a>
    </li>
   </ul>
@@ -1070,9 +1093,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span id="ros-configuring-ros2-environment"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html">配置 ROS 2 环境</a><a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h2>
 <section id="id1">
 <h3>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
-<p>ROS 2 依赖于使用 shell 环境组合工作空间（workspaces）的概念。“<strong>工作区</strong>”（workspaces）是一个 ROS 术语，指的是你使用 ROS 2 进行开发的系统上的位置。核心 ROS 2 工作空间称为<strong>底层</strong>（underlay）。随后的本地工作区称为<strong>覆盖</strong>（overlays）。在使用 ROS 2 进行开发时，通常会同时有几个工作区处于活动状态。</p>
-<p>组合工作空间使得针对不同版本的 ROS 2 或针对不同的包集进行开发更加容易。它还允许在同一台计算机上安装多个 ROS 2 发行版（或 “distros”，例如 Dashing 和 Eloquent）并在它们之间进行切换。</p>
-<p>这可以通过每次打开新的 shell 时都提供安装文件，或者将 source 命令添加到 shell 启动脚本一次来实现。没有来源的安装文件，你将无法访问 ROS 2 命令，或找到或使用 ROS 2 包。换句话说，你不能使用 ROS 2。</p>
+<p>ROS 2 依赖于使用 shell 环境组合工作区（workspaces）的概念。“<strong>工作区</strong>”（workspaces）是一个 ROS 术语，指的是你使用 ROS 2 进行开发的系统上的位置。核心 ROS 2 工作区称为<strong>底层</strong>（underlay）。随后的本地工作区称为<strong>覆盖层</strong>（overlays）。在使用 ROS 2 进行开发时，通常会同时有几个工作区处于活动状态。</p>
+<p>组合工作区使得针对不同版本的 ROS 2 或针对不同的包集进行开发更加容易。它还允许在同一台计算机上安装多个 ROS 2 发行版（或 “distros”，例如 Dashing 和 Eloquent）并在它们之间进行切换。</p>
+<p>这可以通过每次打开新的 shell 时都提供安装文件，或者将 source 命令添加到 shell 启动脚本一次来实现。没有激活的安装文件，你将无法访问 ROS 2 命令，或找到或使用 ROS 2 包。换句话说，你不能使用 ROS 2。</p>
 </section>
 <section id="id2">
 <h3>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
@@ -1173,7 +1196,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p class="card-text">根据您安装 <code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 的方式和您的工作空间所在的位置，上面的说明可能会有所不同，请参阅<a class="reference external" href="https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes">文档</a>了解更多细节。要在 Linux 和 macOS 中撤消此操作，请定位系统的 shell 启动脚本并删除附加的源和导出命令。</p>
+<p class="card-text">根据您安装 <code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 的方式和您的工作区所在的位置，上面的说明可能会有所不同，请参阅<a class="reference external" href="https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes">文档</a>了解更多细节。要在 Linux 和 macOS 中撤消此操作，请定位系统的 shell 启动脚本并删除附加的源和导出命令。</p>
 </div>
 </div>
 </div>

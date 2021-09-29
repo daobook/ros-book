@@ -7,11 +7,11 @@
 
 ### 背景
 
-ROS 2 依赖于使用 shell 环境组合工作空间（workspaces）的概念。“**工作区**”（workspaces）是一个 ROS 术语，指的是你使用 ROS 2 进行开发的系统上的位置。核心 ROS 2 工作空间称为**底层**（underlay）。随后的本地工作区称为**覆盖**（overlays）。在使用 ROS 2 进行开发时，通常会同时有几个工作区处于活动状态。
+ROS 2 依赖于使用 shell 环境组合工作区（workspaces）的概念。“**工作区**”（workspaces）是一个 ROS 术语，指的是你使用 ROS 2 进行开发的系统上的位置。核心 ROS 2 工作区称为**底层**（underlay）。随后的本地工作区称为**覆盖层**（overlays）。在使用 ROS 2 进行开发时，通常会同时有几个工作区处于活动状态。
 
-组合工作空间使得针对不同版本的 ROS 2 或针对不同的包集进行开发更加容易。它还允许在同一台计算机上安装多个 ROS 2 发行版（或 “distros”，例如 Dashing 和 Eloquent）并在它们之间进行切换。
+组合工作区使得针对不同版本的 ROS 2 或针对不同的包集进行开发更加容易。它还允许在同一台计算机上安装多个 ROS 2 发行版（或 “distros”，例如 Dashing 和 Eloquent）并在它们之间进行切换。
 
-这可以通过每次打开新的 shell 时都提供安装文件，或者将 source 命令添加到 shell 启动脚本一次来实现。没有来源的安装文件，你将无法访问 ROS 2 命令，或找到或使用 ROS 2 包。换句话说，你不能使用 ROS 2。
+这可以通过每次打开新的 shell 时都提供安装文件，或者将 source 命令添加到 shell 启动脚本一次来实现。没有激活的安装文件，你将无法访问 ROS 2 命令，或找到或使用 ROS 2 包。换句话说，你不能使用 ROS 2。
 
 ### 先决条件
 
@@ -108,7 +108,7 @@ TODO
 ```
 ````
 
-根据您安装 `colcon_cd` 的方式和您的工作空间所在的位置，上面的说明可能会有所不同，请参阅[文档](https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes)了解更多细节。要在 Linux 和 macOS 中撤消此操作，请定位系统的 shell 启动脚本并删除附加的源和导出命令。
+根据您安装 `colcon_cd` 的方式和您的工作区所在的位置，上面的说明可能会有所不同，请参阅[文档](https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes)了解更多细节。要在 Linux 和 macOS 中撤消此操作，请定位系统的 shell 启动脚本并删除附加的源和导出命令。
 ---
 4 检查环境变量
 ^^^

@@ -231,6 +231,29 @@ commentsRunWhenDOMLoaded(addUtterances);
      </li>
     </ul>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../intermediate/index.html">
+     中级教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../intermediate/Colcon-Tutorial.html">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         colcon
+        </span>
+       </code>
+       构建包
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -244,8 +267,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../principle/index.html">
    解释
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -268,8 +291,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -295,15 +318,15 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../../other/index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../other/topic.html">
-     话题
+    <a class="reference internal" href="../../other/errors.html">
+     ROS2 常见错误
     </a>
    </li>
   </ul>
@@ -413,6 +436,65 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   先决条件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-2">
+   激活 ROS 2 环境
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   新建目录
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repo">
+   克隆一个样本 repo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   解决依赖关系
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colcon">
+   使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     colcon
+    </span>
+   </code>
+   构建工作区
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   激活覆盖层
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   修改覆盖层
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   小结
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -423,6 +505,239 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ros-creating-a-workspace">
 <span id="id1"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Workspace/Creating-A-Workspace.html">创建一个工作区</a><a class="headerlink" href="#ros-creating-a-workspace" title="永久链接至标题">¶</a></h1>
+<p>工作区（workspace）是一个包含 ROS 2 包的目录。在使用 ROS 2 之前，有必要在您计划工作的终端中创建您的 ROS 2 安装工作区。这使得您可以在该终端上使用 ROS 2 的包。</p>
+<p>你也可以选择激活一个覆盖层-一个二级工作区，在那里你可以添加新的包，而不干扰你正在扩展的现有 ROS 2 工作区，或“底层”（underlay）。你的底层必须包含覆盖层中所有包的依赖项。覆盖层中的包将覆盖底层中的包。也可以有多层的底层和覆盖层，每个后续的覆盖层都使用其父层的包。</p>
+<section id="id2">
+<h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html#installationguide">ROS 2 安装</a></p></li>
+<li><p><a class="reference internal" href="../intermediate/Colcon-Tutorial.html#ros-colcon-tutorial"><span class="std std-ref">colcon 安装</span></a></p></li>
+<li><p><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git 安装</a></p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#turtlesim">turtlesim 安装</a></p></li>
+<li><p><a class="reference external" href="https://wiki.ros.org/rosdep#Installing_rosdep">安装了 rosdep</a></p></li>
+<li><p>了解基本的终端命令（以下是 <a class="reference external" href="http://www.ee.surrey.ac.uk/Teaching/Unix/">Linux 的指南</a>）</p></li>
+<li><p>您选择的文本编辑器</p></li>
+</ul>
+</section>
+<section id="ros-2">
+<h2>激活 ROS 2 环境<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h2>
+<p>您的主要 ROS 2 安装将是本教程的基础。（请记住，底层不一定是主要的 ROS 2 安装。）</p>
+<p>取决于你如何安装 ROS 2（从源代码或二进制文件），以及你所在的平台，你的源代码命令会有所不同：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. ~/ros2_install/ros2-osx/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Windows</label><div class="tab-content docutils">
+<p>记住使用 <code class="docutils literal notranslate"><span class="pre">x64</span> <span class="pre">Native</span> <span class="pre">Tools</span> <span class="pre">Command</span> <span class="pre">Prompt</span> <span class="pre">for</span> <span class="pre">VS</span> <span class="pre">2019</span></code> 命令提示符来执行以下命令，因为我们将构建一个工作区。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call C:<span class="se">\d</span>ev<span class="se">\r</span>os2<span class="se">\l</span>ocal_setup.bat
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果这些命令对您不起作用，请参考您所遵循的<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html#installationguide">安装指南</a>。</p>
+</section>
+<section id="id3">
+<h2>新建目录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>最佳实践是为每个新工作区创建一个新目录。名称并不重要，但让它表明工作区的用途是有帮助的。让我们为“开发工作区”选择一个名为 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 的目录：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/dev_ws/src
+<span class="nb">cd</span> ~/dev_ws/src
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/dev_ws/src
+<span class="nb">cd</span> ~/dev_ws/src
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>md <span class="se">\d</span>ev_ws<span class="se">\s</span>rc
+<span class="nb">cd</span> <span class="se">\d</span>ev_ws<span class="se">\s</span>rc
+</pre></div>
+</div>
+</div>
+</div>
+<p>另一个最佳实践是将工作区中的任何包放到 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中。上面的代码在 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 中创建了一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录，然后导航到它。</p>
+</section>
+<section id="repo">
+<h2>克隆一个样本 repo<a class="headerlink" href="#repo" title="永久链接至标题">¶</a></h2>
+<p>在克隆之前，确保您仍然在 <code class="docutils literal notranslate"><span class="pre">dev_ws/</span></code> 目录中。</p>
+<p>在其余的初级开发人员教程中，您将创建自己的包，但现在您将练习使用现有的包将工作区放在一起。</p>
+<p>您将使用的现有包来自 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 存储库（repo）。如果你读过“初学者:CLI工具”教程，你会熟悉 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，这是这个 repo 中的一个包。</p>
+<p>你可以在 <a class="reference external" href="https://github.com/ros/ros_tutorials/">GitHub 上</a> 看到该仓库。</p>
+<p>注意，在目录列表的左边有一个“Branch”下拉列表。当你克隆这个 <code class="docutils literal notranslate"><span class="pre">repo</span></code> 时，添加 <code class="docutils literal notranslate"><span class="pre">-b</span></code> 参数，后面跟着对应于你的 ROS 2 发行版的分支。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 目录下，针对你正在使用的发行版运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com.cnpmjs.org/ros/ros_tutorials.git src/ros_tutorials -b galactic-devel
+</pre></div>
+</div>
+<p>现在 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 被克隆到您的工作区中。如果您现在查看 <code class="docutils literal notranslate"><span class="pre">dev_ws/src</span></code> 的内容，您将看到新的 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 目录。</p>
+<p>要查看 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 里面的包，输入命令：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls src/ros_tutorials
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dir src/ros_tutorials
+</pre></div>
+</div>
+</div>
+</div>
+<p>它会列出你刚克隆的 repo 的内容，像这样：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
+</pre></div>
+</div>
+<p>前三个包被忽略了；<code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 是这个仓库中唯一实际的 ROS 2 包。</p>
+<p>现在您已经用示例包填充了工作区，但它还不是一个功能齐全的工作区。您需要首先解决依赖关系并构建工作区。</p>
+</section>
+<section id="id4">
+<h2>解决依赖关系<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在构建工作区之前，您需要解析包依赖关系。您可能已经有了所有的依赖项，但最佳实践是每次克隆时检查依赖项。您不希望构建在长时间等待后因为缺少依赖项而失败。</p>
+<p>从你的工作区的根（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>），运行以下命令：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosdep install -i --from-path src --rosdistro galactic -y
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">macOS/Windows</label><div class="tab-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 只能在 Linux 上运行，所以你可以跳到“用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建工作区”小节。</p>
+</div>
+</div>
+<p>如果您从<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html#linux-development-setup-install-dependencies-using-rosdep">源代码</a>或<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Binary.html#linux-install-binary-install-missing-dependencies">“fat”归档</a>文件在 Linux上 安装了 ROS 2，那么您需要从它们的安装说明中使用 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 命令。这里是来自源的 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 部分和“胖”存档的 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 部分。</p>
+<p>如果你已经有了所有的依赖项，控制台将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#All required rosdeps installed successfully</span>
+</pre></div>
+</div>
+<p>包在 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件中声明它们的依赖项（在下一个教程中您将了解更多关于包的信息）。该命令遍历这些声明，并安装缺失的声明。你可以在另一个教程(即将推出)中了解更多关于 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 的内容。</p>
+</section>
+<section id="colcon">
+<h2>使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建工作区<a class="headerlink" href="#colcon" title="永久链接至标题">¶</a></h2>
+<p>从你的工作区的根（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>），你现在可以使用命令构建你的包：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --merge-install
+</pre></div>
+</div>
+<p>Windows 不允许长路径，所以 <code class="docutils literal notranslate"><span class="pre">merge-install</span></code> 将把所有路径合并到安装目录中。</p>
+</div>
+</div>
+<p>控制台将返回以下消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Starting &gt;&gt;&gt; turtlesim
+Finished <span class="o">&lt;&lt;&lt;</span> turtlesim <span class="o">[</span><span class="m">5</span>.49s<span class="o">]</span>
+
+Summary: <span class="m">1</span> package finished <span class="o">[</span><span class="m">5</span>.58s<span class="o">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 的其他有用参数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--packages-up-to</span></code> 构建您想要的包，以及它的所有依赖项，但不是整个工作区（节省时间）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--symlink-install</span></code> 节省您在每次调整 Python 脚本时都必须重新构建的时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--event-handlers</span> <span class="pre">console_direct+</span></code> 显示构建时的控制台输出（可以在 <code class="docutils literal notranslate"><span class="pre">log</span></code> 目录中找到）</p></li>
+</ul>
+</div>
+<p>一旦构建完成，在工作区根目录（<code class="docutils literal notranslate"><span class="pre">~/dev_ws</span></code>）中输入 <code class="docutils literal notranslate"><span class="pre">ls</span></code>，你会看到 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 已经创建了新的目录：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>build  install  log  src
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">install</span></code> 目录是工作区的 setup 文件所在的位置，您可以使用这些文件来生成覆盖层。</p>
+</section>
+<section id="id5">
+<h2>激活覆盖层<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在获取覆盖层之前，打开一个新的终端是非常重要的，它与您构建工作区的那个终端是分开的。在您所构建的终端中寻找覆盖层，或者在覆盖层来源的终端中寻找覆盖层，可能会产生复杂的问题。</p>
+<p>在新的终端中，source 你的主要 ROS 2 环境作为“底层”，所以你可以在它之上构建覆盖层：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. ~/ros2_install/ros2-osx/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--5-input--3" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--3">Windows</label><div class="tab-content docutils">
+<p>在这种情况下，您可以使用一个普通的命令提示符，因为我们不打算在这个终端中构建任何工作区。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call C:<span class="se">\d</span>ev<span class="se">\r</span>os2<span class="se">\l</span>ocal_setup.bat
+</pre></div>
+</div>
+</div>
+</div>
+<p>进入工作区的根目录：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/dev_ws
+</pre></div>
+</div>
+<p>在根目录中，获取 overlay 的源代码：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. install/local_setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call install/setup.bat
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>获取覆盖层的 <code class="docutils literal notranslate"><span class="pre">local_setup</span></code> 只会将覆盖层中可用的包添加到您的环境中。<code class="docutils literal notranslate"><span class="pre">setup</span></code> 源覆盖以及创建它的底层，允许您利用这两个工作区。</p>
+<p>所以，激活你的主要 ROS 2 安装的 <code class="docutils literal notranslate"><span class="pre">setup</span></code>，然后 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 覆盖的 <code class="docutils literal notranslate"><span class="pre">local_setup</span></code>，就像你刚刚做的，是相同的只是来源 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 的 <code class="docutils literal notranslate"><span class="pre">setup</span></code>，因为这包括它创建的底层环境。</p>
+</div>
+<p>现在你可以从覆盖层运行 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p>但是你怎么知道这是运行的覆盖 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，而不是你的主安装的 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>？</p>
+<p>让我们在覆盖层中修改 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>，这样你就可以看到效果：</p>
+<ul class="simple">
+<li><p>您可以在覆盖层中单独修改和重建包。</p></li>
+<li><p>覆盖层优先于底层。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>修改覆盖层<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>你可以通过编辑 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 窗口的标题栏在覆盖层中修改 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>。为此，在 <code class="docutils literal notranslate"><span class="pre">~/dev_ws/src/ros_tutorials/turtlesim/src</span></code> 中找到 <code class="docutils literal notranslate"><span class="pre">turtle_frame.cpp</span></code> 文件。使用首选的文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">turtle_frame.cpp</span></code>。</p>
+<p>在第 52 行，您将看到函数 <code class="docutils literal notranslate"><span class="pre">setWindowTitle(&quot;TurtleSim&quot;);</span></code>。将 <code class="docutils literal notranslate"><span class="pre">&quot;TurtleSim&quot;</span></code> 的值修改为<code class="docutils literal notranslate"><span class="pre">&quot;MyTurtleSim&quot;</span></code>，保存文件。</p>
+<p>返回之前运行 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 的第一个终端并再次运行它。</p>
+<p>返回到第二个终端（覆盖的激活），再次运行 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p>你会看到 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 窗口的标题栏现在显示“MyTurtleSim”。</p>
+<p><img alt="" src="../../../_images/overlay.png" /></p>
+<p>即使您的主 ROS 2 环境是在这个终端中早先获得的，您的 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 环境的覆盖层优先于底层的内容。</p>
+<p>要看到你的底层仍然完好无损，打开一个全新的终端和来源只您的 ROS 2 安装。再次运行 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p><img alt="" src="../../../_images/underlay.png" /></p>
+<p>你可以看到在覆盖层中的修改实际上并没有影响到底层中的任何东西。</p>
+</section>
+<section id="id7">
+<h2>小结<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>在本教程中，你将你的主要 ROS 2 发行版安装作为你的底层，并通过在一个新的工作区中克隆和构建包创建一个覆盖层。覆盖层被附加到路径上，并优先于底层，正如您在修改后的 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 中看到的那样。</p>
+<p>对于处理少量的包，建议使用覆盖层，因此您不必将所有内容都放在同一个工作区中，并在每次迭代时重新构建一个巨大的工作区。</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

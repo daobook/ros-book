@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>解释</title>
+    <title>ROS2 常见错误</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -94,12 +94,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/principle/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/other/errors.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="高级教程" href="topic.html" />
-    <link rel="prev" title="使用 colcon 构建包" href="../tutorials/intermediate/Colcon-Tutorial.html" />
+    <link rel="prev" title="外部资源" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -262,19 +261,19 @@ commentsRunWhenDOMLoaded(addUtterances);
   原理
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../principle/index.html">
    解释
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="topic.html">
+    <a class="reference internal" href="../principle/topic.html">
      高级教程
     </a>
    </li>
@@ -286,7 +285,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   混沌
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../about/index.html">
    关于
@@ -314,18 +313,18 @@ commentsRunWhenDOMLoaded(addUtterances);
    Sanstyle Book
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../other/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../other/errors.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      ROS2 常见错误
     </a>
    </li>
@@ -395,7 +394,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/principle/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/other/errors.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -415,7 +414,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/principle/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/other/errors.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -436,6 +435,29 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rosdep">
+   国内 rosdep 更新失败
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-modulenotfounderror-no-module-named-em">
+   ROS 在编译生成自定义消息时报错 ModuleNotFoundError: No module named ‘em’
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modulenotfounderror-no-module-named-lark">
+   ModuleNotFoundError: No module named ‘lark’
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -444,11 +466,37 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>解释<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>有关的主题和概念的更高层次的讨论。他们不太专注于做事情，而更专注于获得关于如何工作的概念性框架。</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="ros2">
+<h1>ROS2 常见错误<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h1>
+<section id="rosdep">
+<h2>国内 rosdep 更新失败<a class="headerlink" href="#rosdep" title="永久链接至标题">¶</a></h2>
+<p>解决方法：<a class="reference external" href="https://mp.weixin.qq.com/s/VGs8oWdhHH6XsHcx21lN4Q">本文之后，世上再无rosdep更新失败问题！如果有…小鱼就… (qq.com)</a></p>
+<p>主要是修改 <code class="docutils literal notranslate"><span class="pre">/etc/ros/rosdep/sources.list.d/20-default.list</span></code> 为：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># os-specific listings first</span>
+yaml https://gitee.com/ohhuo/rosdistro/raw/master/rosdep/osx-homebrew.yaml osx
+
+<span class="c1"># generic</span>
+yaml https://gitee.com/ohhuo/rosdistro/raw/master/rosdep/base.yaml
+yaml https://gitee.com/ohhuo/rosdistro/raw/master/rosdep/python.yaml
+yaml https://gitee.com/ohhuo/rosdistro/raw/master/rosdep/ruby.yaml
+gbpdistro https://gitee.com/ohhuo/rosdistro/raw/master/releases/fuerte.yaml fuerte
+
+<span class="c1"># newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead</span>
+</pre></div>
 </div>
+</section>
+<section id="ros-modulenotfounderror-no-module-named-em">
+<h2>ROS 在编译生成自定义消息时报错 ModuleNotFoundError: No module named ‘em’<a class="headerlink" href="#ros-modulenotfounderror-no-module-named-em" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install empy -i https://pypi.tuna.tsinghua.edu.cn/simple
+</pre></div>
+</div>
+</section>
+<section id="modulenotfounderror-no-module-named-lark">
+<h2>ModuleNotFoundError: No module named ‘lark’<a class="headerlink" href="#modulenotfounderror-no-module-named-lark" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install lark -i https://pypi.tuna.tsinghua.edu.cn/simple
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -464,7 +512,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/principle"
+            path: "./docs/other"
         },
         predefinedOutput: true
     }
@@ -481,23 +529,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../tutorials/intermediate/Colcon-Tutorial.html" title="上一页 页">
+        <a class="left-prev" href="index.html" title="上一页 页">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建包</p>
+                <p class="prevnext-title">外部资源</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="topic.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">高级教程</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
