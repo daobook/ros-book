@@ -87,6 +87,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -98,8 +100,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="搜索" href="../../../search.html" />
-    <link rel="next" title="解释" href="../../principle/index.html" />
-    <link rel="prev" title="入门" href="index.html" />
+    <link rel="next" title="客户端库" href="../client-libraries/index.html" />
+    <link rel="prev" title="教程" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -204,19 +206,29 @@ commentsRunWhenDOMLoaded(addUtterances);
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="index.html">
-     入门
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     CLI 工具
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../client-libraries/index.html">
+     客户端库
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       CLI 工具
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../client-libraries/00_Creating-A-Workspace.html">
+       创建一个工作区
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../client-libraries/Creating-Your-First-ROS2-Package.html">
+       创建你的第一个 ROS 2 包
       </a>
      </li>
     </ul>
@@ -442,7 +454,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     总结
+     小结
     </a>
    </li>
   </ul>
@@ -494,7 +506,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ros2">
-   理解 ROS2 节点
+   了解 ROS2 节点
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -537,14 +549,14 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id13">
-     总结
+     小结
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ros-understanding-ros2-topics">
-   了解 ROS 2 话题
+   了解 ROS 2 主题
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -555,6 +567,485 @@ commentsRunWhenDOMLoaded(addUtterances);
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id16">
      先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     任务
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-understanding-ros2-services">
+   了解 ROS2 服务
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     任务
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id23">
+     相关内容
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id24">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-understanding-ros2-parameters">
+   了解 ROS2 参数
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id26">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id27">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id28">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id29">
+       设置
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-param-list">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         param
+        </span>
+        <span class="pre">
+         list
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-param-get">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         param
+        </span>
+        <span class="pre">
+         get
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-param-set">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         param
+        </span>
+        <span class="pre">
+         set
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-param-dump">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         param
+        </span>
+        <span class="pre">
+         dump
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-param-load">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         param
+        </span>
+        <span class="pre">
+         load
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id30">
+       在节点启动时加载参数文件
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id31">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-understanding-ros2-actions">
+   了解 ROS 2 动作
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id33">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id34">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id35">
+       设置
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id36">
+       使用动作
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id37">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         node
+        </span>
+        <span class="pre">
+         info
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-action-list">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         action
+        </span>
+        <span class="pre">
+         list
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-action-info">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         action
+        </span>
+        <span class="pre">
+         info
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-interface-show">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         interface
+        </span>
+        <span class="pre">
+         show
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-action-send-goal">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         action
+        </span>
+        <span class="pre">
+         send_goal
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id38">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rqt-console">
+   使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     rqt_console
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id39">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id40">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id41">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id42">
+       设置
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id43">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         rqt_console
+        </span>
+       </code>
+       消息
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id44">
+       记录器水平
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id45">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-creating-launch-files">
+   创建启动文件
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id47">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id48">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id49">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id50">
+       设置
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id51">
+       编写启动文件
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id52">
+         检查启动文件
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-launch">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         launch
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rqt-graph">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         rqt_graph
+        </span>
+       </code>
+       内省系统
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id53">
+     小结
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ros-recording-and-playing-back-data">
+   记录和回放数据
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id55">
+     背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id56">
+     先决条件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id57">
+     任务
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id58">
+       设置
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id59">
+       选择一个主题
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-bag-record">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         bag
+        </span>
+        <span class="pre">
+         record
+        </span>
+       </code>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id60">
+         记录多个主题
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-bag-info">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         bag
+        </span>
+        <span class="pre">
+         info
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ros2-bag-play">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ros2
+        </span>
+        <span class="pre">
+         bag
+        </span>
+        <span class="pre">
+         play
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id61">
+     小结
     </a>
    </li>
   </ul>
@@ -573,7 +1064,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <section class="tex2jax_ignore mathjax_ignore" id="cli">
 <h1>CLI 工具<a class="headerlink" href="#cli" title="永久链接至标题">¶</a></h1>
 <blockquote>
-<div><p>2021 年 09 月 28 日 | 阅读时长 1 分</p>
+<div><p>2021 年 09 月 29 日 | 阅读时长 3 分</p>
 </div></blockquote>
 <section id="ros-2">
 <span id="ros-configuring-ros2-environment"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html">配置 ROS 2 环境</a><a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h2>
@@ -758,7 +1249,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </section>
 </section>
 <section id="id4">
-<h3>总结<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3>小结<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>ROS 2 开发环境在使用前需要进行正确配置。这可以通过两种方式实现：要么在每个打开的新 shell 中获取安装文件，要么将 <code class="docutils literal notranslate"><span class="pre">source</span></code> 命令添加到启动脚本中。</p>
 <p>如果您在定位或使用 ros2 包时遇到任何问题，您应该做的第一件事是检查环境变量，并确保它们被设置为您想要的版本和发行版。</p>
 </section>
@@ -951,7 +1442,7 @@ ros2 action list
 </section>
 </section>
 <section id="ros2">
-<span id="ros-understanding-ros2-nodes"></span><h2>理解 ROS2 节点<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h2>
+<span id="ros-understanding-ros2-nodes"></span><h2>了解 ROS2 节点<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h2>
 <section id="id9">
 <h3>背景<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <div class="sphinx-bs container pb-4 full-width text-center docutils">
@@ -973,7 +1464,7 @@ ros2 action list
 <p class="card-text">2 ROS 2 中的节点</p>
 </div>
 <div class="card-body text-justify w3-padding docutils">
-<p class="card-text">ROS 中的每个节点应负责单个模块用途（例如，一个节点用于控制轮电机，一个节点用于控制激光测距仪，等等）。每个节点可以通过话题（topics）、服务（services）、动作（actions）或参数（parameters）向其他节点发送和接收数据。</p>
+<p class="card-text">ROS 中的每个节点应负责单个模块用途（例如，一个节点用于控制轮电机，一个节点用于控制激光测距仪，等等）。每个节点可以通过主题（topics）、服务（services）、动作（actions）或参数（parameters）向其他节点发送和接收数据。</p>
 <p class="card-text"><img alt="" src="../../../_images/Nodes-TopicandService.gif" /></p>
 <p class="card-text">一个完整的机器人系统由许多协同工作的节点组成。在 ROS 2 中，一个可执行文件（C++程序、Python 程序等）可以包含一个或多个节点。</p>
 </div>
@@ -1100,25 +1591,1286 @@ ros2 action list
 <p>您将在接下来的教程中了解更多关于 ROS graph 连接的概念，包括消息类型。</p>
 </section>
 <section id="id13">
-<h3>总结<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<h3>小结<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 <p>节点是一个基本的 ROS 2 元素，在机器人系统中为一个单一的、模块化的目的服务。</p>
 <p>在本教程中，通过运行可执行文件 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code> 和 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code>，您使用了从 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包中创建的节点。</p>
 <p>您了解了如何使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> 来发现活动节点名称和 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code>，以便在单个节点上进行内省。这些工具对于理解复杂的、真实世界的机器人系统中的数据流至关重要。</p>
 </section>
 </section>
 <section id="ros-understanding-ros2-topics">
-<span id="id14"></span><h2>了解 ROS 2 话题<a class="headerlink" href="#ros-understanding-ros2-topics" title="永久链接至标题">¶</a></h2>
+<span id="id14"></span><h2>了解 ROS 2 主题<a class="headerlink" href="#ros-understanding-ros2-topics" title="永久链接至标题">¶</a></h2>
 <section id="id15">
 <h3>背景<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
-<p>ROS 2 将复杂的系统分解成许多模块化节点。话题是 ROS graph 的一个重要元素，它充当节点交换消息的总线。</p>
+<p>ROS 2 将复杂的系统分解成许多模块化节点。主题是 ROS graph 的一个重要元素，它充当节点交换消息的总线。</p>
 <p><img alt="" src="../../../_images/Topic-SinglePublisherandSingleSubscriber.gif" /></p>
-<p>节点可以向任意数量的话题发布数据，并同时订阅任意数量的话题。</p>
+<p>节点可以向任意数量的主题发布数据，并同时订阅任意数量的主题。</p>
 <p><img alt="" src="../../../_images/Topic-MultiplePublisherandMultipleSubscriber.gif" /></p>
-<p>话题是数据在节点之间以及系统的不同部分之间移动的主要方式之一。</p>
+<p>主题是数据在节点之间以及系统的不同部分之间移动的主要方式之一。</p>
 </section>
 <section id="id16">
 <h3>先决条件<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
 <p><a class="reference internal" href="#ros-understanding-ros2-nodes"><span class="std std-ref">前面的教程</span></a> 提供了一些关于在此基础上构建的节点的有用背景信息。</p>
+</section>
+<section id="id17">
+<h3>任务<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 设置</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">打开一个新的终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p class="card-text">打开另一个终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+<p class="card-text">回想一下<a class="reference internal" href="#ros-understanding-ros2-nodes"><span class="std std-ref">之前的教程</span></a>，默认情况下，这些节点的名称是 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code>。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">在本教程中，我们将使用 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 可视化不断变化的节点和主题，以及它们之间的连接。</p>
+<p class="card-text"><a class="reference internal" href="#ros-introducing-turtlesim"><span class="std std-ref">turtlesim 教程</span></a> 告诉您如何安装 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 及其所有插件，包括 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>。</p>
+<p class="card-text">要运行 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>，打开一个新的终端并输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rqt_graph
+</pre></div>
+</div>
+<p class="card-text">你也可以通过打开 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 并选择 <code class="docutils literal notranslate"><span class="pre">Plugins</span> <span class="pre">&gt;</span> <span class="pre">Introspection</span> <span class="pre">&gt;</span> <span class="pre">Node</span> <span class="pre">Graph</span></code> 来打开 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>。</p>
+<p class="card-text"><img alt="" src="../../../_images/rqt_graph.png" /></p>
+<p class="card-text">您应该看到上面的节点和主题，以及围绕图外围的两个操作（现在让我们忽略它们）。如果你将鼠标悬停在主题的中心，你会看到颜色高亮如上图。</p>
+<p class="card-text">该图描述了 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点如何在一个主题上相互通信。<code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点将数据（您为移动海龟而输入的击键）发布到 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题，并且 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点订阅该主题以接收数据。</p>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 的高亮显示特性在检查更复杂的系统时非常有用，这些系统中有许多节点和主题，它们以许多不同的方式连接在一起。</p>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 是一个图形自省工具。现在我们来看一些用于内省主题的命令行工具。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">3 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">list</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">在新终端中运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">list</span></code> 命令将返回当前系统中激活的所有主题的列表：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/parameter_events
+/rosout
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+</pre></div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">list</span> <span class="pre">-t</span></code> 将返回相同的主题列表，这次主题类型加在括号中：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/parameter_events <span class="o">[</span>rcl_interfaces/msg/ParameterEvent<span class="o">]</span>
+/rosout <span class="o">[</span>rcl_interfaces/msg/Log<span class="o">]</span>
+/turtle1/cmd_vel <span class="o">[</span>geometry_msgs/msg/Twist<span class="o">]</span>
+/turtle1/color_sensor <span class="o">[</span>turtlesim/msg/Color<span class="o">]</span>
+/turtle1/pose <span class="o">[</span>turtlesim/msg/Pose<span class="o">]</span>
+</pre></div>
+</div>
+<p class="card-text">这些属性，尤其是类型，是节点如何在跨越主题时知道它们所讨论的是相同的信息。</p>
+<p class="card-text">如果你想知道所有这些主题在 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 中的位置，你可以取消选中隐藏下面的所有框：</p>
+<p class="card-text"><img alt="" src="../../../_images/unhide.png" /></p>
+<p class="card-text">不过，现在还是检查一下这些选项，以避免混淆。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">4 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">要查看某个主题上发布的数据，请使用：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic <span class="nb">echo</span> &lt;topic_name&gt;
+</pre></div>
+</div>
+<p class="card-text">因为我们知道 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 通过 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题将数据发布到 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code>，所以让我们使用 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 对该主题进行内测：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic <span class="nb">echo</span> /turtle1/cmd_vel
+</pre></div>
+</div>
+<p class="card-text">起初，这个命令不会返回任何数据。这是因为它正在等待 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 发布一些内容。</p>
+<p class="card-text">返回 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 运行的终端，使用箭头移动海龟。观察你的 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 同时运行的终端，你会看到你做的每一个动作都会发布位置数据：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">linear:</span>
+<span class="go">  x: 2.0</span>
+<span class="go">  y: 0.0</span>
+<span class="go">  z: 0.0</span>
+<span class="go">angular:</span>
+<span class="go">  x: 0.0</span>
+<span class="go">  y: 0.0</span>
+<span class="go">  z: 0.0</span>
+</pre></div>
+</div>
+<p class="card-text">现在返回到 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 并取消“<code class="docutils literal notranslate"><span class="pre">Debug</span></code>”框。</p>
+<p class="card-text"><img alt="" src="../../../_images/debug.png" /></p>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">/_ros2cli_26646</span></code> 是刚才运行的 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 创建的节点（数字可能不同）。现在您可以看到发布者正在 <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> 主题上发布数据，并且订阅了两个订阅者。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">5 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">info</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">主题不必只是点对点的交流；它可以是一对多、多对一或多对多。</p>
+<p class="card-text">另一种看待这个问题的方式是运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic info /turtle1/cmd_vel
+</pre></div>
+</div>
+<p class="card-text">这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Type: geometry_msgs/msg/Twist
+Publisher count: <span class="m">1</span>
+Subscription count: <span class="m">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">6 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">interface</span> <span class="pre">show</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">节点使用消息通过主题发送数据。发布者和订阅者必须发送和接收相同类型的消息进行通信。</p>
+<p class="card-text">在运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">list</span> <span class="pre">-t</span></code> 之后，我们看到的主题类型让我们知道每个主题使用的消息类型。回想一下 <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> 主题的类型：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>geometry_msgs/msg/Twist
+</pre></div>
+</div>
+<p class="card-text">这意味着在包 <code class="docutils literal notranslate"><span class="pre">geometry_msgs</span></code> 中有一个名为 <code class="docutils literal notranslate"><span class="pre">Twist</span></code> 的 <code class="docutils literal notranslate"><span class="pre">msg</span></code>。</p>
+<p class="card-text">现在我们可以在这个类型上运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">interface</span> <span class="pre">show</span> <span class="pre">&lt;msg</span> <span class="pre">type&gt;</span></code> 来了解它的详细信息，特别是消息所期望的数据结构。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 interface show geometry_msgs/msg/Twist
+</pre></div>
+</div>
+<p class="card-text">对于上面的消息类型，它会产生：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># This expresses velocity in free space broken into its linear and angular parts.</span>
+
+    Vector3  linear
+            float64 x
+            float64 y
+            float64 z
+    Vector3  angular
+            float64 x
+            float64 y
+            float64 z
+</pre></div>
+</div>
+<p class="card-text">这告诉您 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点需要一个带有两个向量（<code class="docutils literal notranslate"><span class="pre">linear</span></code> 和 <code class="docutils literal notranslate"><span class="pre">angular</span></code>）的消息，每个向量有三个元素。如果你回想一下我们看到的 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 通过 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 命令传递给 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的数据，它的结构是相同的：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>linear:
+  x: <span class="m">2</span>.0
+  y: <span class="m">0</span>.0
+  z: <span class="m">0</span>.0
+angular:
+  x: <span class="m">0</span>.0
+  y: <span class="m">0</span>.0
+  z: <span class="m">0</span>.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">7 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">现在你有了消息结构，你可以直接从命令行发布数据到主题使用：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic pub &lt;topic_name&gt; &lt;msg_type&gt; <span class="s1">&#39;&lt;args&gt;&#39;</span>
+</pre></div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">'&lt;args&gt;'</span></code> 参数是您将传递给主题的实际数据，在上一节中您刚刚发现的结构中。</p>
+<p class="card-text">需要注意的是，这个参数需要在 YAML 语法中输入。像这样输入完整的命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist <span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}&quot;</span>
+</pre></div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">--once</span></code> 是一个可选参数，表示“发布一条消息然后退出”。</p>
+<p class="card-text">您将在终端收到以下信息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>publisher: beginning loop
+publishing <span class="c1">#1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=1.8))</span>
+</pre></div>
+</div>
+<p class="card-text">你会看到你的海龟像这样移动：</p>
+<p class="card-text"><img alt="" src="../../../_images/pub_once.png" /></p>
+<p class="card-text">海龟（通常是它要模拟的真正的机器人）需要稳定的指令流来持续操作。所以，为了让海龟继续移动，你可以：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic pub --rate <span class="m">1</span> /turtle1/cmd_vel geometry_msgs/msg/Twist <span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}&quot;</span>
+</pre></div>
+</div>
+<p class="card-text">这里的区别在于删除了 <code class="docutils literal notranslate"><span class="pre">--once</span></code> 选项并添加了 <code class="docutils literal notranslate"><span class="pre">--rate</span> <span class="pre">1</span></code> 选项，该选项告诉 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code> 以 1Hz 的稳定流发布命令。</p>
+<p class="card-text"><img alt="" src="../../../_images/pub_stream.png" /></p>
+<p class="card-text">您可以刷新 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 以查看图形化的方式发生了什么。你会看到 <code class="docutils literal notranslate"><span class="pre">ros</span> <span class="pre">2</span> <span class="pre">topic</span> <span class="pre">pub</span> <span class="pre">...</span></code> 节点（<code class="docutils literal notranslate"><span class="pre">/_ros2cli_30358</span></code>）在 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题上发布，并且被两个 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span> <span class="pre">...</span></code> 节点（<code class="docutils literal notranslate"><span class="pre">/_ros2cli_26646</span></code>）和 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点接收。</p>
+<p class="card-text"><img alt="" src="../../../_images/rqt_graph2.png" /></p>
+<p class="card-text">最后，您可以在 <code class="docutils literal notranslate"><span class="pre">pose</span></code> 主题上运行 <code class="docutils literal notranslate"><span class="pre">echo</span></code>，并重新检查 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic <span class="nb">echo</span> /turtle1/pose
+</pre></div>
+</div>
+<p class="card-text"><img alt="" src="../../../_images/rqt_graph3.png" /></p>
+<p class="card-text">可以看到 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点也发布到 <code class="docutils literal notranslate"><span class="pre">pose</span></code> 主题，新 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 节点订阅了该主题。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">8 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">hz</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">关于这个过程的最后一个自省，你可以查看数据发布的速率，使用：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic hz /turtle1/pose
+</pre></div>
+</div>
+<p class="card-text">它将返回 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点将数据发布到 <code class="docutils literal notranslate"><span class="pre">pose</span></code> 主题的速率。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>average rate: <span class="m">59</span>.354
+  min: <span class="m">0</span>.005s max: <span class="m">0</span>.027s std dev: <span class="m">0</span>.00284s window: <span class="m">58</span>
+</pre></div>
+</div>
+<p class="card-text">回想一下，您使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span> <span class="pre">--rate</span> <span class="pre">1</span></code> 将 <code class="docutils literal notranslate"><span class="pre">turtle1/cmd_vel</span></code> 的速率设置为以稳定的 1Hz 发布。如果使用 <code class="docutils literal notranslate"><span class="pre">turtle1/cmd_vel</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">turtle1/pose</span></code> 运行上面的命令，您将看到反映该速率的平均值。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">9 清理</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">此时，您将有许多节点在运行。不要忘记在每个终端输入 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd>来阻止它们。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id18">
+<h3>小结<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>节点通过主题发布信息，这允许任意数量的其他节点订阅和访问该信息。在本教程中，您使用 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 和命令行工具研究了多个节点之间的主题连接。现在您应该对数据如何在 ROS 2 系统中移动有了很好的了解。</p>
+</section>
+</section>
+<section id="ros-understanding-ros2-services">
+<span id="id19"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Services/Understanding-ROS2-Services.html">了解 ROS2 服务</a><a class="headerlink" href="#ros-understanding-ros2-services" title="永久链接至标题">¶</a></h2>
+<section id="id20">
+<h3>背景<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<p>服务是 ROS graph 中节点通信的另一种方法。服务基于调用-响应（call-and-response）模型，而不是主题的发布者-订阅者（publisher-subscriber）模型。主题允许节点订阅数据流并获得持续更新，而服务只在客户端特别调用时提供数据。</p>
+<p><img alt="" src="../../../_images/Service-SingleServiceClient.gif" /></p>
+<p><img alt="" src="../../../_images/Service-MultipleServiceClient.gif" /></p>
+</section>
+<section id="id21">
+<h3>先决条件<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>本教程中提到的一些概念，如<a class="reference internal" href="#ros-understanding-ros2-nodes"><span class="std std-ref">节点</span></a>和<a class="reference internal" href="#ros-understanding-ros2-topics"><span class="std std-ref">主题</span></a>，在本系列之前的教程中已经介绍过。</p>
+<p>你需要<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#turtlesim">turtlesim 包</a>。</p>
+<p>和往常一样，不要忘记在你打开的每一个新终端中都输入 ROS 2。</p>
+</section>
+<section id="id22">
+<h3>任务<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">1 设置</p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">启动两个 turtlesim 节点 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code>。</p>
+<p class="card-text">打开一个新的终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p class="card-text">打开另一个终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">2 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">list</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">在新终端中运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">list</span></code> 命令将返回当前系统中所有活动的服务列表：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/clear
+/kill
+/reset
+/spawn
+/teleop_turtle/describe_parameters
+/teleop_turtle/get_parameter_types
+/teleop_turtle/get_parameters
+/teleop_turtle/list_parameters
+/teleop_turtle/set_parameters
+/teleop_turtle/set_parameters_atomically
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/describe_parameters
+/turtlesim/get_parameter_types
+/turtlesim/get_parameters
+/turtlesim/list_parameters
+/turtlesim/set_parameters
+/turtlesim/set_parameters_atomically
+</pre></div>
+</div>
+<p class="card-text">您将看到两个节点都有相同的 6 个服务，它们的名称中带有 <code class="docutils literal notranslate"><span class="pre">parameters</span></code>。在 ROS 2 中，几乎每个节点都有这些基础设施服务，<strong>参数</strong>是根据这些基础设施服务构建的。在下一个教程中将有更多关于参数的内容。在本教程中，参数服务将从讨论中省略。</p>
+<p class="card-text">现在，让我们关注 turtleim-specific 服务，<code class="docutils literal notranslate"><span class="pre">/clear</span></code>、<code class="docutils literal notranslate"><span class="pre">/kill</span></code>、<code class="docutils literal notranslate"><span class="pre">/reset</span></code>、<code class="docutils literal notranslate"><span class="pre">/spawn</span></code>、<code class="docutils literal notranslate"><span class="pre">/turtle1/set_pen</span></code>、<code class="docutils literal notranslate"><span class="pre">/turtle1/teleport_absolute</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/turtle1/teleport_relative</span></code>。您可能还记得在“<a class="reference internal" href="#ros-introducing-turtlesim"><span class="std std-ref">介绍 turtlesim 和 rqt</span></a>”教程中使用 rqt 与其中一些服务进行交互。</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">3 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">type</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">服务具有描述服务的请求和响应数据如何构造的类型。服务类型的定义类似于主题类型，只不过服务类型有两个部分：一个消息用于请求，另一个消息用于响应。</p>
+<p class="card-text">要查找服务的类型，使用以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service <span class="nb">type</span> &lt;service_name&gt;
+</pre></div>
+</div>
+<p class="card-text">让我们看看 turtlesim <code class="docutils literal notranslate"><span class="pre">/clear</span></code> 服务。在一个新的终端中，输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service <span class="nb">type</span> /clear
+</pre></div>
+</div>
+<p class="card-text">它应该返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>std_srvs/srv/Empty
+</pre></div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">Empty</span></code> 类型意味着服务调用在发出请求时不发送数据，在接收响应时不接收数据。</p>
+<p class="card-text">要同时查看所有活动服务的类型，可以在 <code class="docutils literal notranslate"><span class="pre">list</span></code> 命令后面添加 <code class="docutils literal notranslate"><span class="pre">--show-types</span></code> 选项，缩写为 <code class="docutils literal notranslate"><span class="pre">-t</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service list -t
+</pre></div>
+</div>
+<p class="card-text">这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/clear <span class="o">[</span>std_srvs/srv/Empty<span class="o">]</span>
+/kill <span class="o">[</span>turtlesim/srv/Kill<span class="o">]</span>
+/reset <span class="o">[</span>std_srvs/srv/Empty<span class="o">]</span>
+/spawn <span class="o">[</span>turtlesim/srv/Spawn<span class="o">]</span>
+...
+/turtle1/set_pen <span class="o">[</span>turtlesim/srv/SetPen<span class="o">]</span>
+/turtle1/teleport_absolute <span class="o">[</span>turtlesim/srv/TeleportAbsolute<span class="o">]</span>
+/turtle1/teleport_relative <span class="o">[</span>turtlesim/srv/TeleportRelative<span class="o">]</span>
+...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">4 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">find</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">如果需要查找特定类型的所有服务，可以使用命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service find &lt;type_name&gt;
+</pre></div>
+</div>
+<p class="card-text">例如，你可以像这样找到所有 <code class="docutils literal notranslate"><span class="pre">Empty</span></code> 类型的服务：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service find std_srvs/srv/Empty
+</pre></div>
+</div>
+<p class="card-text">这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/clear
+/reset
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">5 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">interface</span> <span class="pre">show</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">您可以从命令行调用服务，但首先您需要知道输入参数的结构。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 interface show &lt;type_name&gt;
+</pre></div>
+</div>
+<p class="card-text">在 <code class="docutils literal notranslate"><span class="pre">/clear</span></code> 服务类型为 <code class="docutils literal notranslate"><span class="pre">Empty</span></code> 的情况下运行此命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 interface show std_srvs/srv/Empty
+</pre></div>
+</div>
+<p class="card-text">这将返回：</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>---
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">---</span></code> 将请求结构（上面）与响应结构（下面）分开。但是，如前所述，<code class="docutils literal notranslate"><span class="pre">Empty</span></code> 类型不发送或接收任何数据。所以，自然，它的结构是空白的。</p>
+<p>让我们内省一个具有发送和接收数据类型的服务，比如 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code>。由 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">list</span> <span class="pre">-t</span></code> 的结果可知 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 的类型是 <code class="docutils literal notranslate"><span class="pre">turtlesim/srv/Spawn</span></code>。</p>
+<p>要查看 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 调用和请求中的参数，运行命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 interface show turtlesim/srv/Spawn
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>float32 x
+float32 y
+float32 theta
+string name <span class="c1"># Optional.  A unique name will be created and returned if this is empty</span>
+---
+string name
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">---</span></code> 行上面的信息告诉我们调用 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 所需的参数。<code class="docutils literal notranslate"><span class="pre">x</span></code>，<code class="docutils literal notranslate"><span class="pre">y</span></code> 和 <code class="docutils literal notranslate"><span class="pre">theta</span></code> 决定生成的海龟的位置，<code class="docutils literal notranslate"><span class="pre">name</span></code> 显然是可选的。</p>
+<p>在本例中，这一行下面的信息不是您需要知道的，但它可以帮助您理解从调用中获得的响应的数据类型。</p>
+<div class="sphinx-bs container pb-4 full-width text-center docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
+<p class="card-text">6 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">call</span></code></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">现在，您已经知道了什么是服务类型、如何查找服务类型以及如何查找该类型参数的结构，您可以使用以下命令调用服务：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service call &lt;service_name&gt; &lt;service_type&gt; &lt;arguments&gt;
+</pre></div>
+</div>
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">&lt;arguments&gt;</span></code> 部分是可选的。例如，你知道 <code class="docutils literal notranslate"><span class="pre">Empty</span></code> 类型化服务没有任何参数：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service call /clear std_srvs/srv/Empty
+</pre></div>
+</div>
+<p class="card-text">此命令将清除 turtle 窗口中所绘制的任何线。</p>
+<p class="card-text"><img alt="" src="../../../_images/clear.png" /></p>
+<p class="card-text">现在让我们通过调用 <code class="docutils literal notranslate"><span class="pre">/spawn</span></code> 和输入参数来生成一个新的海龟。命令行中的服务调用中的输入 <code class="docutils literal notranslate"><span class="pre">&lt;arguments&gt;</span></code> 需要使用 YAML 语法。</p>
+<p class="card-text">输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 service call /spawn turtlesim/srv/Spawn <span class="s2">&quot;{x: 2, y: 2, theta: 0.2, name: &#39;&#39;}&quot;</span>
+</pre></div>
+</div>
+<p class="card-text">你会得到这个方法风格的视图，显示正在发生的事情，然后是服务响应：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>requester: making request: turtlesim.srv.Spawn_Request<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">2</span>.0, <span class="nv">y</span><span class="o">=</span><span class="m">2</span>.0, <span class="nv">theta</span><span class="o">=</span><span class="m">0</span>.2, <span class="nv">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">)</span>
+
+response:
+turtlesim.srv.Spawn_Response<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;turtle2&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p class="card-text">你的 turtlesim 窗口会立即更新新生成的海龟：</p>
+<p class="card-text"><img alt="" src="../../../_images/spawn.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id23">
+<h3>相关内容<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p>请阅读<a class="reference external" href="https://discourse.ubuntu.com/t/call-services-in-ros-2/15261">教程</a>，这是使用 Robotis 机器人手臂“理解ROS 2服务”的一个出色的现实应用。</p>
+</section>
+<section id="id24">
+<h3>小结<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>节点可以通过 ROS2 中的服务进行通信。与主题不同——一种通信模式，其中一个节点发布信息，可以使用一个或多个用户服务请求/响应模式，客户端发出请求节点提供服务和服务处理请求并生成一个响应。</p>
+<p>你通常不希望使用服务进行持续回调；<strong>主题</strong>甚至<strong>动作</strong>会更合适。</p>
+<p>在本教程中，您使用命令行工具来识别、详细说明和调用服务。</p>
+</section>
+</section>
+<section id="ros-understanding-ros2-parameters">
+<span id="id25"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Parameters/Understanding-ROS2-Parameters.html">了解 ROS2 参数</a><a class="headerlink" href="#ros-understanding-ros2-parameters" title="永久链接至标题">¶</a></h2>
+<section id="id26">
+<h3>背景<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+<p>参数是节点的配置值。您可以将参数视为节点设置。节点可以将参数存储为整数、浮点数、布尔值、字符串和列表。在 ROS 2 中，每个节点维护自己的参数。所有参数都是动态可重新配置的，并基于 ROS 2 <a class="reference internal" href="#ros-understanding-ros2-services"><span class="std std-ref">服务</span></a> 构建。</p>
+</section>
+<section id="id27">
+<h3>先决条件<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>本教程使用 <a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#turtlesim">turtlesim 包</a>。</p>
+<p>和往常一样，不要忘记在<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html#configros2">你打开的每一个新终端中都输入 ROS 2</a>。</p>
+</section>
+<section id="id28">
+<h3>任务<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<section id="id29">
+<h4>设置<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h4>
+<p>启动两个 turtlesim 节点 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code>。</p>
+<p>打开一个新的终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p>打开另一个终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+</section>
+<section id="ros2-param-list">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">list</span></code><a class="headerlink" href="#ros2-param-list" title="永久链接至标题">¶</a></h4>
+<p>要查看属于您的节点的参数，打开一个新的终端并输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param list
+</pre></div>
+</div>
+<p>您将看到节点名称空间 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code>，后面跟着每个节点的参数：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/teleop_turtle:
+  qos_overrides./parameter_events.publisher.depth
+  qos_overrides./parameter_events.publisher.durability
+  qos_overrides./parameter_events.publisher.history
+  qos_overrides./parameter_events.publisher.reliability
+  scale_angular
+  scale_linear
+  use_sim_time
+/turtlesim:
+  background_b
+  background_g
+  background_r
+  qos_overrides./parameter_events.publisher.depth
+  qos_overrides./parameter_events.publisher.durability
+  qos_overrides./parameter_events.publisher.history
+  qos_overrides./parameter_events.publisher.reliability
+  use_sim_time
+</pre></div>
+</div>
+<p>每个节点都有参数 <code class="docutils literal notranslate"><span class="pre">use_sim_time</span></code>；这并不是乌龟独有的。</p>
+<p>根据它们的名称，看起来 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的参数使用 RGB 颜色值确定了 turtlesim 窗口的背景颜色。</p>
+<p>要确定参数的类型，可以使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">get</span></code>。</p>
+</section>
+<section id="ros2-param-get">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">get</span></code><a class="headerlink" href="#ros2-param-get" title="永久链接至标题">¶</a></h4>
+<p>需要查询某个参数的类型和当前值。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param get &lt;node_name&gt; &lt;parameter_name&gt;
+</pre></div>
+</div>
+<p>让我们找出 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的参数 <code class="docutils literal notranslate"><span class="pre">background_g</span></code> 的当前值：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param get /turtlesim background_g
+</pre></div>
+</div>
+<p>将返回值：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Integer value is: <span class="m">86</span>
+</pre></div>
+</div>
+<p>现在你知道 <code class="docutils literal notranslate"><span class="pre">background_g</span></code> 保存了一个整数值。</p>
+<p>如果您在 <code class="docutils literal notranslate"><span class="pre">background_r</span></code> 和 <code class="docutils literal notranslate"><span class="pre">background_b</span></code> 上运行相同的命令，您将分别得到值 <code class="docutils literal notranslate"><span class="pre">69</span></code> 和 <code class="docutils literal notranslate"><span class="pre">255</span></code>。</p>
+</section>
+<section id="ros2-param-set">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">set</span></code><a class="headerlink" href="#ros2-param-set" title="永久链接至标题">¶</a></h4>
+<p>要在运行时更改参数的值，使用命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param <span class="nb">set</span> &lt;node_name&gt; &lt;parameter_name&gt; &lt;value&gt;
+</pre></div>
+</div>
+<p>让我们改变 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的背景色：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param <span class="nb">set</span> /turtlesim background_r <span class="m">150</span>
+</pre></div>
+</div>
+<p>您的终端应该返回该消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Set parameter successful
+</pre></div>
+</div>
+<p>你的 turtlesim 窗口的背景应该改变颜色：</p>
+<p><img alt="" src="../../../_images/set.png" /></p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">set</span></code> 命令设置参数只会在当前会话中更改参数，而不是永久更改。但是，您可以保存设置并在下次启动节点时重新加载它们。</p>
+</section>
+<section id="ros2-param-dump">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">dump</span></code><a class="headerlink" href="#ros2-param-dump" title="永久链接至标题">¶</a></h4>
+<p>该命令可以将节点当前所有的参数值“dump”到文件中，以备以后使用：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param dump &lt;node_name&gt;
+</pre></div>
+</div>
+<p>要保存 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 参数的当前配置，输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param dump /turtlesim
+</pre></div>
+</div>
+<p>您的终端将返回消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving to:  ./turtlesim.yaml
+</pre></div>
+</div>
+<p>您将在运行工作区的目录中发现一个新文件。如果你打开这个文件，你会看到以下内容：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtlesim:
+  ros__parameters:
+    background_b: <span class="m">255</span>
+    background_g: <span class="m">86</span>
+    background_r: <span class="m">150</span>
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: <span class="m">1000</span>
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+    use_sim_time: <span class="nb">false</span>
+</pre></div>
+</div>
+<p>如果您希望在将来用相同的参数重新加载节点，转储参数将非常方便。</p>
+</section>
+<section id="ros2-param-load">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">load</span></code><a class="headerlink" href="#ros2-param-load" title="永久链接至标题">¶</a></h4>
+<p>使用该命令可以将参数从文件加载到当前运行的节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param load &lt;node_name&gt; &lt;parameter_file&gt;
+</pre></div>
+</div>
+<p>装载 <code class="docutils literal notranslate"><span class="pre">./turtlesim.yaml</span></code> 文件生成的 ros2 参数转储到 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点的参数，输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 param load /turtlesim ./turtlesim.yaml
+</pre></div>
+</div>
+<p>您的终端将返回消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Set parameter background_b successful
+Set parameter background_g successful
+Set parameter background_r successful
+Set parameter qos_overrides./parameter_events.publisher.depth failed: parameter <span class="s1">&#39;qos_overrides./parameter_events.publisher.depth&#39;</span> cannot be <span class="nb">set</span> because it is read-only
+Set parameter qos_overrides./parameter_events.publisher.durability failed: parameter <span class="s1">&#39;qos_overrides./parameter_events.publisher.durability&#39;</span> cannot be <span class="nb">set</span> because it is read-only
+Set parameter qos_overrides./parameter_events.publisher.history failed: parameter <span class="s1">&#39;qos_overrides./parameter_events.publisher.history&#39;</span> cannot be <span class="nb">set</span> because it is read-only
+Set parameter qos_overrides./parameter_events.publisher.reliability failed: parameter <span class="s1">&#39;qos_overrides./parameter_events.publisher.reliability&#39;</span> cannot be <span class="nb">set</span> because it is read-only
+Set parameter use_sim_time successful
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>只读参数只能在启动时修改，而不能在启动后修改，这就是为什么“qos_overrides”参数会有一些警告。</p>
+</div>
+</section>
+<section id="id30">
+<h4>在节点启动时加载参数文件<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h4>
+<p>在节点启动时加载参数文件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run &lt;package_name&gt; &lt;executable_name&gt; --ros-args --params-file &lt;file_name&gt;
+</pre></div>
+</div>
+<p>这是您总是用来启动 turtlesim 的同一个命令，添加了标志 <code class="docutils literal notranslate"><span class="pre">--ros-args</span></code> 和 <code class="docutils literal notranslate"><span class="pre">--params-file</span></code>，后面跟着您想要加载的文件。</p>
+<p>停止正在运行的 turtlesim 节点，这样你就可以用保存的参数重新加载它，使用：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
+</pre></div>
+</div>
+<p>turtlesim 窗口应该像往常一样显示，但是使用您之前设置的紫色背景。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>在这种情况下，参数在启动时被修改，因此指定的只读参数也将生效。</p>
+</div>
+</section>
+</section>
+<section id="id31">
+<h3>小结<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
+<p>节点有参数来定义它们的默认配置值。您可以从命令行获取和设置参数值。您还可以将参数设置保存到一个文件中，以便在以后的会话中重新加载它们。</p>
+</section>
+</section>
+<section id="ros-understanding-ros2-actions">
+<span id="id32"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Understanding-ROS2-Actions.html">了解 ROS 2 动作</a><a class="headerlink" href="#ros-understanding-ros2-actions" title="永久链接至标题">¶</a></h2>
+<section id="id33">
+<h3>背景<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h3>
+<p>动作是 ROS 2 中的通信类型之一，用于长时间运行的任务。它们由三个部分组成：目标、反馈和结果。</p>
+<p>动作建立在主题和服务之上。它们的功能与服务类似，只是可以取消动作。它们还提供稳定的反馈，而不是只提供单一响应的服务。</p>
+<p>动作使用客户端-服务器模型，类似于发布者-订阅者模型（在 <a class="reference internal" href="#ros-understanding-ros2-topics"><span class="std std-ref">主题</span></a> 教程中描述）。“动作客户端”节点将目标发送到“动作服务器”节点，该节点确认目标并返回流和结果。</p>
+<p><img alt="" src="../../../_images/Action-SingleActionClient.gif" /></p>
+</section>
+<section id="id34">
+<h3>任务<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h3>
+<section id="id35">
+<h4>设置<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h4>
+<p>启动两个 turtlesim 节点 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code>。</p>
+<p>打开一个新的终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p>打开另一个终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+</section>
+<section id="id36">
+<h4>使用动作<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h4>
+<p>当您启动 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点时，您将在终端中看到以下消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Use arrow keys to move the turtle.
+Use G<span class="p">|</span>B<span class="p">|</span>V<span class="p">|</span>C<span class="p">|</span>D<span class="p">|</span>E<span class="p">|</span>R<span class="p">|</span>T keys to rotate to absolute orientations. <span class="s1">&#39;F&#39;</span> to cancel a rotation.
+</pre></div>
+</div>
+<p>让我们关注第二行，它对应一个动作。（第一个指令对应于前面在<a class="reference internal" href="#ros-understanding-ros2-topics"><span class="std std-ref">主题教程</span></a>中讨论的“cmd_vel”主题。）</p>
+<p>注意，字母键 <code class="docutils literal notranslate"><span class="pre">G|B|V|C|D|E|R|T</span></code> 在 US QWERTY 键盘上的 <code class="docutils literal notranslate"><span class="pre">F</span></code> 键周围形成一个“框”（如果你没有使用 QWERTY 键盘，请参阅下面的<a class="reference external" href="https://en.wikipedia.org/wiki/QWERTY#/media/File:KB_United_States.svg">链接</a>）。每个键在 <code class="docutils literal notranslate"><span class="pre">F</span></code> 周围的位置对应于 turtlesim 中的那个方向。例如，<code class="docutils literal notranslate"><span class="pre">E</span></code> 会将海龟的方向旋转到左上角。</p>
+<p>请注意 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点运行的终端。每当您按下这些键之一时，您就向 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点的动作服务器发送一个目标。目标是旋转海龟朝向特定的方向。一旦海龟完成了它的旋转，就会显示一个传递目标结果的消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: Rotation goal completed successfully
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">F</span></code> 键将在执行过程中取消目标。</p>
+<p>尝试按下 <code class="docutils literal notranslate"><span class="pre">C</span></code> 键，然后在海龟完成旋转之前按下 <code class="docutils literal notranslate"><span class="pre">F</span></code> 键。在 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点运行的终端中，你会看到这样的消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: Rotation goal canceled
+</pre></div>
+</div>
+<p>不仅客户端（您在 <code class="docutils literal notranslate"><span class="pre">teleop</span></code> 中的输入）可以停止目标，服务器端（<code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点）也可以。当服务器端选择停止处理一个目标时，它被称为“中止”（abort）该目标。</p>
+<p>试着按下 <code class="docutils literal notranslate"><span class="pre">D</span></code> 键，然后在第一次旋转完成之前按下 <code class="docutils literal notranslate"><span class="pre">G</span></code> 键。在 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点运行的终端中，你会看到这样的消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>WARN<span class="o">]</span> <span class="o">[</span>turtlesim<span class="o">]</span>: Rotation goal received before a previous goal finished. Aborting previous goal
+</pre></div>
+</div>
+<p>这个动作服务器选择中止第一个目标，因为它有了一个新的目标。它可以选择其他的目标，比如拒绝新的目标，或者在第一个目标完成后执行第二个目标。不要假设每个动作服务器在获得一个新目标时都会选择中止当前目标。</p>
+</section>
+<section id="id37">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code><a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h4>
+<p>要查看 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点的动作，打开一个新的终端并运行命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node info /turtlesim
+</pre></div>
+</div>
+<p>它将返回 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的订阅者、发布者、服务、动作服务器和动作客户端列表：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtlesim
+  Subscribers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /turtle1/cmd_vel: geometry_msgs/msg/Twist
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /turtle1/color_sensor: turtlesim/msg/Color
+    /turtle1/pose: turtlesim/msg/Pose
+  Service Servers:
+    /clear: std_srvs/srv/Empty
+    /kill: turtlesim/srv/Kill
+    /reset: std_srvs/srv/Empty
+    /spawn: turtlesim/srv/Spawn
+    /turtle1/set_pen: turtlesim/srv/SetPen
+    /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
+    /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
+    /turtlesim/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /turtlesim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /turtlesim/get_parameters: rcl_interfaces/srv/GetParameters
+    /turtlesim/list_parameters: rcl_interfaces/srv/ListParameters
+    /turtlesim/set_parameters: rcl_interfaces/srv/SetParameters
+    /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+    /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+  Action Clients:
+</pre></div>
+</div>
+<p>注意 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 操作位于 Action Servers 下。这意味着 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 响应 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 动作并提供反馈。</p>
+<p><code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点在 Action Clients 下的名称为 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code>，这意味着它发送该操作名称的目标。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 node info /teleop_turtle
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/teleop_turtle
+  Subscribers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /turtle1/cmd_vel: geometry_msgs/msg/Twist
+  Service Servers:
+    /teleop_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /teleop_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /teleop_turtle/get_parameters: rcl_interfaces/srv/GetParameters
+    /teleop_turtle/list_parameters: rcl_interfaces/srv/ListParameters
+    /teleop_turtle/set_parameters: rcl_interfaces/srv/SetParameters
+    /teleop_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+    /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+</pre></div>
+</div>
+</section>
+<section id="ros2-action-list">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">action</span> <span class="pre">list</span></code><a class="headerlink" href="#ros2-action-list" title="永久链接至标题">¶</a></h4>
+<p>要在 ROS graph 中识别所有的动作，运行命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action list
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtle1/rotate_absolute
+</pre></div>
+</div>
+<p>这是目前在 ROS graph 中唯一的动作。正如您前面看到的，它控制海龟的旋转。您还知道，通过使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span> <span class="pre">&lt;node_name&gt;</span></code> 命令，这个动作有一个动作客户端（<code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 的一部分）和一个动作服务器（<code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 的一部分）。</p>
+<p>动作有类型，类似于主题和服务。要查找 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 的类型，运行命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action list -t
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/turtle1/rotate_absolute <span class="o">[</span>turtlesim/action/RotateAbsolute<span class="o">]</span>
+</pre></div>
+</div>
+<p>在每个动作名称右边的括号中（在本例中只有 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code>）是动作类型 <code class="docutils literal notranslate"><span class="pre">turtlesim/action/RotateAbsolute</span></code>。当您想从命令行或代码中执行操作时，您将需要这个。</p>
+</section>
+<section id="ros2-action-info">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">action</span> <span class="pre">info</span></code><a class="headerlink" href="#ros2-action-info" title="永久链接至标题">¶</a></h4>
+<p>你可以使用以下命令来进一步反省 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 动作：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action info /turtle1/rotate_absolute
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Action: /turtle1/rotate_absolute
+Action clients: <span class="m">1</span>
+    /teleop_turtle
+Action servers: <span class="m">1</span>
+    /turtlesim
+</pre></div>
+</div>
+<p>这告诉我们前面在每个节点上运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code> 时学到的内容：<code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点有一个动作客户端，<code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点有一个动作服务器，用于 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 动作。</p>
+</section>
+<section id="ros2-interface-show">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">interface</span> <span class="pre">show</span></code><a class="headerlink" href="#ros2-interface-show" title="永久链接至标题">¶</a></h4>
+<p>在你自己发送或执行动作目标之前，你还需要了解动作类型的结构。</p>
+<p>回想一下，在运行命令 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">action</span> <span class="pre">list</span> <span class="pre">-t</span></code> 时，您确定了 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 的类型。在终端中输入以下命令，动作类型如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 interface show turtlesim/action/RotateAbsolute
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># The desired heading in radians</span>
+float32 theta
+---
+<span class="c1"># The angular displacement in radians to the starting position</span>
+float32 delta
+---
+<span class="c1"># The remaining rotation in radians</span>
+float32 remaining
+</pre></div>
+</div>
+<p>该消息的第一部分，在 <code class="docutils literal notranslate"><span class="pre">---</span></code> 之上，是目标请求的结构（数据类型和名称）。下一部分是结果的结构。最后一部分是反馈的结构。</p>
+</section>
+<section id="ros2-action-send-goal">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">action</span> <span class="pre">send_goal</span></code><a class="headerlink" href="#ros2-action-send-goal" title="永久链接至标题">¶</a></h4>
+<p>现在让我们用下面的语法从命令行发送一个动作目标：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action send_goal &lt;action_name&gt; &lt;action_type&gt; &lt;values&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;values&gt;</span></code> 需要为 YAML 格式。</p>
+<p>注意 turtlesim 窗口，并在终端中输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute <span class="s2">&quot;{theta: 1.57}&quot;</span>
+</pre></div>
+</div>
+<p>你应该看到海龟在旋转，在你的终端中还会看到以下消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Waiting <span class="k">for</span> an action server to become available...
+Sending goal:
+   theta: <span class="m">1</span>.57
+
+Goal accepted with ID: f8db8f44410849eaa93d3feb747dd444
+
+Result:
+  delta: -1.568000316619873
+
+Goal finished with status: SUCCEEDED
+</pre></div>
+</div>
+<p>所有目标都有一个唯一的 ID，显示在返回消息中。您还可以看到结果，一个名为 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 的字段，这是到起始位置的位移。</p>
+<p>要查看这个目标的反馈，在 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">action</span> <span class="pre">send_goal</span></code> 命令中添加 <code class="docutils literal notranslate"><span class="pre">--feedback</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute <span class="s2">&quot;{theta: -1.57}&quot;</span> --feedback
+</pre></div>
+</div>
+<p>您的终端将返回消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Sending goal:
+   theta: -1.57
+
+Goal accepted with ID: e6092c831f994afda92f0086f220da27
+
+Feedback:
+  remaining: -3.1268222332000732
+
+Feedback:
+  remaining: -3.1108222007751465
+
+…
+
+Result:
+  delta: <span class="m">3</span>.1200008392333984
+
+Goal finished with status: SUCCEEDED
+</pre></div>
+</div>
+<p>你将继续收到反馈，remaining 弧度，直到目标完成。</p>
+</section>
+</section>
+<section id="id38">
+<h3>小结<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h3>
+<p>动作类似于服务，允许您执行长时间运行的任务，提供定期反馈，并且是可取消的。</p>
+<p>机器人系统很可能使用动作来导航。动作目标可以告诉机器人移动到某个位置。当机器人导航到某个位置时，它可以在沿途发送更新（即反馈），然后在到达目的地后发送最终结果信息。</p>
+<p>Turtlesim 有一个动作服务器，动作客户端可以向其发送目标来旋转海龟。在本教程中，您自省了 <code class="docutils literal notranslate"><span class="pre">/turtle1/rotate_absolute</span></code> 动作，以便更好地了解什么动作。</p>
+</section>
+</section>
+<section id="rqt-console">
+<span id="ros-using-rqt-console"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Rqt-Console/Using-Rqt-Console.html">使用 <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code></a><a class="headerlink" href="#rqt-console" title="永久链接至标题">¶</a></h2>
+<section id="id39">
+<h3>背景<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 是一个 GUI 工具，用于在 ROS 2 中内省日志消息。通常，日志消息显示在您的终端中。使用 <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code>，您可以随时间收集这些消息，以更有组织的方式仔细地查看它们，过滤它们，保存它们，甚至重新加载已保存的文件，以便在不同的时间进行内省。</p>
+<p>节点使用日志以各种方式输出有关事件和状态的消息。为了用户的利益，它们的内容通常是信息的。</p>
+</section>
+<section id="id40">
+<h3>先决条件<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h3>
+<p>您需要安装 <a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#turtlesim">rqt_console 和 turtlesim</a>。</p>
+<p>和往常一样，不要忘记在你打开的每一个<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html#configros2">新终端中都输入 ROS 2</a>。</p>
+</section>
+<section id="id41">
+<h3>任务<a class="headerlink" href="#id41" title="永久链接至标题">¶</a></h3>
+<section id="id42">
+<h4>设置<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h4>
+<p>在新的终端中使用以下命令启动 <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run rqt_console rqt_console
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 窗口将打开：</p>
+<p><img alt="" src="../../../_images/console.png" /></p>
+<p>控制台的第一部分是显示系统日志消息的地方。</p>
+<p>在中间，您可以选择通过排除严重性级别来过滤消息。您还可以使用右边的加号按钮添加更多的排除过滤器。</p>
+<p>底部部分用于突出显示包含您输入的字符串的消息。你也可以在这个部分添加更多的过滤器。</p>
+<p>现在用以下命令在一个新的终端中启动 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+</section>
+<section id="id43">
+<h4><code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 消息<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h4>
+<p>为了生成 <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 要显示的日志消息，让我们让海龟撞到墙上。在一个新的终端中，输入下面的 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code> 命令（在<a class="reference internal" href="#ros-understanding-ros2-topics"><span class="std std-ref">主题</span></a>教程中详细讨论）：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic pub -r <span class="m">1</span> /turtle1/cmd_vel geometry_msgs/msg/Twist <span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}&quot;</span>
+</pre></div>
+</div>
+<p>因为上面的命令是以稳定的速度发布主题，所以海龟会不断地碰壁。在 <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 中，您将看到<code class="docutils literal notranslate"><span class="pre">Warn</span></code>级别的相同消息反复显示，如下所示：</p>
+<p><img alt="" src="../../../_images/warn.png" /></p>
+<p>在你运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code> 命令的终端中按 <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> 来阻止你的海龟撞到墙上。</p>
+</section>
+<section id="id44">
+<h4>记录器水平<a class="headerlink" href="#id44" title="永久链接至标题">¶</a></h4>
+<p>ROS 2 的记录器水平按严重程度排序：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Fatal
+Error
+Warn
+Info
+Debug
+</pre></div>
+</div>
+<p>对于每个级别的含义没有确切的标准，但可以放心地假设：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Fatal</span></code> 消息表明，系统将终止试图保护自己免受损害。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Error</span></code> 消息指出了重要的问题，这些问题不一定会损害系统，但会阻止系统正常运行。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Warn</span></code> 消息指出可能代表更深层次问题的意外活动或非理想结果，但不会完全损害功能。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Info</span></code> 消息指示事件和状态更新，作为系统按预期运行的可视化验证。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Debug</span></code> 消息详细说明了系统执行的整个逐步过程。</p></li>
+</ul>
+<p>默认级别为 <code class="docutils literal notranslate"><span class="pre">Info</span></code>。您将只看到默认严重性级别和更严重级别的消息。</p>
+<p>通常，只有 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> 消息被隐藏，因为它们是唯一比 <code class="docutils literal notranslate"><span class="pre">Info</span></code> 级别轻的级别。例如，如果将默认级别设置为 <code class="docutils literal notranslate"><span class="pre">Warn</span></code>，则只会看到严重性为 <code class="docutils literal notranslate"><span class="pre">Warn</span></code>、<code class="docutils literal notranslate"><span class="pre">Error</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Fatal</span></code> 的消息。</p>
+<p>您可以在第一次使用重映射运行 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点时设置默认记录器级别。在终端中输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+</pre></div>
+</div>
+<p>现在，您将不会看到上次启动 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 时在控制台中出现的初始 <code class="docutils literal notranslate"><span class="pre">Info</span></code> 级别警告。这是因为 <code class="docutils literal notranslate"><span class="pre">Info</span></code> 消息的优先级低于新的默认严重性 <code class="docutils literal notranslate"><span class="pre">Warn</span></code>。</p>
+</section>
+</section>
+<section id="id45">
+<h3>小结<a class="headerlink" href="#id45" title="永久链接至标题">¶</a></h3>
+<p>如果需要仔细检查来自系统的日志消息，<code class="docutils literal notranslate"><span class="pre">rqt_console</span></code> 可能非常有用。出于各种原因，您可能需要检查日志消息，通常是为了找出哪里出了问题以及导致问题的一系列事件。</p>
+</section>
+</section>
+<section id="ros-creating-launch-files">
+<span id="id46"></span><h2>创建启动文件<a class="headerlink" href="#ros-creating-launch-files" title="永久链接至标题">¶</a></h2>
+<section id="id47">
+<h3>背景<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h3>
+<p>到目前为止，在本教程中，您已经为运行的每个新节点打开了新的终端。当您创建同时运行越来越多节点的更复杂系统时，打开终端并重新输入配置细节将变得非常繁琐。</p>
+<p>启动文件允许您同时启动和配置多个包含 ROS 2 节点的可执行文件。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span></code> 命令运行单个启动文件将立即启动整个系统——所有节点及其配置。</p>
+</section>
+<section id="id48">
+<h3>先决条件<a class="headerlink" href="#id48" title="永久链接至标题">¶</a></h3>
+<p>本教程使用 <a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Turtlesim/Introducing-Turtlesim.html#turtlesim">rqt_console 和 turtlesim</a>。</p>
+<p>您还需要使用您首选的文本编辑器。</p>
+<p>和往常一样，不要忘记在你打开的每一个<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html#configros2">新终端中都输入 ROS 2</a>。</p>
+</section>
+<section id="id49">
+<h3>任务<a class="headerlink" href="#id49" title="永久链接至标题">¶</a></h3>
+<section id="id50">
+<h4>设置<a class="headerlink" href="#id50" title="永久链接至标题">¶</a></h4>
+<p>创建一个新的目录来存储你的启动文件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir launch
+</pre></div>
+</div>
+<p>在终端中输入以下命令，创建一个名为 <code class="docutils literal notranslate"><span class="pre">turtlesim_mimic_launch.py</span></code> 的启动文件：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>touch launch/turtlesim_mimic_launch.py
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> nul &gt; launch/turtlesim_mimic_launch.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>您还可以使用 GUI 进入系统的文件目录，并以这种方式创建一个新文件。</p>
+<p>在首选文本编辑器中打开新文件。</p>
+</section>
+<section id="id51">
+<h4>编写启动文件<a class="headerlink" href="#id51" title="永久链接至标题">¶</a></h4>
+<p>让我们使用 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包及其可执行文件来组合一个 ROS 2 启动文件。</p>
+<p>将完整的代码复制并粘贴到 <code class="docutils literal notranslate"><span class="pre">turtlesim_mimic_launch.py</span></code> 文件中：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim1&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
+        <span class="p">),</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim2&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
+        <span class="p">),</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
+            <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">(</span><span class="s1">&#39;/input/pose&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim1/turtle1/pose&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;/output/cmd_vel&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim2/turtle1/cmd_vel&#39;</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<section id="id52">
+<h5>检查启动文件<a class="headerlink" href="#id52" title="永久链接至标题">¶</a></h5>
+<p>这些导入语句会导入一些 Python 启动模块。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+</pre></div>
+</div>
+<p>接下来，启动描述本身开始：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+   <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+
+   <span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code> 中有一个由三个节点组成的系统，所有节点都来自 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包。该系统的目标是启动两个海龟模拟窗口，让一只海龟模仿另一只的动作。</p>
+<p>启动描述中的前两个动作启动两个 turtlesim 窗口：</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim1&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
+<span class="p">),</span>
+<span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim2&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+<p>注意，这两个节点之间的唯一区别是它们的名称空间值。唯一的名称空间允许系统启动两个没有节点名称或主题名称冲突的模拟器。</p>
+<p>在这个系统中，两只海龟都接收关于同一主题的命令，并发布它们在同一主题上的姿势。如果没有惟一的名称空间，就没有办法区分海龟的消息。</p>
+<p>最后一个节点也来自turtlesim包，但它是一个不同的可执行文件：<code class="docutils literal notranslate"><span class="pre">mimic</span></code>。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
+    <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+      <span class="p">(</span><span class="s1">&#39;/input/pose&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim1/turtle1/pose&#39;</span><span class="p">),</span>
+      <span class="p">(</span><span class="s1">&#39;/output/cmd_vel&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim2/turtle1/cmd_vel&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>该节点以重新映射的形式添加了配置细节。</p>
+<p><code class="docutils literal notranslate"><span class="pre">mimic</span></code> 的 <code class="docutils literal notranslate"><span class="pre">/input/pose</span></code> 主题被映射到 <code class="docutils literal notranslate"><span class="pre">/turtlesim1/turtle1/pose</span></code>，它的 <code class="docutils literal notranslate"><span class="pre">/output/cmd_vel</span></code> 主题被映射到 <code class="docutils literal notranslate"><span class="pre">/turtlesim2/turtle1/cmd_vel</span></code>。这意味着 <code class="docutils literal notranslate"><span class="pre">mimic</span></code> 将订阅 <code class="docutils literal notranslate"><span class="pre">/turtlesim1/sim</span></code> 的 <code class="docutils literal notranslate"><span class="pre">pose</span></code> 主题，并为 <code class="docutils literal notranslate"><span class="pre">/turtlesim2/sim</span></code> 的 velocity 命令主题重新发布它。换句话说，<code class="docutils literal notranslate"><span class="pre">turtlesim2</span></code> 会模仿 <code class="docutils literal notranslate"><span class="pre">turtlesim1</span></code> 的动作。</p>
+</section>
+</section>
+<section id="ros2-launch">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span></code><a class="headerlink" href="#ros2-launch" title="永久链接至标题">¶</a></h4>
+<p>要启动 <code class="docutils literal notranslate"><span class="pre">turtlesim_mimic_launch.py</span></code>，请进入之前创建的目录并运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> launch
+ros2 launch turtlesim_mimic_launch.py
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>可以直接启动 launch 文件（如上所述），也可以由包提供。当它由包提供时，语法是：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 launch &lt;package_name&gt; &lt;launch_file_name&gt;
+</pre></div>
+</div>
+<p>您将在后面的教程中了解更多关于<a class="reference internal" href="../client-libraries/Creating-Your-First-ROS2-Package.html#ros-creating-your-first-ros2-package"><span class="std std-ref">创建包</span></a>的内容。</p>
+</div>
+<p>两个 turtlesim 窗口将打开，你将看到以下 <code class="docutils literal notranslate"><span class="pre">[INFO]</span></code> 消息，告诉你启动文件已经启动了哪些节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: Default logging verbosity is <span class="nb">set</span> to INFO
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim_node-1<span class="o">]</span>: process started with pid <span class="o">[</span><span class="m">11714</span><span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>turtlesim_node-2<span class="o">]</span>: process started with pid <span class="o">[</span><span class="m">11715</span><span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>mimic-3<span class="o">]</span>: process started with pid <span class="o">[</span><span class="m">11716</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>要查看系统的运行情况，打开一个新的终端，在 <code class="docutils literal notranslate"><span class="pre">/turtlesim1/turtle1/cmd_vel</span></code> 主题上运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code> 命令，让第一个海龟移动：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic pub -r <span class="m">1</span> /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist <span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}&quot;</span>
+</pre></div>
+</div>
+<p>你会看到两只乌龟走的是同一条路。</p>
+<p><img alt="" src="../../../_images/mimic.png" /></p>
+</section>
+<section id="rqt-graph">
+<h4>使用 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> 内省系统<a class="headerlink" href="#rqt-graph" title="永久链接至标题">¶</a></h4>
+<p>当系统仍在运行时，打开一个新的终端并运行 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>，以更好地了解启动文件中节点之间的关系。</p>
+<p>运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rqt_graph
+</pre></div>
+</div>
+<p><img alt="" src="../../../_images/mimic_graph.png" /></p>
+<p>一个隐藏的节点（您运行的 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">pub</span></code> 命令）将数据发布到左边的 <code class="docutils literal notranslate"><span class="pre">/turtlesim1/turtle1/cmd_vel</span></code> 主题，该主题是 <code class="docutils literal notranslate"><span class="pre">/turtlesim1/sim</span></code> 节点订阅的。graph 的其余部分显示了前面描述的内容：<code class="docutils literal notranslate"><span class="pre">mimic</span></code> 订阅/ <code class="docutils literal notranslate"><span class="pre">turtlesim1/sim</span></code> 的 <code class="docutils literal notranslate"><span class="pre">pose</span></code> 主题，并发布 <code class="docutils literal notranslate"><span class="pre">/turtlesim2/sim</span></code> 的 velocity 命令主题。</p>
+</section>
+</section>
+<section id="id53">
+<h3>小结<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h3>
+<p>启动文件简化了具有许多节点和特定配置细节的复杂系统的运行。您可以使用 Python 创建启动文件，并使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span></code> 命令运行它们。</p>
+</section>
+</section>
+<section id="ros-recording-and-playing-back-data">
+<span id="id54"></span><h2><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Ros2bag/Recording-And-Playing-Back-Data.html">记录和回放数据</a><a class="headerlink" href="#ros-recording-and-playing-back-data" title="永久链接至标题">¶</a></h2>
+<section id="id55">
+<h3>背景<a class="headerlink" href="#id55" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 是一个命令行工具，用于记录系统中发布的主题数据。它积累传递给任意数量主题的数据，并将其保存在数据库中。然后可以重放数据以再现测试和实验的结果。记录主题也是分享你的工作并让别人重新创造它的好方法。</p>
+</section>
+<section id="id56">
+<h3>先决条件<a class="headerlink" href="#id56" title="永久链接至标题">¶</a></h3>
+<p>您应该已经安装了 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 作为常规 ROS2 设置的一部分。</p>
+<p>如果你在 Linux 上用 debian 安装，但是你的系统不能识别这个命令，那么像这样安装它：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install ros-galactic-ros2bag <span class="se">\</span>
+                     ros-galactic-rosbag2-storage-default-plugins
+</pre></div>
+</div>
+</section>
+<section id="id57">
+<h3>任务<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h3>
+<section id="id58">
+<h4>设置<a class="headerlink" href="#id58" title="永久链接至标题">¶</a></h4>
+<p>您将在 turtlesim 系统中记录您的键盘输入，以便稍后保存和重放，因此首先启动 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/teleop_turtle</span></code> 节点。</p>
+<p>打开一个新的终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtlesim_node
+</pre></div>
+</div>
+<p>打开另一个终端并运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run turtlesim turtle_teleop_key
+</pre></div>
+</div>
+<p>让我们也创建一个新目录来存储我们保存的记录，这是一个良好的做法：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir bag_files
+<span class="nb">cd</span> bag_files
+</pre></div>
+</div>
+</section>
+<section id="id59">
+<h4>选择一个主题<a class="headerlink" href="#id59" title="永久链接至标题">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 只能记录发表的主题的数据。要查看系统主题的列表，打开一个新的终端并运行命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic list
+</pre></div>
+</div>
+<p>这将返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/parameter_events
+/rosout
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+</pre></div>
+</div>
+<p>在主题教程中，您了解到 <code class="docutils literal notranslate"><span class="pre">/turtle_teleop</span></code> 节点在 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题上发布命令，使海龟在 <code class="docutils literal notranslate"><span class="pre">turtleim</span></code> 中移动。</p>
+<p>要查看 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 发布的数据，使用命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic <span class="nb">echo</span> /turtle1/cmd_vel
+</pre></div>
+</div>
+<p>一开始什么都不会显示出来，因为 <code class="docutils literal notranslate"><span class="pre">teleop</span></code> 没有公布任何数据。回到你运行遥控终端的地方，选择它，让它激活。使用方向键移动海龟，您将看到正在运行 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span></code> 的终端上发布的数据。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>linear:
+  x: <span class="m">2</span>.0
+  y: <span class="m">0</span>.0
+  z: <span class="m">0</span>.0
+angular:
+  x: <span class="m">0</span>.0
+  y: <span class="m">0</span>.0
+  z: <span class="m">0</span>.0
+  ---
+</pre></div>
+</div>
+</section>
+<section id="ros2-bag-record">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">record</span></code><a class="headerlink" href="#ros2-bag-record" title="永久链接至标题">¶</a></h4>
+<p>要记录发布到主题的数据，请使用命令语法：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag record &lt;topic_name&gt;
+</pre></div>
+</div>
+<p>在对选定的主题运行此命令之前，打开一个新的终端并移动到前面创建的 <code class="docutils literal notranslate"><span class="pre">bag_files</span></code> 目录中，因为 rosbag 文件将保存在运行它的目录中。</p>
+<p>运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag record /turtle1/cmd_vel
+</pre></div>
+</div>
+<p>您将在终端中看到以下消息（日期和时间将会不同）：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_storage<span class="o">]</span>: Opened database <span class="s1">&#39;rosbag2_2019_10_11-05_18_45&#39;</span>.
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: Listening <span class="k">for</span> topics...
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: Subscribed to topic <span class="s1">&#39;/turtle1/cmd_vel&#39;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: All requested topics are subscribed. Stopping discovery...
+</pre></div>
+</div>
+<p>现在 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 正在记录发表在 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题上的数据。回到 <code class="docutils literal notranslate"><span class="pre">teleop</span></code> 终端，再次移动海龟。这些动作并不重要，但试着在稍后重放数据时找出一个可识别的模式。</p>
+<p><img alt="" src="../../../_images/record.png" /></p>
+<p>按 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd> 停止录制。</p>
+<p>数据将在一个名为 <code class="docutils literal notranslate"><span class="pre">rosbag2_year_month_day-hour_minute_second</span></code> 的包文件中积累。</p>
+<section id="id60">
+<h5>记录多个主题<a class="headerlink" href="#id60" title="永久链接至标题">¶</a></h5>
+<p>您还可以记录多个主题，以及更改 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 保存到的文件的名称。</p>
+<p>执行如下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-o</span></code> 选项允许您为您的包文件选择一个唯一的名称。下面的字符串（在本例中是<code class="docutils literal notranslate"><span class="pre">subset</span></code>）是文件名。</p>
+<p>要一次记录多个主题，只需用空格分开列出每个主题。</p>
+<p>您将看到以下消息，确认正在记录这两个主题。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_storage<span class="o">]</span>: Opened database <span class="s1">&#39;subset&#39;</span>.
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: Listening <span class="k">for</span> topics...
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: Subscribed to topic <span class="s1">&#39;/turtle1/cmd_vel&#39;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: Subscribed to topic <span class="s1">&#39;/turtle1/pose&#39;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_transport<span class="o">]</span>: All requested topics are subscribed. Stopping discovery...
+</pre></div>
+</div>
+<p>你可以移动海龟，完成后按 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd>。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>您可以向命令添加另一个选项 <code class="docutils literal notranslate"><span class="pre">-a</span></code>，它记录系统上的所有主题。</p>
+</div>
+</section>
+</section>
+<section id="ros2-bag-info">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">info</span></code><a class="headerlink" href="#ros2-bag-info" title="永久链接至标题">¶</a></h4>
+<p>你可以通过运行：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag info &lt;bag_file_name&gt;
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">subset</span></code> 包文件上运行此命令将返回文件的信息列表：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag info subset
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Files:             subset.db3
+Bag size:          <span class="m">228</span>.5 KiB
+Storage id:        sqlite3
+Duration:          <span class="m">48</span>.47s
+Start:             Oct <span class="m">11</span> <span class="m">2019</span> <span class="m">06</span>:09:09.12 <span class="o">(</span><span class="m">1570799349</span>.12<span class="o">)</span>
+End                Oct <span class="m">11</span> <span class="m">2019</span> <span class="m">06</span>:09:57.60 <span class="o">(</span><span class="m">1570799397</span>.60<span class="o">)</span>
+Messages:          <span class="m">3013</span>
+Topic information: Topic: /turtle1/cmd_vel <span class="p">|</span> Type: geometry_msgs/msg/Twist <span class="p">|</span> Count: <span class="m">9</span> <span class="p">|</span> Serialization Format: cdr
+                 Topic: /turtle1/pose <span class="p">|</span> Type: turtlesim/msg/Pose <span class="p">|</span> Count: <span class="m">3004</span> <span class="p">|</span> Serialization Format: cdr
+</pre></div>
+</div>
+<p>要查看各个消息，您必须打开数据库（在本例中是 <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code>）来检查它，这超出了 ROS 2 的范围。</p>
+</section>
+<section id="ros2-bag-play">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">play</span></code><a class="headerlink" href="#ros2-bag-play" title="永久链接至标题">¶</a></h4>
+<p>在播放包文件前，请在终端上输入 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd>。然后确保 turtlesim 窗口是可见的，这样你就可以看到包文件的运行。</p>
+<p>输入命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 bag play subset
+</pre></div>
+</div>
+<p>终端将返回消息：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>rosbag2_storage<span class="o">]</span>: Opened database <span class="s1">&#39;subset&#39;</span>.
+</pre></div>
+</div>
+<p>你的海龟将遵循你在记录时输入的相同路径（虽然不是 <span class="math notranslate nohighlight">\(100\%\)</span> 准确；Turtlesim 对系统时间的微小变化非常敏感）。</p>
+<p><img alt="" src="../../../_images/playback.png" /></p>
+<p>因为 <code class="docutils literal notranslate"><span class="pre">subset</span></code> 文件记录了 <code class="docutils literal notranslate"><span class="pre">/turtle1/pose</span></code> 主题，只要 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 在运行，<code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">play</span></code> 命令就不会退出，即使你不移动。</p>
+<p>这是因为只要 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 节点是活动的，它就会定期在 <code class="docutils literal notranslate"><span class="pre">/turtle1/pose</span></code> 主题上发布数据。您可能已经注意到，在上面的 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">info</span></code> 示例结果中 <code class="docutils literal notranslate"><span class="pre">/turtle1/cmd_vel</span></code> 主题的 <code class="docutils literal notranslate"><span class="pre">Count</span></code> 信息只有9；这是我们在录音时按方向键的次数。</p>
+<p>注意 <code class="docutils literal notranslate"><span class="pre">/turtle1/pose</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Count</span></code> 值超过 <code class="docutils literal notranslate"><span class="pre">3000</span></code>；当我们记录的时候，关于这个话题的数据发表了 3000 次。</p>
+<p>要了解位置数据发布的频率，可以运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 topic hz /turtle1/pose
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id61">
+<h3>小结<a class="headerlink" href="#id61" title="永久链接至标题">¶</a></h3>
+<p>您可以使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 命令记录在您的 ROS2 系统中传递的主题数据。无论你是与他人分享你的工作还是反思你自己的实验，了解它都是一个很好的工具。</p>
 </section>
 </section>
 </section>
@@ -1153,19 +2905,19 @@ ros2 action list
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="index.html" title="上一页 页">
+        <a class="left-prev" href="../index.html" title="上一页 页">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">入门</p>
+                <p class="prevnext-title">教程</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../../principle/index.html" title="下一页 页">
+        <a class="right-next" href="../client-libraries/index.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">解释</p>
+                <p class="prevnext-title">客户端库</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
