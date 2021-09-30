@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>创建你的第一个 ROS 2 包</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ros-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/client-libraries/01_Creating-Your-First-ROS2-Package.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="中级教程" href="../intermediate/index.html" />
+    <link rel="prev" title="创建一个工作区" href="00_Creating-A-Workspace.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   ROS2 手册
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../start/index.html">
+   快速上手
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/00_intro.html">
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/naming.html">
+     ROS 专有词汇中英对照列表
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   教程
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../beginner/cli.html">
+     CLI 工具
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     客户端库
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="00_Creating-A-Workspace.html">
+       创建一个工作区
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       创建你的第一个 ROS 2 包
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../intermediate/index.html">
+     中级教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../intermediate/Colcon-Tutorial.html">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         colcon
+        </span>
+       </code>
+       构建包
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  原理
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../principle/index.html">
+   解释
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../principle/topic.html">
+     高级教程
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  混沌
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/zreferences.html">
+     参考文献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://xinetzone.github.io/sanstyle-book/">
+   Sanstyle Book
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../other/index.html">
+   外部资源
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../other/errors.html">
+     ROS2 常见错误
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sanstyle">上善若水</a> 版权所有</div>
+</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/client-libraries/01_Creating-Your-First-ROS2-Package.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/client-libraries/01_Creating-Your-First-ROS2-Package.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   背景
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     什么是 ROS 2 包？¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ROS 2 包由什么组成？¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     工作区中的包¶
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   先决条件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   任务
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     创建一个包¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     构建一个包¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#source-setup">
+     Source setup 文件¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     使用包¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     检查包装内容¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#package-xml">
+     定制
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       package.xml
+      </span>
+     </code>
+     ¶
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   小结
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ros-2">
+<span id="ros-creating-your-first-ros2-package"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Creating-Your-First-ROS2-Package.html">创建你的第一个 ROS 2 包</a><a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h1>
+<p>使用 CMake 或 Python 创建一个新程序包，然后运行其可执行文件。</p>
+<section id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id2">什么是 ROS 2 包？</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#what-is-a-ros-2-package">¶</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>可以将包视为 ROS 2 代码的容器。如果您希望能够安装代码或与他人共享代码，则需要将其组织在一个软件包中。使用软件包，您可以发布 ROS2 的工作，并允许其他人轻松构建和使用它。</p>
+<p>ROS2 中的软件包创建使用 <code class="docutils literal notranslate"><span class="pre">ament</span></code> 作为其构建系统，并使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 作为其构建工具。您可以使用官方支持的 CMake 或 Python 创建软件包，但也存在其他构建类型。</p>
+</section>
+<section id="id3">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id3">ROS 2 包由什么组成？</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#what-makes-up-a-ros-2-package">¶</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>ROS 2 Python 和 CMake 软件包各自具有自己的最低要求内容：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">CMake</label><div class="tab-content docutils">
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件，其中包含有关程序包的元信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 文件，描述如何在包中构建代码</p></li>
+</ul>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Python</label><div class="tab-content docutils">
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件，其中包含有关程序包的元信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 包含有关如何安装软件包的说明</p></li>
+<li><p>软件包包含可执行文件时，需要 <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>，以便 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code> 可以找到它们</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/&lt;package_name&gt;</span></code>：ROS 2 工具用来查找软件包的与软件包同名的目录包含 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+</ul>
+</div>
+</div>
+<p>最简单的包可能具有如下文件结构：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">my_package</span><span class="o">/</span>
+     <span class="nx">CMakeLists</span><span class="p">.</span><span class="nx">txt</span>
+     <span class="kr">package</span><span class="p">.</span><span class="nx">xml</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">my_package</span><span class="o">/</span>
+      <span class="nx">setup</span><span class="p">.</span><span class="nx">py</span>
+      <span class="kr">package</span><span class="p">.</span><span class="nx">xml</span>
+      <span class="nx">resource</span><span class="o">/</span><span class="nx">my_package</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id4">工作区中的包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#packages-in-a-workspace">¶</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>一个工作空间可以包含所需数量的程序包，每个程序包都位于其自己的文件夹中。您还可以在一个工作空间（CMake，Python等）中拥有不同构建类型的软件包。您不能有嵌套的程序包。</p>
+<p>最佳做法是在工作区中有一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 文件夹，并在其中创建包。这样可以使工作空间的顶层保持“干净”。</p>
+<p>典型的一个工作空间内功能包的结构如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>workspace_folder/
+    src/
+      package_1/
+          CMakeLists.txt
+          package.xml
+
+      package_2/
+          setup.py
+          package.xml
+          resource/package_2
+      ...
+      package_n/
+          CMakeLists.txt
+          package.xml
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>先决条件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在遵循 <a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a> 中的说明之后，您应该有一个 ROS 2 工作区。您将在这个工作区中创建您的包。</p>
+</section>
+<section id="id6">
+<h2>任务<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<section id="id7">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id7">创建一个包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#create-a-package">¶</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>首先，source 您的 <a class="reference internal" href="../beginner/cli.html#ros-configuring-ros2-environment"><span class="std std-ref">配置 ROS 2 环境</span></a>。</p>
+<p>让我们为您的新包，使用您在<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a> 中创建的工作空间 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>。</p>
+<p>运行软件包创建命令之前，请确保您位于 <code class="docutils literal notranslate"><span class="pre">src</span></code> 文件夹中。</p>
+<p>在 ROS 2 中创建新程序包的命令语法为：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg create --build-type ament_cmake &lt;package_name&gt;
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg create --build-type ament_python &lt;package_name&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>在终端中输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> dev_ws/src
+</pre></div>
+</div>
+<p>在本教程中，您将使用可选参数 <code class="docutils literal notranslate"><span class="pre">--node-name</span></code>，它在包中创建一个简单的 Hello World 类型可执行文件。</p>
+<p>在终端中输入以下命令：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg create --build-type ament_cmake --node-name my_node my_package_cpp
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg create --build-type ament_python --node-name my_node my_package_py
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在，您将在工作区的 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中拥有一个名为 <code class="docutils literal notranslate"><span class="pre">my_package_py</span></code> 与 <code class="docutils literal notranslate"><span class="pre">my_package_cpp</span></code> 的新文件夹。运行命令后，您的终端将返回以下消息：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>going to create a new package
+package name: my_package
+destination directory: /home/user/dev_ws/src
+package format: <span class="m">3</span>
+version: <span class="m">0</span>.0.0
+description: TODO: Package description
+maintainer: <span class="o">[</span><span class="s1">&#39;&lt;name&gt; &lt;email&gt;&#39;</span><span class="o">]</span>
+licenses: <span class="o">[</span><span class="s1">&#39;TODO: License declaration&#39;</span><span class="o">]</span>
+build type: ament_cmake
+dependencies: <span class="o">[]</span>
+node_name: my_node
+creating folder ./my_package
+creating ./my_package/package.xml
+creating <span class="nb">source</span> and include folder
+creating folder ./my_package/src
+creating folder ./my_package/include/my_package
+creating ./my_package/CMakeLists.txt
+creating ./my_package/src/my_node.cpp
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>going to create a new package
+package name: my_package
+destination directory: /home/user/dev_ws/src
+package format: <span class="m">3</span>
+version: <span class="m">0</span>.0.0
+description: TODO: Package description
+maintainer: <span class="o">[</span><span class="s1">&#39;&lt;name&gt; &lt;email&gt;&#39;</span><span class="o">]</span>
+licenses: <span class="o">[</span><span class="s1">&#39;TODO: License declaration&#39;</span><span class="o">]</span>
+build type: ament_python
+dependencies: <span class="o">[]</span>
+node_name: my_node
+creating folder ./my_package
+creating ./my_package/package.xml
+creating <span class="nb">source</span> folder
+creating folder ./my_package/my_package
+creating ./my_package/setup.py
+creating ./my_package/setup.cfg
+creating folder ./my_package/resource
+creating ./my_package/resource/my_package
+creating ./my_package/my_package/__init__.py
+creating folder ./my_package/test
+creating ./my_package/test/test_copyright.py
+creating ./my_package/test/test_flake8.py
+creating ./my_package/test/test_pep257.py
+creating ./my_package/my_package/my_node.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>您可以看到为新软件包自动生成的文件。</p>
+</section>
+<section id="id8">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id8">构建一个包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#build-a-package">¶</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>将软件包放在工作空间中特别有价值，因为您可以通过在工作空间根目录中运行 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 一次构建许多软件包。否则，您将必须分别构建每个软件包。</p>
+<p>返回工作区的根目录，现在您可以构建软件包：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ..
+colcon build
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ..
+colcon build --merge-install
+</pre></div>
+</div>
+<p>Windows 不允许长路径，所以 <code class="docutils literal notranslate"><span class="pre">merge-install</span></code> 将把所有路径合并到安装目录中。</p>
+</div>
+</div>
+<p>回想一下上一个教程，在您的 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 中也有 <code class="docutils literal notranslate"><span class="pre">ros_tutorials</span></code> 包。您可能已经注意到，运行 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 也构建了 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 包。当您的工作区中只有几个包时，这很好，但是当有很多包时，<code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建可能会花费很长时间。</p>
+<p>要想下次只构建 <code class="docutils literal notranslate"><span class="pre">my_package</span></code> 包，可以运行以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --packages-select my_package
+</pre></div>
+</div>
+</section>
+<section id="source-setup">
+<h3>Source setup 文件<a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#source-the-setup-file">¶</a><a class="headerlink" href="#source-setup" title="永久链接至标题">¶</a></h3>
+<p>要使用新的程序包和可执行文件，请先打开一个新终端，然后获取 ROS2 的主要安装源。然后，从 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 目录中，运行以下命令来获取您的工作空间：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. install/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call install/local_setup.bat
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在您的工作区已添加到路径中，您将可以使用新程序包的可执行文件。</p>
+</section>
+<section id="id9">
+<h3>使用包<a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#use-the-package">¶</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>要在软件包创建期间运行使用 <code class="docutils literal notranslate"><span class="pre">--node-name</span></code> 参数创建的可执行文件，请输入以下命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run my_package my_node
+</pre></div>
+</div>
+<p>它会向你的终端返回一条消息：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">CMake</label><div class="tab-content docutils">
+<p>输入：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run my_package_cpp my_node
+</pre></div>
+</div>
+<p>输出：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>hello world my_package_cpp package
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">Python</label><div class="tab-content docutils">
+<p>输入：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run my_package_py my_node
+</pre></div>
+</div>
+<p>输出：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Hi from my_package_py.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id9">检查包装内容</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#examine-package-contents">¶</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>在 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/my_package</span></code> 中，你会看到 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">pkg</span> <span class="pre">create</span></code> 的文件和文件夹自动生成：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--8-input--1" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>CMakeLists.txt  include  package.xml  src
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">my_node.cpp</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中。这是您所有的自定义 C++ 节点在未来的位置。</p>
+</div>
+<input class="tab-input" id="tab-set--8-input--2" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>my_package  package.xml  resource  setup.cfg  setup.py  <span class="nb">test</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">my_node.py</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">my_package</span></code> 目录中。这是您的所有自定义 Python 节点在未来的位置。</p>
+</div>
+</div>
+</section>
+<section id="package-xml">
+<h3>定制 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#customize-package-xml">¶</a><a class="headerlink" href="#package-xml" title="永久链接至标题">¶</a></h3>
+<p>创建软件包后，<code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件需要我们手动完善一下。您可能在返回消息中注意到字段 <code class="docutils literal notranslate"><span class="pre">description</span></code> 和 <code class="docutils literal notranslate"><span class="pre">license</span></code> 包含 <code class="docutils literal notranslate"><span class="pre">TODO</span></code> 注释。这是因为软件包 <code class="docutils literal notranslate"><span class="pre">description</span></code> 和 <code class="docutils literal notranslate"><span class="pre">license</span></code> 声明不会自动设置，但是如果您要释放软件包，则必须设置。<code class="docutils literal notranslate"><span class="pre">maintainer</span></code> 字段可能也需要填写。</p>
+<p>从 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/my_package</span></code>，使用你喜欢的文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--9-input--1" name="tab-set--9" type="radio"><label class="tab-label" for="tab-set--9-input--1">CMake</label><div class="tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;?xml-model</span>
+<span class="cp">   href=&quot;http://download.ros.org/schema/package_format3.xsd&quot;</span>
+<span class="cp">   schematypens=&quot;http://www.w3.org/2001/XMLSchema&quot;?&gt;</span>
+<span class="nt">&lt;package</span> <span class="na">format=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;name&gt;</span>my_package<span class="nt">&lt;/name&gt;</span>
+ <span class="nt">&lt;version&gt;</span>0.0.0<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;description&gt;</span>TODO: Package description<span class="nt">&lt;/description&gt;</span>
+ <span class="nt">&lt;maintainer</span> <span class="na">email=</span><span class="s">&quot;user@todo.todo&quot;</span><span class="nt">&gt;</span>user<span class="nt">&lt;/maintainer&gt;</span>
+ <span class="nt">&lt;license&gt;</span>TODO: License declaration<span class="nt">&lt;/license&gt;</span>
+
+ <span class="nt">&lt;buildtool_depend&gt;</span>ament_cmake<span class="nt">&lt;/buildtool_depend&gt;</span>
+
+ <span class="nt">&lt;test_depend&gt;</span>ament_lint_auto<span class="nt">&lt;/test_depend&gt;</span>
+ <span class="nt">&lt;test_depend&gt;</span>ament_lint_common<span class="nt">&lt;/test_depend&gt;</span>
+
+ <span class="nt">&lt;export&gt;</span>
+   <span class="nt">&lt;build_type&gt;</span>ament_cmake<span class="nt">&lt;/build_type&gt;</span>
+ <span class="nt">&lt;/export&gt;</span>
+<span class="nt">&lt;/package&gt;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--9-input--2" name="tab-set--9" type="radio"><label class="tab-label" for="tab-set--9-input--2">Python</label><div class="tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;?xml-model</span>
+<span class="cp">   href=&quot;http://download.ros.org/schema/package_format3.xsd&quot;</span>
+<span class="cp">   schematypens=&quot;http://www.w3.org/2001/XMLSchema&quot;?&gt;</span>
+<span class="nt">&lt;package</span> <span class="na">format=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;name&gt;</span>my_package<span class="nt">&lt;/name&gt;</span>
+ <span class="nt">&lt;version&gt;</span>0.0.0<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;description&gt;</span>TODO: Package description<span class="nt">&lt;/description&gt;</span>
+ <span class="nt">&lt;maintainer</span> <span class="na">email=</span><span class="s">&quot;user@todo.todo&quot;</span><span class="nt">&gt;</span>user<span class="nt">&lt;/maintainer&gt;</span>
+ <span class="nt">&lt;license&gt;</span>TODO: License declaration<span class="nt">&lt;/license&gt;</span>
+
+ <span class="nt">&lt;test_depend&gt;</span>ament_copyright<span class="nt">&lt;/test_depend&gt;</span>
+ <span class="nt">&lt;test_depend&gt;</span>ament_flake8<span class="nt">&lt;/test_depend&gt;</span>
+ <span class="nt">&lt;test_depend&gt;</span>ament_pep257<span class="nt">&lt;/test_depend&gt;</span>
+ <span class="nt">&lt;test_depend&gt;</span>python3-pytest<span class="nt">&lt;/test_depend&gt;</span>
+
+ <span class="nt">&lt;export&gt;</span>
+   <span class="nt">&lt;build_type&gt;</span>ament_python<span class="nt">&lt;/build_type&gt;</span>
+ <span class="nt">&lt;/export&gt;</span>
+<span class="nt">&lt;/package&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果没有自动为您填充，请在<code class="docutils literal notranslate"><span class="pre">maintainer</span></code>行中输入您的姓名和电子邮件。然后，编辑<code class="docutils literal notranslate"><span class="pre">description</span></code>行来总结包：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;description&gt;</span>Beginner client libraries tutorials practice package<span class="nt">&lt;/description&gt;</span>
+</pre></div>
+</div>
+<p>然后更新 <code class="docutils literal notranslate"><span class="pre">license</span></code> 行。您可以在<a class="reference external" href="https://opensource.org/licenses/alphabetical">这里</a>阅读更多关于开放源码许可的信息。由于这个包仅用于实践，所以使用任何许可证都是安全的。我们使用 <code class="docutils literal notranslate"><span class="pre">Apache</span> <span class="pre">License</span> <span class="pre">2.0</span></code>：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;license&gt;</span>Apache License 2.0<span class="nt">&lt;/license&gt;</span>
+</pre></div>
+</div>
+<p>编辑完成后不要忘记保存。</p>
+<p>在许可标记下面，您将看到一些标记名称以 <code class="docutils literal notranslate"><span class="pre">_depend</span></code> 结尾。在这里，您的 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 将列出它对其他包的依赖关系，以便 colcon 进行搜索。<code class="docutils literal notranslate"><span class="pre">my_package</span></code> 很简单，并且没有任何依赖项，但是您将在接下来的教程中看到这个空间被利用。</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--10-input--1" name="tab-set--10" type="radio"><label class="tab-label" for="tab-set--10-input--1">CMake</label><div class="tab-content docutils">
+<p>你们现在都做完了！</p>
+</div>
+<input class="tab-input" id="tab-set--10-input--2" name="tab-set--10" type="radio"><label class="tab-label" for="tab-set--10-input--2">Python</label><div class="tab-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 文件包含与 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 相同的描述、维护程序和许可字段，因此也需要设置这些字段。它们需要在两个文件中完全匹配。版本和名称（<code class="docutils literal notranslate"><span class="pre">package_name</span></code>）也需要精确匹配，并且应该在两个文件中自动填充。</p>
+<p>用您喜欢的文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">package_name</span> <span class="o">=</span> <span class="s1">&#39;my_py_pkg&#39;</span>
+
+<span class="n">setup</span><span class="p">(</span>
+ <span class="n">name</span><span class="o">=</span><span class="n">package_name</span><span class="p">,</span>
+ <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.0.0&#39;</span><span class="p">,</span>
+ <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="n">package_name</span><span class="p">],</span>
+ <span class="n">data_files</span><span class="o">=</span><span class="p">[</span>
+     <span class="p">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span><span class="p">,</span>
+             <span class="p">[</span><span class="s1">&#39;resource/&#39;</span> <span class="o">+</span> <span class="n">package_name</span><span class="p">]),</span>
+     <span class="p">(</span><span class="s1">&#39;share/&#39;</span> <span class="o">+</span> <span class="n">package_name</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;package.xml&#39;</span><span class="p">]),</span>
+   <span class="p">],</span>
+ <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;setuptools&#39;</span><span class="p">],</span>
+ <span class="n">zip_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+ <span class="n">maintainer</span><span class="o">=</span><span class="s1">&#39;TODO&#39;</span><span class="p">,</span>
+ <span class="n">maintainer_email</span><span class="o">=</span><span class="s1">&#39;TODO&#39;</span><span class="p">,</span>
+ <span class="n">description</span><span class="o">=</span><span class="s1">&#39;TODO: Package description&#39;</span><span class="p">,</span>
+ <span class="n">license</span><span class="o">=</span><span class="s1">&#39;TODO: License declaration&#39;</span><span class="p">,</span>
+ <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">],</span>
+ <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+     <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
+             <span class="s1">&#39;my_node = my_py_pkg.my_node:main&#39;</span>
+     <span class="p">],</span>
+   <span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>编辑 <code class="docutils literal notranslate"><span class="pre">maintainer</span></code>、<code class="docutils literal notranslate"><span class="pre">maintainer_email</span></code> 和 <code class="docutils literal notranslate"><span class="pre">description</span></code> 行以匹配 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>。</p>
+<p>别忘了保存文件。</p>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h2>小结<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>您已经创建了一个包来组织您的代码并使其易于为他人使用。</p>
+<p>您的软件包将自动填充必要的文件，然后使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 进行构建，以便可以在本地环境中使用其可执行文件。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ros-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/client-libraries"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="00_Creating-A-Workspace.html" title="上一页 页">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">上一页</p>
+                <p class="prevnext-title">创建一个工作区</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../intermediate/index.html" title="下一页 页">
+            <div class="prevnext-info">
+                <p class="prevnext-label">下一页</p>
+                <p class="prevnext-title">中级教程</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p class="w3-card w3-pale-blue w3-padding">
+  Copyright © 2021
+  <a href="https://sanstylelab.github.io/">SanstyleLab</a> | 
+  Powered by <a href="https://github.com/executablebooks/jupyter-book">Jupyter Book</a>.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
