@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>客户端库</title>
+    <title>Writing a simple service and client (Python)</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -94,12 +94,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/client-libraries/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/client-libraries/05_Writing-A-Simple-Py-Service-And-Client.html" />
     <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="搜索" href="../../../search.html" />
-    <link rel="next" title="创建一个工作区" href="00_Creating-A-Workspace.html" />
-    <link rel="prev" title="CLI 工具" href="../beginner/cli.html" />
+    <link rel="next" title="中级教程" href="../intermediate/index.html" />
+    <link rel="prev" title="Writing a simple service and client (C++)" href="04_Writing-A-Simple-Cpp-Service-And-Client.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -210,7 +210,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
    </li>
    <li class="toctree-l2 current active has-children">
-    <a class="current reference internal" href="#">
+    <a class="reference internal" href="index.html">
      客户端库
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -218,7 +218,7 @@ commentsRunWhenDOMLoaded(addUtterances);
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="00_Creating-A-Workspace.html">
        创建一个工作区
@@ -244,8 +244,8 @@ commentsRunWhenDOMLoaded(addUtterances);
        Writing a simple service and client (C++)
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="05_Writing-A-Simple-Py-Service-And-Client.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Writing a simple service and client (Python)
       </a>
      </li>
@@ -444,7 +444,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/client-libraries/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/client-libraries/05_Writing-A-Simple-Py-Service-And-Client.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -464,7 +464,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/client-libraries/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/client-libraries/05_Writing-A-Simple-Py-Service-And-Client.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -493,18 +493,8 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>客户端库<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="00_Creating-A-Workspace.html">创建一个工作区</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Creating-Your-First-ROS2-Package.html">创建你的第一个 ROS 2 包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html">编写一个简单的发布者和订阅者（C++）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html">Writing a simple publisher and subscriber (Python)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Writing-A-Simple-Cpp-Service-And-Client.html">Writing a simple service and client (C++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_Writing-A-Simple-Py-Service-And-Client.html">Writing a simple service and client (Python)</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="writing-a-simple-service-and-client-python">
+<span id="ros-writing-a-simple-py-service-and-client"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Writing-A-Simple-Py-Service-And-Client.html">Writing a simple service and client (Python)</a><a class="headerlink" href="#writing-a-simple-service-and-client-python" title="永久链接至标题">¶</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -537,19 +527,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../beginner/cli.html" title="上一页 页">
+        <a class="left-prev" href="04_Writing-A-Simple-Cpp-Service-And-Client.html" title="上一页 页">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">CLI 工具</p>
+                <p class="prevnext-title">Writing a simple service and client (C++)</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="00_Creating-A-Workspace.html" title="下一页 页">
+        <a class="right-next" href="../intermediate/index.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">创建一个工作区</p>
+                <p class="prevnext-title">中级教程</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

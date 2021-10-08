@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>编写一个简单的发布者和订阅者（C++）</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ros-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://xinetzone.github.io/ros-book/docs/tutorials/client-libraries/02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="Writing a simple publisher and subscriber (Python)" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html" />
+    <link rel="prev" title="创建你的第一个 ROS 2 包" href="01_Creating-Your-First-ROS2-Package.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   ROS2 手册
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../start/index.html">
+   快速上手
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/00_intro.html">
+     ROS 简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/01_installation.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/02_docs-guide.html">
+     文档指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/04_how-to-guides.html">
+     How-to 指南
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/05_concepts.html">
+     概念
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/06_contributing.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/07_contact.html">
+     联系
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../start/naming.html">
+     ROS 专有词汇中英对照列表
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   教程
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../beginner/cli.html">
+     CLI 工具
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     客户端库
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="00_Creating-A-Workspace.html">
+       创建一个工作区
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_Creating-Your-First-ROS2-Package.html">
+       创建你的第一个 ROS 2 包
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       编写一个简单的发布者和订阅者（C++）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html">
+       Writing a simple publisher and subscriber (Python)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_Writing-A-Simple-Cpp-Service-And-Client.html">
+       Writing a simple service and client (C++)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_Writing-A-Simple-Py-Service-And-Client.html">
+       Writing a simple service and client (Python)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../intermediate/index.html">
+     中级教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../intermediate/Colcon-Tutorial.html">
+       使用
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         colcon
+        </span>
+       </code>
+       构建包
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  原理
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../principle/index.html">
+   解释
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../principle/topic.html">
+     高级教程
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../colcon/index.html">
+   colcon
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../colcon/user-doc/index.html">
+     用户文档
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../colcon/user-doc/install.html">
+       安装
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  混沌
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/zreferences.html">
+     参考文献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://xinetzone.github.io/sanstyle-book/">
+   Sanstyle Book
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../other/index.html">
+   外部资源
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../other/errors.html">
+     ROS2 常见错误
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sanstyle">上善若水</a> 版权所有</div>
+</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/client-libraries/02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ros-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/client-libraries/02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   背景
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   先决条件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   创建一个包
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publisher">
+   编写 publisher 节点
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     检查代码
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     添加依赖项
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cmakelists-txt">
+     CMakeLists.txt
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   编写订阅节点
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     检查代码
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     CMakeLists.txt
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   构建并运行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   小结
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   下一步
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   相关内容
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="c">
+<span id="ros-writing-a-simple-cpp-publisher-and-subscriber"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html">编写一个简单的发布者和订阅者（C++）</a><a class="headerlink" href="#c" title="永久链接至标题">¶</a></h1>
+<p>使用 C++ 创建并运行发布者和订阅者节点。</p>
+<section id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="../beginner/cli.html#ros-understanding-ros2-nodes"><span class="std std-ref">节点</span></a> 是通过 ROS graph 进行通信的可执行进程。在本教程中，节点将通过主题以字符串消息的形式相互传递信息。这里使用的例子是一个简单的“talker”和“listener”系统；一个节点发布数据，另一个节点订阅主题，以便接收该数据。</p>
+<p>这些示例中使用的代码可以在<a class="reference external" href="https://github.com/ros2/examples/tree/master/rclcpp/topics">rclcpp topics</a>找到。</p>
+</section>
+<section id="id2">
+<h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在前面的教程中，您学习了如何<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">创建工作区</span></a>和<a class="reference internal" href="01_Creating-Your-First-ROS2-Package.html#ros-creating-your-first-ros2-package"><span class="std std-ref">创建包</span></a>。</p>
+</section>
+<section id="id3">
+<h2>创建一个包<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>打开一个新的终端并<a class="reference internal" href="../beginner/cli.html#ros-configuring-ros2-environment"><span class="std std-ref">获取 ROS2 安装的源代码</span></a>，这样 <code class="docutils literal notranslate"><span class="pre">ros2</span></code> 命令就可以工作了。</p>
+<p>导航到<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a>中创建的 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 目录。</p>
+<p>回想一下，包应该在 <code class="docutils literal notranslate"><span class="pre">src/</span></code> 目录中创建，而不是在工作区的根目录中。因此，导航到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src</span></code>，并运行包创建命令：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 pkg create --build-type ament_cmake cpp_pubsub
+</pre></div>
+</div>
+<p>终端将返回一条消息，验证 <code class="docutils literal notranslate"><span class="pre">cpp_pubsub</span></code> 包及其所有必要文件和文件夹的创建情况。</p>
+<p>导航到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub/src</span></code>。回想一下，这是任何 CMake 包中包含可执行文件的源文件所在的目录。</p>
+</section>
+<section id="publisher">
+<h2>编写 publisher 节点<a class="headerlink" href="#publisher" title="永久链接至标题">¶</a></h2>
+<p>输入以下命令下载示例 talker 代码：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Windows</label><div class="tab-content docutils">
+<p>在 Windows 命令行提示符中：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+</pre></div>
+</div>
+<p>或者在 powershell：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在将有一个名为 <code class="docutils literal notranslate"><span class="pre">publisher_member_function.cpp</span></code> 的新文件。使用首选文本编辑器打开文件。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;std_msgs/msg/string.hpp&quot;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span><span class="w"></span>
+
+<span class="cm">/* This example creates a subclass of Node and uses std::bind() to register a</span>
+<span class="cm"> * member function as a callback from the timer. */</span><span class="w"></span>
+
+<span class="k">class</span> <span class="nc">MinimalPublisher</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">MinimalPublisher</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;minimal_publisher&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">count_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">publisher_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">timer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_wall_timer</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="mi">500</span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">MinimalPublisher</span><span class="o">::</span><span class="n">timer_callback</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">timer_callback</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, world! &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">count_</span><span class="o">++</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Publishing: &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">publisher_</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">TimerBase</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">timer_</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Publisher</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">publisher_</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count_</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MinimalPublisher</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="id4">
+<h3>检查代码<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>代码的顶部包含您将要使用的标准 C++ 头文件。在标准的 C++ 头文件之后是 <code class="docutils literal notranslate"><span class="pre">rclcpp/rclcpp.hpp</span></code>，它允许你使用 ROS 2 系统中最常见的部分。最后是 <code class="docutils literal notranslate"><span class="pre">std_msgs/msg/string.hpp</span></code>，其中包含用于发布数据的内置消息类型。</p>
+<p>这些行表示节点的依赖项。还记得吗，必须将依赖项添加到 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 中，这将在下一节中完成。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;std_msgs/msg/string.hpp&quot;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>下一行通过继承 <code class="docutils literal notranslate"><span class="pre">rclcpp::Node</span></code> 来创建节点类 <code class="docutils literal notranslate"><span class="pre">MinimalPublisher</span></code>。代码中的每一个 <code class="docutils literal notranslate"><span class="pre">this</span></code> 都指向节点。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinimalPublisher</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"></span>
+</pre></div>
+</div>
+<p>公共构造函数将节点命名为 <code class="docutils literal notranslate"><span class="pre">minimal_publisher</span></code>，并将 <code class="docutils literal notranslate"><span class="pre">count_</span></code> 初始化为 <code class="docutils literal notranslate"><span class="pre">0</span></code>。在构造函数内部，发布者被初始化为 <code class="docutils literal notranslate"><span class="pre">String</span></code> 消息类型、主题名称 <code class="docutils literal notranslate"><span class="pre">topic</span></code> 以及在发生备份时限制消息所需的队列大小。接下来，初始化 <code class="docutils literal notranslate"><span class="pre">timer_</span></code>，这将导致每秒执行两次 <code class="docutils literal notranslate"><span class="pre">timer_callback</span></code> 函数。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">MinimalPublisher</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;minimal_publisher&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">count_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">publisher_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">timer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_wall_timer</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="mi">500</span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">MinimalPublisher</span><span class="o">::</span><span class="n">timer_callback</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">timer_callback</span></code> 函数是设置消息数据和实际发布消息的地方。<code class="docutils literal notranslate"><span class="pre">RCLCPP_INFO</span></code> 宏确保将每个发布的消息打印到控制台。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">timer_callback</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, world! &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">count_</span><span class="o">++</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Publishing: &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">publisher_</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>最后是定时器、发布者和计数器字段的声明。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">rclcpp</span><span class="o">::</span><span class="n">TimerBase</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">timer_</span><span class="p">;</span><span class="w"></span>
+<span class="n">rclcpp</span><span class="o">::</span><span class="n">Publisher</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">publisher_</span><span class="p">;</span><span class="w"></span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">count_</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>紧随 <code class="docutils literal notranslate"><span class="pre">MinimalPublishe</span></code> 类之后的是 <code class="docutils literal notranslate"><span class="pre">main</span></code>，节点实际执行的位置。<code class="docutils literal notranslate"><span class="pre">rclcpp::init</span></code> 初始化 ROS 2，<code class="docutils literal notranslate"><span class="pre">rclcpp::spin</span></code> 开始处理节点数据，包括定时器的回调。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MinimalPublisher</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>添加依赖项<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>导航一层回到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub</span></code> 目录，这里已经为您创建了 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件。</p>
+<p>用文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>。</p>
+<p>正如之前的教程中提到的，确保填写 <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code>， <code class="docutils literal notranslate"><span class="pre">&lt;maintainer&gt;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&lt;license&gt;</span></code> 标签：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;description&gt;</span>Examples of minimal publisher/subscriber using rclcpp<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;maintainer</span> <span class="na">email=</span><span class="s">&quot;you@email.com&quot;</span><span class="nt">&gt;</span>Your Name<span class="nt">&lt;/maintainer&gt;</span>
+<span class="nt">&lt;license&gt;</span>Apache License 2.0<span class="nt">&lt;/license&gt;</span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 的 <code class="docutils literal notranslate"><span class="pre">buildtool</span></code> 依赖项后面添加一行，并将下面的依赖项粘贴到你的节点的 <code class="docutils literal notranslate"><span class="pre">include</span></code> 语句中：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;depend&gt;</span>rclcpp<span class="nt">&lt;/depend&gt;</span>
+<span class="nt">&lt;depend&gt;</span>std_msgs<span class="nt">&lt;/depend&gt;</span>
+</pre></div>
+</div>
+<p>声明包在执行代码时需要 <code class="docutils literal notranslate"><span class="pre">rclcpp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>。</p>
+<p>确保保存该文件。</p>
+</section>
+<section id="cmakelists-txt">
+<h3>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="永久链接至标题">¶</a></h3>
+<p>现在打开 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 文件。在现有依赖项 <code class="docutils literal notranslate"><span class="pre">find_package(ament_cmake</span> <span class="pre">REQUIRED)</span></code> 下面添加以下行：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find_package</span><span class="p">(</span><span class="n">rclcpp</span> <span class="n">REQUIRED</span><span class="p">)</span>
+<span class="n">find_package</span><span class="p">(</span><span class="n">std_msgs</span> <span class="n">REQUIRED</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>之后，添加可执行文件，并将其命名为 <code class="docutils literal notranslate"><span class="pre">talker</span></code>，这样您就可以使用 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code> 运行您的节点：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add_executable</span><span class="p">(</span><span class="n">talker</span> <span class="n">src</span><span class="o">/</span><span class="n">publisher_member_function</span><span class="o">.</span><span class="n">cpp</span><span class="p">)</span>
+<span class="n">ament_target_dependencies</span><span class="p">(</span><span class="n">talker</span> <span class="n">rclcpp</span> <span class="n">std_msgs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>最后，添加 <code class="docutils literal notranslate"><span class="pre">install(TARGETS…)</span></code> 部分，这样 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code> 就可以找到你的可执行文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>install(TARGETS
+  talker
+  DESTINATION lib/${PROJECT_NAME})
+</pre></div>
+</div>
+<p>你可以清理你的 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 通过删除一些不必要的部分和注释，所以它看起来像这样：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cmake_minimum_required(VERSION 3.5)
+project(cpp_pubsub)
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES &quot;Clang&quot;)
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+
+install(TARGETS
+  talker
+  DESTINATION lib/${PROJECT_NAME})
+
+ament_package()
+</pre></div>
+</div>
+<p>您现在可以构建您的包，获取本地安装文件的源代码，并运行它，但是让我们先创建订阅者节点，这样您就可以看到整个系统在工作。</p>
+</section>
+</section>
+<section id="id6">
+<h2>编写订阅节点<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>返回到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub/src</span></code> 以创建下一个节点。在终端中输入以下代码：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Windows</label><div class="tab-content docutils">
+<p>在 Windows 命令行提示符中：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+</pre></div>
+</div>
+<p>或者在 powershell：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+</pre></div>
+</div>
+</div>
+</div>
+<p>在控制台中输入 <code class="docutils literal notranslate"><span class="pre">ls</span></code> 将会返回：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>publisher_member_function.cpp  subscriber_member_function.cpp
+</pre></div>
+</div>
+<p>使用文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">subscriber_member_function.cpp</span></code>。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;std_msgs/msg/string.hpp&quot;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_1</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">class</span> <span class="nc">MinimalSubscriber</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">MinimalSubscriber</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;minimal_subscriber&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">subscription_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">MinimalSubscriber</span><span class="o">::</span><span class="n">topic_callback</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">_1</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">topic_callback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;I heard: &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Subscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">subscription_</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MinimalSubscriber</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="id7">
+<h3>检查代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>订阅者节点的代码与发布者节点的代码几乎相同。现在节点被命名为 <code class="docutils literal notranslate"><span class="pre">minimal_subscriber</span></code>，构造函数使用节点的 <code class="docutils literal notranslate"><span class="pre">create_subscription</span></code> 类来执行回调。</p>
+<p>没有计时器，因为只要数据发布到 <code class="docutils literal notranslate"><span class="pre">topic</span></code> 主题，订阅者就会响应。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">MinimalSubscriber</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;minimal_subscriber&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">subscription_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">MinimalSubscriber</span><span class="o">::</span><span class="n">topic_callback</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">_1</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>回忆一下 <a class="reference internal" href="../beginner/cli.html#ros-understanding-ros2-topics"><span class="std std-ref">主题教程</span></a> 中的内容，发布者和订阅者使用的主题名称和消息类型必须匹配才能进行通信。</p>
+<p><code class="docutils literal notranslate"><span class="pre">topic_callback</span></code> 函数接收在主题上发布的字符串消息数据，并使用 <code class="docutils literal notranslate"><span class="pre">RCLCPP_INFO</span></code> 宏将其写入控制台。</p>
+<p>该类中唯一的字段声明是订阅。</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">topic_callback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;I heard: &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Subscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">subscription_</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">main</span></code> 函数完全相同，只是现在它旋转 <code class="docutils literal notranslate"><span class="pre">MinimalSubscriber</span></code> 节点。对于发布者节点，旋转意味着启动计时器，但对于订阅者，这仅仅意味着准备在消息到来时接收消息。</p>
+<p>由于该节点与 <code class="docutils literal notranslate"><span class="pre">publisher</span></code> 节点具有相同的依赖项，所以 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 中没有新的内容可以添加。</p>
+</section>
+<section id="id8">
+<h3>CMakeLists.txt<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>重新打开 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>，并在发布者条目下面添加订阅者节点的可执行文件和目标。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>add_executable(listener src/subscriber_member_function.cpp)
+ament_target_dependencies(listener rclcpp std_msgs)
+
+install(TARGETS
+  talker
+  listener
+  DESTINATION lib/${PROJECT_NAME})
+</pre></div>
+</div>
+<p>确保保存文件，然后您的 pub/sub 系统就可以使用了。</p>
+</section>
+</section>
+<section id="id9">
+<h2>构建并运行<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>您可能已经安装了 <code class="docutils literal notranslate"><span class="pre">rclcpp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code> 包作为您的 ROS 2 系统的一部分。在你的工作空间的根目录（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>）中运行 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 是一个很好的实践，在构建之前检查缺失的依赖项：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Linux</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosdep install -i --from-path src --rosdistro galactic -y
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">macOS/Windows</label><div class="tab-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 只能在 Linux 上运行，所以您可以跳到下一步。</p>
+</div>
+</div>
+<p>仍然在你的工作空间的根，<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>，构建你的新包：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --packages-select cpp_pubsub
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --merge-install --packages-select cpp_pubsub
+</pre></div>
+</div>
+</div>
+</div>
+<p>打开一个新的终端，导航到 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>，并获取安装文件的源代码：</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Linux/macOS</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>. install/setup.bash
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Windows</label><div class="tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>call install/setup.bat
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在运行 <code class="docutils literal notranslate"><span class="pre">talker</span></code> 节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run cpp_pubsub talker
+</pre></div>
+</div>
+<p>终端应该每 0.5 秒发布一次信息消息，像这样：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_publisher<span class="o">]</span>: Publishing: <span class="s2">&quot;Hello World: 0&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_publisher<span class="o">]</span>: Publishing: <span class="s2">&quot;Hello World: 1&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_publisher<span class="o">]</span>: Publishing: <span class="s2">&quot;Hello World: 2&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_publisher<span class="o">]</span>: Publishing: <span class="s2">&quot;Hello World: 3&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_publisher<span class="o">]</span>: Publishing: <span class="s2">&quot;Hello World: 4&quot;</span>
+</pre></div>
+</div>
+<p>打开另一个终端，再次从 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 内部获取安装文件，然后启动 listener 节点：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run cpp_pubsub listener
+</pre></div>
+</div>
+<p>listener 将开始将消息打印到控制台，从发布者当时的消息计数开始，如下所示：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_subscriber<span class="o">]</span>: I heard: <span class="s2">&quot;Hello World: 10&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_subscriber<span class="o">]</span>: I heard: <span class="s2">&quot;Hello World: 11&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_subscriber<span class="o">]</span>: I heard: <span class="s2">&quot;Hello World: 12&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_subscriber<span class="o">]</span>: I heard: <span class="s2">&quot;Hello World: 13&quot;</span>
+<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>minimal_subscriber<span class="o">]</span>: I heard: <span class="s2">&quot;Hello World: 14&quot;</span>
+</pre></div>
+</div>
+<p>在每个终端中输入 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd>，停止节点旋转。</p>
+</section>
+<section id="id10">
+<h2>小结<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>您创建了两个节点来通过主题发布和订阅数据。在编译和运行它们之前，您将它们的依赖项和可执行文件添加到包配置文件中。</p>
+</section>
+<section id="id11">
+<h2>下一步<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>接下来，您将使用服务/客户端模型创建另一个简单的 ROS 2 包。同样，您可以选择用 <a class="reference internal" href="04_Writing-A-Simple-Cpp-Service-And-Client.html#ros-writing-a-simple-cpp-service-and-client"><span class="std std-ref">C++</span></a> 或 <a class="reference internal" href="05_Writing-A-Simple-Py-Service-And-Client.html#ros-writing-a-simple-py-service-and-client"><span class="std std-ref">Python</span></a> 编写它。</p>
+</section>
+<section id="id12">
+<h2>相关内容<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>有几种方法可以在 C++ 中编写发布者和订阅者；请查看 <a class="reference external" href="https://github.com/ros2/examples/tree/master/rclcpp/topics">ros2/examples</a> 仓库中的 <code class="docutils literal notranslate"><span class="pre">minimal_publisher</span></code> 和 <code class="docutils literal notranslate"><span class="pre">minimal_subscriber</span></code> 包。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ros-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/client-libraries"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="01_Creating-Your-First-ROS2-Package.html" title="上一页 页">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">上一页</p>
+                <p class="prevnext-title">创建你的第一个 ROS 2 包</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html" title="下一页 页">
+            <div class="prevnext-info">
+                <p class="prevnext-label">下一页</p>
+                <p class="prevnext-title">Writing a simple publisher and subscriber (Python)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p class="w3-card w3-pale-blue w3-padding">
+  Copyright © 2021
+  <a href="https://sanstylelab.github.io/">SanstyleLab</a> | 
+  Powered by <a href="https://github.com/executablebooks/jupyter-book">Jupyter Book</a>.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
