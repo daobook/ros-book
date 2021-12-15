@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>使用 colcon 构建包</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="解释" href="../../principle/index.html" />
     <link rel="prev" title="中级教程" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -580,20 +582,20 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="colcon">
+  <div class="tex2jax_ignore mathjax_ignore section" id="colcon">
 <span id="ros-colcon-tutorial"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Colcon-Tutorial.html">使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建包</a><a class="headerlink" href="#colcon" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>这是一个简单的教程，如何使用  <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 创建一个 ROS 2 工作区。这是一个实用的教程，而不是设计来取代核心文档。</p>
 </div>
-<section id="id1">
+<div class="section" id="id1">
 <h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 是对 ROS 构建工具 <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>、<code class="docutils literal notranslate"><span class="pre">catkin_make_isolate</span></code>、<code class="docutils literal notranslate"><span class="pre">catkin_tools</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ament_tools</span></code> 的迭代。有关 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 设计的更多信息，请参阅<a class="reference external" href="https://design.ros2.org/articles/build_tool.html">此文档</a>。</p>
 <p>源代码可以在 <a class="reference external" href="https://github.com/colcon">colcon GitHub</a> 组织中找到。</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<section id="id3">
+<div class="section" id="id3">
 <h3>安装 <code class="docutils literal notranslate"><span class="pre">colcon</span></code><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux</label><div class="tab-content docutils">
@@ -612,8 +614,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="ros-2">
+</div>
+<div class="section" id="ros-2">
 <h3>安装 ROS 2<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h3>
 <p>为了构建样本，您将需要安装 ROS 2。</p>
 <p>按照<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装说明操作</a>。</p>
@@ -621,9 +623,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">注意</p>
 <p>如果使用 Debian 软件包进行安装，本教程要求进行<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#linux-install-debians-install-ros-2-packages">桌面安装</a>。</p>
 </div>
-</section>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>基础<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>ROS 工作区是具有特定结构的目录。通常有一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 子目录。在这个子目录中是存放 ROS 包源代码的地方。通常情况下，目录启动时为空。</p>
 <p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 是基于源代码构建的。默认情况下，它将创建以下目录作为 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录的对等体：</p>
@@ -636,7 +638,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">注解</p>
 <p>与 <code class="docutils literal notranslate"><span class="pre">catkin</span></code> 相比，没有 <code class="docutils literal notranslate"><span class="pre">devel</span></code> 目录。</p>
 </div>
-<section id="id5">
+<div class="section" id="id5">
 <h3>创建一个新工作区<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>首先，创建一个目录（ros2_example_ws）来包含我们的工作区：</p>
 <div class="tab-set docutils">
@@ -660,8 +662,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="m">1</span> directory, <span class="m">0</span> files
 </pre></div>
 </div>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3>添加一些源文件<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>让我们将示例库克隆到工作区的 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com.cnpmjs.org/ros2/examples src/examples -b galactic
@@ -680,13 +682,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="m">4</span> directories, <span class="m">3</span> files
 </pre></div>
 </div>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h3>激活覆盖层<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>重要的是，我们已经为现有的 ROS 2 安装提供了环境，它将为示例包提供必要的构建依赖。这是通过获取二进制安装或源安装提供的安装脚本来实现的。另一个 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 工作区（请参阅<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装</a>）。我们称这种环境为底层。</p>
 <p>我们的工作区，<code class="docutils literal notranslate"><span class="pre">ros2_examples_ws</span></code>，将覆盖在现有的 ROS 2 安装之上。通常，当您计划在少量包上进行迭代时，建议使用覆盖，而不是将所有包放到同一个工作区中。</p>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h3>构建工作区<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">注意</p>
@@ -716,8 +718,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="m">4</span> directories, <span class="m">0</span> files
 </pre></div>
 </div>
-</section>
-<section id="id9">
+</div>
+<div class="section" id="id9">
 <h3>运行测试<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>要对我们刚刚构建的包运行测试，请运行以下命令：</p>
 <div class="tab-set docutils">
@@ -734,8 +736,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>您还需要在这里指定 <code class="docutils literal notranslate"><span class="pre">--merge-install</span></code>，因为我们在上面构建时使用了它。</p>
 </div>
 </div>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3>激活环境<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>当 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 成功地完成构建时，输出将位于 <code class="docutils literal notranslate"><span class="pre">install</span></code> 目录中。在使用任何已安装的可执行文件或库之前，您需要将它们添加到您的路径和库路径中。colcon 将在 <code class="docutils literal notranslate"><span class="pre">install</span></code> 目录中生成 <code class="docutils literal notranslate"><span class="pre">bash/bat</span></code> 文件，以帮助设置环境。这些文件将向您的路径和库路径中添加所有必需的元素，并提供由包导出的 bash 或 shell 命令。</p>
 <div class="tab-set docutils">
@@ -754,8 +756,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="id11">
+</div>
+<div class="section" id="id11">
 <h3>尝试演示<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>有了环境源，我们可以运行由 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建的可执行文件。让我们运行示例中的订阅服务器节点：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
@@ -766,9 +768,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 <p>您应该看到来自发布者和订阅者的消息，消息的数量在递增。</p>
-</section>
-</section>
-<section id="id12">
+</div>
+</div>
+<div class="section" id="id12">
 <h2>创建您自己的包<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 使用 <a class="reference external" href="https://www.ros.org/reps/rep-0149.html">REP 149</a> 中定义的 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 规范（也支持<a class="reference external" href="https://www.ros.org/reps/rep-0140.html">格式2</a>）。</p>
 <p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> 支持多种构建类型。推荐的构建类型是 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ament_python</span></code>。也支持纯 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 包。</p>
@@ -779,8 +781,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">注解</p>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">catkin</span></code> 用户，这相当于 <code class="docutils literal notranslate"><span class="pre">catkin_create_package</span></code>。</p>
 </div>
-</section>
-<section id="id13">
+</div>
+<div class="section" id="id13">
 <h2>小贴士<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <ul>
 <li><p>如果您不想构建一个特定的包，那么在目录中放置一个名为 <code class="docutils literal notranslate"><span class="pre">COLCON_IGNORE</span></code> 的空文件，它将不会被索引。</p></li>
@@ -791,8 +793,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -817,31 +819,22 @@ commentsRunWhenDOMLoaded(addUtterances);
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="index.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">中级教程</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">中级教程</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../principle/index.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">解释</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../../principle/index.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">解释</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -867,8 +860,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

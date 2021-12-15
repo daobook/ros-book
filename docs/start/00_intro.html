@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ROS 简介</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="安装" href="01_installation.html" />
     <link rel="prev" title="快速上手" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -485,24 +487,6 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ros2">
-   ROS2
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   关于 ROS2
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -511,7 +495,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ros">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros">
 <h1>ROS 简介<a class="headerlink" href="#ros" title="永久链接至标题">¶</a></h1>
 <p>参考：<a class="reference external" href="http://wiki.ros.org/">Documentation - ROS Wiki</a></p>
 <p>ROS（Robot Operating System）是一种用于编写机器人软件的灵活框架。它是一个工具（tools）、库（libraries）和约定（conventions）的集合，旨在简化在各种机器人平台上创建复杂而健壮的机器人行为的任务。</p>
@@ -521,7 +505,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>ROS 并不是一个实时的框架，但 ROS 可以嵌入实时程序。Willow Garage 的 PR2 机器人使用了一种叫做<a class="reference external" href="http://wiki.ros.org/pr2_etherCAT">pr2_etherCAT</a>的系统来实时发送或接收ROS消息。ROS也可以<a class="reference external" href="http://www.willowgarage.com/blog/2009/06/10/orocos-rtt-and-ros-integrated">与Orocos实时工具包无缝集成</a>。</p>
 <div class="sphinx-bs container pb-4 full-width text-center docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="d-flex col-lg-10 px-2 py-2 docutils">
 <div class="card w-100 w3-pale-red w3-card docutils">
 <div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
 <p class="card-text">ROS 的目标</p>
@@ -543,37 +527,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </dd>
 </dl>
-<section id="ros2">
-<h2>ROS2<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h2>
-<p>参考：<a class="reference external" href="https://docs.ros.org/en/galactic/index.html">ROS 2 Documentation — ROS 2 Documentation: Galactic documentation</a></p>
-<p>ROS 是一套用于构建机器人应用程序的软件库和工具。从驱动程序到最先进的算法，以及强大的开发工具，ROS 拥有您下一个机器人项目所需的一切。而且都是开源的。</p>
-<p>自 ROS 于 2007 年启动以来，机器人和 ROS 社区发生了很多变化。ROS 2 项目的目标是适应这些变化，利用 ROS 1 的优点并改进缺点。</p>
-<p>如果你正在寻找关于 ROS 1 的文档，请查看 <a class="reference external" href="https://wiki.ros.org/">ROS wiki</a>。</p>
-<p>导航：</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="01_installation.html#ros-install"><span class="std std-ref">安装</span></a> 页面将帮助您首次安装 ROS 2。您可以选择适合您需要的平台以及安装类型和分发版。</p></li>
-<li><p><a class="reference internal" href="02_docs-guide.html#ros-docs-guide"><span class="std std-ref">文档指南</span></a> 解释了 ROS 1 和 ROS 2 文档基础结构。它有助于理解具体资源在哪里，如何提问，以及维护哪些站点。</p></li>
-<li><p><a class="reference internal" href="../tutorials/index.html#ros-tutorials"><span class="std std-ref">教程</span></a> 将引导你完成小型项目和 ROS2 的示例使用，所以你可以通过实际使用工具来学习诀窍。它们是根据必要技能的发展来组织的，这使它成为新用户开始的最佳场所。</p></li>
-<li><p><a class="reference internal" href="04_how-to-guides.html#ros-how-to-guides"><span class="std std-ref">How-to 指南</span></a> 回答了你所有的“我如何……?”问题尽可能简短而直接，这样你就可以在不需要通过教程的叙述性质的背景下找到你需要的信息。</p></li>
-<li><p><a class="reference internal" href="05_concepts.html#ros-concepts"><span class="std std-ref">概念</span></a> 是关于核心 ROS 2 概念的高级解释和背景信息，应该为教程中涉及的主题提供一些上下文。</p></li>
-<li><p><a class="reference internal" href="06_contributing.html#ros-contributing"><span class="std std-ref">贡献</span></a> 是使 ROS 2 伟大的原因！我们有关于贡献新的 ROS 2 内容以及将现有内容从 ROS 1 迁移到 ROS 2 的最佳实践和方法指南。</p></li>
-<li><p><a class="reference internal" href="07_contact.html#ros-contact"><span class="std std-ref">寻求帮助</span></a> 总是被鼓励的。在这里，你会找到几种方法来回答你的问题或开始一场讨论。</p></li>
-</ul>
-</section>
-<section id="id1">
-<h2>关于 ROS2<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Releases.html#releases">Releases</a>：过去，现在和未来的 ROS 2 发行版，包括发行版之间的日期和变化。</p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Features.html#features">Features</a>：当前 ROS 2 版本的一部分功能，以及详细介绍每个新功能的内容。</p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Roadmap.html#roadmap">Roadmap</a>：一组尚未实现但即将实现的 ROS 2 的特性想法。</p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/ROSCon-Content.html#roscon">ROSCon talks</a>：关于整个社区对 ROS 2 的最新使用和更新的介绍。</p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Governance.html#governance">Project governance</a>：由技术指导委员会处理的，您可以在这里了解更多。</p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Marketing.html#marketing">Marketing</a>：推广 ROS 2 的资料可从此网页下载。</p></li>
-<li><p><a class="reference external" href="http://design.ros2.org/">ROS 2 Design</a>：包含了许多关于 ROS2 背后的设计决策的文章。</p></li>
-</ul>
-<p>更多内容见：<a class="reference external" href="https://github.com/ros2/ros2_documentation">ros2/ros2_documentation: ROS 2 docs repository (github.com)</a>。</p>
-</section>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -598,31 +552,22 @@ commentsRunWhenDOMLoaded(addUtterances);
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="index.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">快速上手</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">快速上手</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_installation.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">安装</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="01_installation.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">安装</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -648,8 +593,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

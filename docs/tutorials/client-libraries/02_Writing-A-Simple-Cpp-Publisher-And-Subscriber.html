@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>编写一个简单的发布者和订阅者（C++）</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="Writing a simple publisher and subscriber (Python)" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html" />
     <link rel="prev" title="创建你的第一个 ROS 2 包" href="01_Creating-Your-First-ROS2-Package.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -575,19 +577,19 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="c">
+  <div class="tex2jax_ignore mathjax_ignore section" id="c">
 <span id="ros-writing-a-simple-cpp-publisher-and-subscriber"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html">编写一个简单的发布者和订阅者（C++）</a><a class="headerlink" href="#c" title="永久链接至标题">¶</a></h1>
 <p>使用 C++ 创建并运行发布者和订阅者节点。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p><a class="reference internal" href="../beginner/cli.html#ros-understanding-ros2-nodes"><span class="std std-ref">节点</span></a> 是通过 ROS graph 进行通信的可执行进程。在本教程中，节点将通过主题以字符串消息的形式相互传递信息。这里使用的例子是一个简单的“talker”和“listener”系统；一个节点发布数据，另一个节点订阅主题，以便接收该数据。</p>
 <p>这些示例中使用的代码可以在<a class="reference external" href="https://github.com/ros2/examples/tree/master/rclcpp/topics">rclcpp topics</a>找到。</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>在前面的教程中，您学习了如何<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">创建工作区</span></a>和<a class="reference internal" href="01_Creating-Your-First-ROS2-Package.html#ros-creating-your-first-ros2-package"><span class="std std-ref">创建包</span></a>。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>创建一个包<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>打开一个新的终端并<a class="reference internal" href="../beginner/cli.html#ros-configuring-ros2-environment"><span class="std std-ref">获取 ROS2 安装的源代码</span></a>，这样 <code class="docutils literal notranslate"><span class="pre">ros2</span></code> 命令就可以工作了。</p>
 <p>导航到<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a>中创建的 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 目录。</p>
@@ -597,8 +599,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <p>终端将返回一条消息，验证 <code class="docutils literal notranslate"><span class="pre">cpp_pubsub</span></code> 包及其所有必要文件和文件夹的创建情况。</p>
 <p>导航到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub/src</span></code>。回想一下，这是任何 CMake 包中包含可执行文件的源文件所在的目录。</p>
-</section>
-<section id="publisher">
+</div>
+<div class="section" id="publisher">
 <h2>编写 publisher 节点<a class="headerlink" href="#publisher" title="永久链接至标题">¶</a></h2>
 <p>输入以下命令下载示例 talker 代码：</p>
 <div class="tab-set docutils">
@@ -665,7 +667,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<section id="id4">
+<div class="section" id="id4">
 <h3>检查代码<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>代码的顶部包含您将要使用的标准 C++ 头文件。在标准的 C++ 头文件之后是 <code class="docutils literal notranslate"><span class="pre">rclcpp/rclcpp.hpp</span></code>，它允许你使用 ROS 2 系统中最常见的部分。最后是 <code class="docutils literal notranslate"><span class="pre">std_msgs/msg/string.hpp</span></code>，其中包含用于发布数据的内置消息类型。</p>
 <p>这些行表示节点的依赖项。还记得吗，必须将依赖项添加到 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 中，这将在下一节中完成。</p>
@@ -722,8 +724,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h3>添加依赖项<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>导航一层回到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub</span></code> 目录，这里已经为您创建了 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件。</p>
 <p>用文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>。</p>
@@ -740,8 +742,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <p>声明包在执行代码时需要 <code class="docutils literal notranslate"><span class="pre">rclcpp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>。</p>
 <p>确保保存该文件。</p>
-</section>
-<section id="cmakelists-txt">
+</div>
+<div class="section" id="cmakelists-txt">
 <h3>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="永久链接至标题">¶</a></h3>
 <p>现在打开 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 文件。在现有依赖项 <code class="docutils literal notranslate"><span class="pre">find_package(ament_cmake</span> <span class="pre">REQUIRED)</span></code> 下面添加以下行：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find_package</span><span class="p">(</span><span class="n">rclcpp</span> <span class="n">REQUIRED</span><span class="p">)</span>
@@ -787,9 +789,9 @@ ament_package()
 </pre></div>
 </div>
 <p>您现在可以构建您的包，获取本地安装文件的源代码，并运行它，但是让我们先创建订阅者节点，这样您就可以看到整个系统在工作。</p>
-</section>
-</section>
-<section id="id6">
+</div>
+</div>
+<div class="section" id="id6">
 <h2>编写订阅节点<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>返回到 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/cpp_pubsub/src</span></code> 以创建下一个节点。在终端中输入以下代码：</p>
 <div class="tab-set docutils">
@@ -847,7 +849,7 @@ ament_package()
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<section id="id7">
+<div class="section" id="id7">
 <h3>检查代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>订阅者节点的代码与发布者节点的代码几乎相同。现在节点被命名为 <code class="docutils literal notranslate"><span class="pre">minimal_subscriber</span></code>，构造函数使用节点的 <code class="docutils literal notranslate"><span class="pre">create_subscription</span></code> 类来执行回调。</p>
 <p>没有计时器，因为只要数据发布到 <code class="docutils literal notranslate"><span class="pre">topic</span></code> 主题，订阅者就会响应。</p>
@@ -873,8 +875,8 @@ ament_package()
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main</span></code> 函数完全相同，只是现在它旋转 <code class="docutils literal notranslate"><span class="pre">MinimalSubscriber</span></code> 节点。对于发布者节点，旋转意味着启动计时器，但对于订阅者，这仅仅意味着准备在消息到来时接收消息。</p>
 <p>由于该节点与 <code class="docutils literal notranslate"><span class="pre">publisher</span></code> 节点具有相同的依赖项，所以 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 中没有新的内容可以添加。</p>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h3>CMakeLists.txt<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>重新打开 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>，并在发布者条目下面添加订阅者节点的可执行文件和目标。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>add_executable(listener src/subscriber_member_function.cpp)
@@ -887,9 +889,9 @@ install(TARGETS
 </pre></div>
 </div>
 <p>确保保存文件，然后您的 pub/sub 系统就可以使用了。</p>
-</section>
-</section>
-<section id="id9">
+</div>
+</div>
+<div class="section" id="id9">
 <h2>构建并运行<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>您可能已经安装了 <code class="docutils literal notranslate"><span class="pre">rclcpp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code> 包作为您的 ROS 2 系统的一部分。在你的工作空间的根目录（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>）中运行 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 是一个很好的实践，在构建之前检查缺失的依赖项：</p>
 <div class="tab-set docutils">
@@ -953,20 +955,20 @@ install(TARGETS
 </pre></div>
 </div>
 <p>在每个终端中输入 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd>，停止节点旋转。</p>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h2>小结<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>您创建了两个节点来通过主题发布和订阅数据。在编译和运行它们之前，您将它们的依赖项和可执行文件添加到包配置文件中。</p>
-</section>
-<section id="id11">
+</div>
+<div class="section" id="id11">
 <h2>下一步<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>接下来，您将使用服务/客户端模型创建另一个简单的 ROS 2 包。同样，您可以选择用 <a class="reference internal" href="04_Writing-A-Simple-Cpp-Service-And-Client.html#ros-writing-a-simple-cpp-service-and-client"><span class="std std-ref">C++</span></a> 或 <a class="reference internal" href="05_Writing-A-Simple-Py-Service-And-Client.html#ros-writing-a-simple-py-service-and-client"><span class="std std-ref">Python</span></a> 编写它。</p>
-</section>
-<section id="id12">
+</div>
+<div class="section" id="id12">
 <h2>相关内容<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <p>有几种方法可以在 C++ 中编写发布者和订阅者；请查看 <a class="reference external" href="https://github.com/ros2/examples/tree/master/rclcpp/topics">ros2/examples</a> 仓库中的 <code class="docutils literal notranslate"><span class="pre">minimal_publisher</span></code> 和 <code class="docutils literal notranslate"><span class="pre">minimal_subscriber</span></code> 包。</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -991,31 +993,22 @@ install(TARGETS
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="01_Creating-Your-First-ROS2-Package.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">创建你的第一个 ROS 2 包</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_Creating-Your-First-ROS2-Package.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">创建你的第一个 ROS 2 包</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Writing a simple publisher and subscriber (Python)</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="03_Writing-A-Simple-Py-Publisher-And-Subscriber.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">Writing a simple publisher and subscriber (Python)</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1041,8 +1034,7 @@ install(TARGETS
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

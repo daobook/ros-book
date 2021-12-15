@@ -15,7 +15,7 @@ ROS
     ````{panels}
     :container: +full-width text-center
     :header: w3-pale-blue w3-wide w3-card-4 
-    :column: col-lg-12 px-2 py-2
+    :column: col-lg-10 px-2 py-2
     :body: text-justify w3-padding
     :card: w3-pale-red w3-card
     ---
@@ -31,35 +31,3 @@ ROS
     - 方便测试：ROS 内建一个了叫做 `rostest` 的单元/集成测试框架，可以轻松安装或卸载测试模块。
     - 可扩展：ROS 可以适用于大型运行时系统和大型开发进程。
     ````
-
-## ROS2
-
-参考：[ROS 2 Documentation — ROS 2 Documentation: Galactic documentation](https://docs.ros.org/en/galactic/index.html)
-
-ROS 是一套用于构建机器人应用程序的软件库和工具。从驱动程序到最先进的算法，以及强大的开发工具，ROS 拥有您下一个机器人项目所需的一切。而且都是开源的。
-
-自 ROS 于 2007 年启动以来，机器人和 ROS 社区发生了很多变化。ROS 2 项目的目标是适应这些变化，利用 ROS 1 的优点并改进缺点。
-
-如果你正在寻找关于 ROS 1 的文档，请查看 [ROS wiki](https://wiki.ros.org/)。
-
-导航：
-
-- [](ros:install) 页面将帮助您首次安装 ROS 2。您可以选择适合您需要的平台以及安装类型和分发版。
-- [](ros:docs-guide) 解释了 ROS 1 和 ROS 2 文档基础结构。它有助于理解具体资源在哪里，如何提问，以及维护哪些站点。
-- [](ros:tutorials) 将引导你完成小型项目和 ROS2 的示例使用，所以你可以通过实际使用工具来学习诀窍。它们是根据必要技能的发展来组织的，这使它成为新用户开始的最佳场所。
-- [](ros:how-to-guides) 回答了你所有的“我如何……?”问题尽可能简短而直接，这样你就可以在不需要通过教程的叙述性质的背景下找到你需要的信息。
-- [](ros:concepts) 是关于核心 ROS 2 概念的高级解释和背景信息，应该为教程中涉及的主题提供一些上下文。
-- [](ros:contributing) 是使 ROS 2 伟大的原因！我们有关于贡献新的 ROS 2 内容以及将现有内容从 ROS 1 迁移到 ROS 2 的最佳实践和方法指南。
-- [寻求帮助](ros:contact) 总是被鼓励的。在这里，你会找到几种方法来回答你的问题或开始一场讨论。
-
-## 关于 ROS2
-
-* [Releases](https://docs.ros.org/en/galactic/Releases.html#releases)：过去，现在和未来的 ROS 2 发行版，包括发行版之间的日期和变化。
-* [Features](https://docs.ros.org/en/galactic/Features.html#features)：当前 ROS 2 版本的一部分功能，以及详细介绍每个新功能的内容。
-* [Roadmap](https://docs.ros.org/en/galactic/Roadmap.html#roadmap)：一组尚未实现但即将实现的 ROS 2 的特性想法。
-* [ROSCon talks](https://docs.ros.org/en/galactic/ROSCon-Content.html#roscon)：关于整个社区对 ROS 2 的最新使用和更新的介绍。
-* [Project governance](https://docs.ros.org/en/galactic/Governance.html#governance)：由技术指导委员会处理的，您可以在这里了解更多。
-* [Marketing](https://docs.ros.org/en/galactic/Marketing.html#marketing)：推广 ROS 2 的资料可从此网页下载。
-* [ROS 2 Design](http://design.ros2.org/)：包含了许多关于 ROS2 背后的设计决策的文章。
-
-更多内容见：[ros2/ros2_documentation: ROS 2 docs repository (github.com)](https://github.com/ros2/ros2_documentation)。

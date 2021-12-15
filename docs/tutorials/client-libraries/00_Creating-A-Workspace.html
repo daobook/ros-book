@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>创建一个工作区</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="创建你的第一个 ROS 2 包" href="01_Creating-Your-First-ROS2-Package.html" />
     <link rel="prev" title="客户端库" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -552,11 +554,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ros-creating-a-workspace">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros-creating-a-workspace">
 <span id="id1"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Workspace/Creating-A-Workspace.html">创建一个工作区</a><a class="headerlink" href="#ros-creating-a-workspace" title="永久链接至标题">¶</a></h1>
 <p>工作区（workspace）是一个包含 ROS 2 包的目录。在使用 ROS 2 之前，有必要在您计划工作的终端中创建您的 ROS 2 安装工作区。这使得您可以在该终端上使用 ROS 2 的包。</p>
 <p>你也可以选择激活一个覆盖层-一个二级工作区，在那里你可以添加新的包，而不干扰你正在扩展的现有 ROS 2 工作区，或“底层”（underlay）。你的底层必须包含覆盖层中所有包的依赖项。覆盖层中的包将覆盖底层中的包。也可以有多层的底层和覆盖层，每个后续的覆盖层都使用其父层的包。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>先决条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html#installationguide">ROS 2 安装</a></p></li>
@@ -567,8 +569,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>了解基本的终端命令（以下是 <a class="reference external" href="http://www.ee.surrey.ac.uk/Teaching/Unix/">Linux 的指南</a>）</p></li>
 <li><p>您选择的文本编辑器</p></li>
 </ul>
-</section>
-<section id="ros-2">
+</div>
+<div class="section" id="ros-2">
 <h2>激活 ROS 2 环境<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h2>
 <p>您的主要 ROS 2 安装将是本教程的基础。（请记住，底层不一定是主要的 ROS 2 安装。）</p>
 <p>取决于你如何安装 ROS 2（从源代码或二进制文件），以及你所在的平台，你的源代码命令会有所不同：</p>
@@ -591,8 +593,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>如果这些命令对您不起作用，请参考您所遵循的<a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html#installationguide">安装指南</a>。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>新建目录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>最佳实践是为每个新工作区创建一个新目录。名称并不重要，但让它表明工作区的用途是有帮助的。让我们为“开发工作区”选择一个名为 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 的目录：</p>
 <div class="tab-set docutils">
@@ -616,8 +618,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>另一个最佳实践是将工作区中的任何包放到 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录中。上面的代码在 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 中创建了一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录，然后导航到它。</p>
-</section>
-<section id="repo">
+</div>
+<div class="section" id="repo">
 <h2>克隆一个样本 repo<a class="headerlink" href="#repo" title="永久链接至标题">¶</a></h2>
 <p>在克隆之前，确保您仍然在 <code class="docutils literal notranslate"><span class="pre">dev_ws/</span></code> 目录中。</p>
 <p>在其余的初级开发人员教程中，您将创建自己的包，但现在您将练习使用现有的包将工作区放在一起。</p>
@@ -648,8 +650,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <p>前三个包被忽略了；<code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 是这个仓库中唯一实际的 ROS 2 包。</p>
 <p>现在您已经用示例包填充了工作区，但它还不是一个功能齐全的工作区。您需要首先解决依赖关系并构建工作区。</p>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>解决依赖关系<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在构建工作区之前，您需要解析包依赖关系。您可能已经有了所有的依赖项，但最佳实践是每次克隆时检查依赖项。您不希望构建在长时间等待后因为缺少依赖项而失败。</p>
 <p>从你的工作区的根（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>），运行以下命令：</p>
@@ -669,8 +671,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 <p>包在 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件中声明它们的依赖项（在下一个教程中您将了解更多关于包的信息）。该命令遍历这些声明，并安装缺失的声明。你可以在另一个教程(即将推出)中了解更多关于 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> 的内容。</p>
-</section>
-<section id="colcon">
+</div>
+<div class="section" id="colcon">
 <h2>使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 构建工作区<a class="headerlink" href="#colcon" title="永久链接至标题">¶</a></h2>
 <p>从你的工作区的根（<code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>），你现在可以使用命令构建你的包：</p>
 <div class="tab-set docutils">
@@ -707,8 +709,8 @@ Summary: <span class="m">1</span> package finished <span class="o">[</span><span
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">install</span></code> 目录是工作区的 setup 文件所在的位置，您可以使用这些文件来生成覆盖层。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>激活覆盖层<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>在获取覆盖层之前，打开一个新的终端是非常重要的，它与您构建工作区的那个终端是分开的。在您所构建的终端中寻找覆盖层，或者在覆盖层来源的终端中寻找覆盖层，可能会产生复杂的问题。</p>
 <p>在新的终端中，source 你的主要 ROS 2 环境作为“底层”，所以你可以在它之上构建覆盖层：</p>
@@ -762,8 +764,8 @@ Summary: <span class="m">1</span> package finished <span class="o">[</span><span
 <li><p>您可以在覆盖层中单独修改和重建包。</p></li>
 <li><p>覆盖层优先于底层。</p></li>
 </ul>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>修改覆盖层<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>你可以通过编辑 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 窗口的标题栏在覆盖层中修改 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>。为此，在 <code class="docutils literal notranslate"><span class="pre">~/dev_ws/src/ros_tutorials/turtlesim/src</span></code> 中找到 <code class="docutils literal notranslate"><span class="pre">turtle_frame.cpp</span></code> 文件。使用首选的文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">turtle_frame.cpp</span></code>。</p>
 <p>在第 52 行，您将看到函数 <code class="docutils literal notranslate"><span class="pre">setWindowTitle(&quot;TurtleSim&quot;);</span></code>。将 <code class="docutils literal notranslate"><span class="pre">&quot;TurtleSim&quot;</span></code> 的值修改为<code class="docutils literal notranslate"><span class="pre">&quot;MyTurtleSim&quot;</span></code>，保存文件。</p>
@@ -781,13 +783,13 @@ Summary: <span class="m">1</span> package finished <span class="o">[</span><span
 </div>
 <p><img alt="" src="../../../_images/underlay.png" /></p>
 <p>你可以看到在覆盖层中的修改实际上并没有影响到底层中的任何东西。</p>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h2>小结<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>在本教程中，你将你的主要 ROS 2 发行版安装作为你的底层，并通过在一个新的工作区中克隆和构建包创建一个覆盖层。覆盖层被附加到路径上，并优先于底层，正如您在修改后的 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 中看到的那样。</p>
 <p>对于处理少量的包，建议使用覆盖层，因此您不必将所有内容都放在同一个工作区中，并在每次迭代时重新构建一个巨大的工作区。</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -812,31 +814,22 @@ Summary: <span class="m">1</span> package finished <span class="o">[</span><span
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="index.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">客户端库</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">客户端库</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_Creating-Your-First-ROS2-Package.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">创建你的第一个 ROS 2 包</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="01_Creating-Your-First-ROS2-Package.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">创建你的第一个 ROS 2 包</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -862,8 +855,7 @@ Summary: <span class="m">1</span> package finished <span class="o">[</span><span
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

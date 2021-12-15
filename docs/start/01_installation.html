@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>安装</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="文档指南" href="02_docs-guide.html" />
     <link rel="prev" title="ROS 简介" href="00_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -619,7 +621,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ros-install">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros-install">
 <span id="id1"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装</a><a class="headerlink" href="#ros-install" title="永久链接至标题">¶</a></h1>
 <p>目前为以下平台提供 ROS 2 二进制包：</p>
 <ul class="simple">
@@ -637,7 +639,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </li>
 <li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Windows-Install-Binary.html">Windows</a></p></li>
 </ul>
-<section id="id2">
+<div class="section" id="id2">
 <h2>从源代码构建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>我们支持在以下平台上从源头构建 ROS 2：</p>
 <ul class="simple">
@@ -646,16 +648,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/RHEL-Development-Setup.html">RHEL</a></p></li>
 <li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Windows-Development-Setup.html">Windows</a></p></li>
 </ul>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>应该选择哪种安装?<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>从二进制包或源代码安装都会得到一个功能完整且可用的 ROS 2 安装。不同的选择取决于你计划如何处理 ROS 2。</p>
 <p><strong>二进制包</strong>是通用的，并提供一个已经构建的 ROS 2 安装。这对于那些想要立即开始使用 ROS 2 的人来说是非常棒的。</p>
 <p><strong>从源代码构建</strong>意味着开发者想要改变或明确省略部分 ROS 2 的基础。对于不支持二进制文件的平台，也推荐使用它。从源代码构建还可以让你选择安装绝对最新版本的 ROS 2。</p>
-</section>
-<section id="ubuntu-linux-ros-2">
+</div>
+<div class="section" id="ubuntu-linux-ros-2">
 <h2>在 Ubuntu Linux 上构建 ROS 2<a class="headerlink" href="#ubuntu-linux-ros-2" title="永久链接至标题">¶</a></h2>
-<section id="id4">
+<div class="section" id="id4">
 <h3>系统需求<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>Galactic Geochelone 目前基于 debian 的目标平台是：</p>
 <ul class="simple">
@@ -669,10 +671,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>OpenEmbedded / webOS OSE, see <a class="reference external" href="https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions">alternate instructions</a></p></li>
 </ul>
 <p>As defined in <a class="reference external" href="https://www.ros.org/reps/rep-2000.html">REP 2000</a>.</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h3>系统设置<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<section id="id6">
+<div class="section" id="id6">
 <h4>设置语言环境<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
 <p>确保您有一个支持 <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> 的语言环境（locale）。如果您在一个最小的环境中（例如 docker 容器），locale 设置可能是 <code class="docutils literal notranslate"><span class="pre">POSIX</span></code> 这样的最小环境。我们使用以下设置进行测试。但是，如果您使用的是支持 UTF-8 的不同语言环境，那么这应该没问题。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>locale  <span class="c1"># check for UTF-8</span>
@@ -685,8 +687,8 @@ sudo update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.U
 locale  <span class="c1"># verify settings</span>
 </pre></div>
 </div>
-</section>
-<section id="ros-2-apt">
+</div>
+<div class="section" id="ros-2-apt">
 <h4>添加 ROS 2 apt 存储库<a class="headerlink" href="#ros-2-apt" title="永久链接至标题">¶</a></h4>
 <p>您需要将 ROS 2 apt 存储库添加到系统中。首先，通过检查这个命令的输出，确保 <a class="reference external" href="https://help.ubuntu.com/community/Repositories/Ubuntu">Ubuntu Universe</a> 存储库是启用的。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-cache policy <span class="p">|</span> grep universe
@@ -715,8 +717,8 @@ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
 </pre></div>
 </div>
-</section>
-<section id="ros">
+</div>
+<div class="section" id="ros">
 <h4>安装开发工具和 ROS 工具<a class="headerlink" href="#ros" title="永久链接至标题">¶</a></h4>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   build-essential <span class="se">\</span>
@@ -750,9 +752,9 @@ python3 -m pip install -U <span class="se">\</span>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -U importlib-metadata importlib-resources
 </pre></div>
 </div>
-</section>
-</section>
-<section id="ros-2">
+</div>
+</div>
+<div class="section" id="ros-2">
 <h3>获得 ROS 2 代码<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h3>
 <p>创建一个工作区并克隆所有 repo：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/ros2_galactic/src
@@ -762,28 +764,28 @@ wget https://raw.staticdn.net/ros2/ros2/galactic/ros2.repos
 vcs import src &lt; ros2.repos
 </pre></div>
 </div>
-</section>
-<section id="rosdep">
+</div>
+<div class="section" id="rosdep">
 <h3>使用 rosdep 安装依赖项<a class="headerlink" href="#rosdep" title="永久链接至标题">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys <span class="s2">&quot;console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers&quot;</span>
 </pre></div>
 </div>
-</section>
-<section id="dds">
+</div>
+<div class="section" id="dds">
 <h3>安装其他 DDS 实现（可选）<a class="headerlink" href="#dds" title="永久链接至标题">¶</a></h3>
 <p>如果你想使用默认的 Eclipse Cyclone DDS 之外的其他 DDS 或 RTPS 供应商，你可以在<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/DDS-Implementations.html">这里</a>找到说明。</p>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h3>在工作区中构建代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>如果您已经通过其他方式安装了 ROS 2（通过debian或二进制发行版），请确保在一个没有其他安装源的新环境中运行以下命令。还要确保你没有 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/${ROS_DISTRO}/setup.bash</span></code> 用你的 <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>。您可以使用 <code class="docutils literal notranslate"><span class="pre">printenv</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">ROS</span></code> 命令确保 ROS 2 没有来源。输出应该为空。</p>
-</section>
-</section>
-<section id="debian-packages-ros-2">
+</div>
+</div>
+<div class="section" id="debian-packages-ros-2">
 <h2><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#id4">通过 Debian Packages 安装 ROS 2</a><a class="headerlink" href="#debian-packages-ros-2" title="永久链接至标题">¶</a></h2>
 <p>针对 ROS 2 Galactic Geochelone 的 Debian 软件包目前可以在 Ubuntu Focal 上使用。目标平台在 <a class="reference external" href="https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst">REP 2000</a> 中定义。</p>
-<section id="id8">
+<div class="section" id="id8">
 <h3>安装 ROS 2 包<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>在设置存储库之后更新 apt 存储库缓存。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update
@@ -797,18 +799,18 @@ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-galactic-ros-base
 </pre></div>
 </div>
-</section>
-<section id="id9">
+</div>
+<div class="section" id="id9">
 <h3>环境设置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<section id="id10">
+<div class="section" id="id10">
 <h4>获取安装脚本<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
 <p>通过获取以下文件来设置环境。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
 </pre></div>
 </div>
-</section>
-</section>
-<section id="id11">
+</div>
+</div>
+<div class="section" id="id11">
 <h3>尝试一些例子<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>如果你安装了上面的 <code class="docutils literal notranslate"><span class="pre">ros-galactic-desktop</span></code>，你可以尝试一些例子。</p>
 <p>在一个终端中，获取安装文件的源代码，然后运行一个 C++ <code class="docutils literal notranslate"><span class="pre">talker</span></code>：</p>
@@ -822,35 +824,35 @@ ros2 run demo_nodes_py listener
 </pre></div>
 </div>
 <p>你应该看到 <code class="docutils literal notranslate"><span class="pre">talker</span></code> 说它在 <code class="docutils literal notranslate"><span class="pre">Publishing</span></code> 消息，而 <code class="docutils literal notranslate"><span class="pre">listener</span></code> 说我<code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">heard</span></code> 那些消息。这将验证 C++ 和 Python api 是否正常工作。</p>
-</section>
-<section id="id12">
+</div>
+<div class="section" id="id12">
 <h3>安装后的后续步骤<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
 <p>继续使用<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials.html">教程和演示</a>来配置您的环境，创建您自己的工作空间和包，并学习 ROS 2 的核心概念。</p>
-</section>
-<section id="ros1">
+</div>
+<div class="section" id="ros1">
 <h3>使用 ROS1 桥接<a class="headerlink" href="#ros1" title="永久链接至标题">¶</a></h3>
 <p>ROS 1 桥可以连接从 ROS 1 到 ROS 2 的主题，反之亦然。请参阅有关如何构建和使用 ROS1 桥接器的专门<a class="reference external" href="https://github.com/ros2/ros1_bridge/blob/master/README.md">文档</a>。</p>
-</section>
-<section id="rmw">
+</div>
+<div class="section" id="rmw">
 <h3>其他 RMW 实现（可选）<a class="headerlink" href="#rmw" title="永久链接至标题">¶</a></h3>
 <p>ROS 2 使用的默认中间件是 <code class="docutils literal notranslate"><span class="pre">Cyclone</span> <span class="pre">DDS</span></code>，但是该中间件（RMW）可以在运行时被替换。请参阅关于如何使用多个 RMW 的<a class="reference external" href="https://docs.ros.org/en/galactic/How-To-Guides/Working-with-multiple-RMW-implementations.html">指南</a>。</p>
-</section>
-</section>
-<section id="id13">
+</div>
+</div>
+<div class="section" id="id13">
 <h2>卸载<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <p>如果您需要卸载 ROS 2 或切换到基于源代码的安装，一旦您已经从二进制文件安装，运行以下命令：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt remove ~nros-galactic-* <span class="o">&amp;&amp;</span> sudo apt autoremove
 </pre></div>
 </div>
-</section>
-<section id="id14">
+</div>
+<div class="section" id="id14">
 <h2>其他<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参见</p>
 <p><a class="reference external" href="https://www.jianshu.com/p/5d63c0c93f56">ROS2 基础 - 简书 (jianshu.com)</a></p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -875,31 +877,22 @@ ros2 run demo_nodes_py listener
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="00_intro.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">ROS 简介</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_intro.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">ROS 简介</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_docs-guide.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">文档指南</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="02_docs-guide.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">文档指南</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -925,8 +918,7 @@ ros2 run demo_nodes_py listener
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

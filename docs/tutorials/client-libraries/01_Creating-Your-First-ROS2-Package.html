@@ -4,12 +4,11 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>创建你的第一个 ROS 2 包</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -30,16 +29,16 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3pro.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/xin-css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -101,7 +100,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="编写一个简单的发布者和订阅者（C++）" href="02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html" />
     <link rel="prev" title="创建一个工作区" href="00_Creating-A-Workspace.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -131,7 +133,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   教程
  </span>
@@ -277,7 +279,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   原理
  </span>
@@ -330,7 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   混沌
  </span>
@@ -576,17 +578,17 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ros-2">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros-2">
 <span id="ros-creating-your-first-ros2-package"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials/Creating-Your-First-ROS2-Package.html">创建你的第一个 ROS 2 包</a><a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h1>
 <p>使用 CMake 或 Python 创建一个新程序包，然后运行其可执行文件。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>背景<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<section id="id2">
+<div class="section" id="id2">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id2">什么是 ROS 2 包？</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#what-is-a-ros-2-package">¶</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>可以将包视为 ROS 2 代码的容器。如果您希望能够安装代码或与他人共享代码，则需要将其组织在一个软件包中。使用软件包，您可以发布 ROS2 的工作，并允许其他人轻松构建和使用它。</p>
 <p>ROS2 中的软件包创建使用 <code class="docutils literal notranslate"><span class="pre">ament</span></code> 作为其构建系统，并使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 作为其构建工具。您可以使用官方支持的 CMake 或 Python 创建软件包，但也存在其他构建类型。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id3">ROS 2 包由什么组成？</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#what-makes-up-a-ros-2-package">¶</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>ROS 2 Python 和 CMake 软件包各自具有自己的最低要求内容：</p>
 <div class="tab-set docutils">
@@ -623,8 +625,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id4">工作区中的包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#packages-in-a-workspace">¶</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>一个工作空间可以包含所需数量的程序包，每个程序包都位于其自己的文件夹中。您还可以在一个工作空间（CMake，Python等）中拥有不同构建类型的软件包。您不能有嵌套的程序包。</p>
 <p>最佳做法是在工作区中有一个 <code class="docutils literal notranslate"><span class="pre">src</span></code> 文件夹，并在其中创建包。这样可以使工作空间的顶层保持“干净”。</p>
@@ -645,15 +647,15 @@ commentsRunWhenDOMLoaded(addUtterances);
           package.xml
 </pre></div>
 </div>
-</section>
-</section>
-<section id="id5">
+</div>
+</div>
+<div class="section" id="id5">
 <h2>先决条件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>在遵循 <a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a> 中的说明之后，您应该有一个 ROS 2 工作区。您将在这个工作区中创建您的包。</p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>任务<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<section id="id7">
+<div class="section" id="id7">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id7">创建一个包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#create-a-package">¶</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>首先，source 您的 <a class="reference internal" href="../beginner/cli.html#ros-configuring-ros2-environment"><span class="std std-ref">配置 ROS 2 环境</span></a>。</p>
 <p>让我们为您的新包，使用您在<a class="reference internal" href="00_Creating-A-Workspace.html#ros-creating-a-workspace"><span class="std std-ref">上一教程</span></a> 中创建的工作空间 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code>。</p>
@@ -744,8 +746,8 @@ creating ./my_package/my_package/my_node.py
 </div>
 </div>
 <p>您可以看到为新软件包自动生成的文件。</p>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id8">构建一个包</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#build-a-package">¶</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>将软件包放在工作空间中特别有价值，因为您可以通过在工作空间根目录中运行 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 一次构建许多软件包。否则，您将必须分别构建每个软件包。</p>
 <p>返回工作区的根目录，现在您可以构建软件包：</p>
@@ -769,8 +771,8 @@ colcon build --merge-install
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>colcon build --packages-select my_package
 </pre></div>
 </div>
-</section>
-<section id="source-setup">
+</div>
+<div class="section" id="source-setup">
 <h3>Source setup 文件<a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#source-the-setup-file">¶</a><a class="headerlink" href="#source-setup" title="永久链接至标题">¶</a></h3>
 <p>要使用新的程序包和可执行文件，请先打开一个新终端，然后获取 ROS2 的主要安装源。然后，从 <code class="docutils literal notranslate"><span class="pre">dev_ws</span></code> 目录中，运行以下命令来获取您的工作空间：</p>
 <div class="tab-set docutils">
@@ -786,8 +788,8 @@ colcon build --merge-install
 </div>
 </div>
 <p>现在您的工作区已添加到路径中，您将可以使用新程序包的可执行文件。</p>
-</section>
-<section id="id9">
+</div>
+<div class="section" id="id9">
 <h3>使用包<a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#use-the-package">¶</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>要在软件包创建期间运行使用 <code class="docutils literal notranslate"><span class="pre">--node-name</span></code> 参数创建的可执行文件，请输入以下命令：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2 run my_package my_node
@@ -816,8 +818,8 @@ colcon build --merge-install
 </div>
 </div>
 </div>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#id9">检查包装内容</a><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#examine-package-contents">¶</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>在 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/my_package</span></code> 中，你会看到 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">pkg</span> <span class="pre">create</span></code> 的文件和文件夹自动生成：</p>
 <div class="tab-set docutils">
@@ -834,8 +836,8 @@ colcon build --merge-install
 <p><code class="docutils literal notranslate"><span class="pre">my_node.py</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">my_package</span></code> 目录中。这是您的所有自定义 Python 节点在未来的位置。</p>
 </div>
 </div>
-</section>
-<section id="package-xml">
+</div>
+<div class="section" id="package-xml">
 <h3>定制 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code><a class="reference external" href="https://index.ros.org/doc/ros2/Tutorials/Creating-Your-First-ROS2-Package/#customize-package-xml">¶</a><a class="headerlink" href="#package-xml" title="永久链接至标题">¶</a></h3>
 <p>创建软件包后，<code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 文件需要我们手动完善一下。您可能在返回消息中注意到字段 <code class="docutils literal notranslate"><span class="pre">description</span></code> 和 <code class="docutils literal notranslate"><span class="pre">license</span></code> 包含 <code class="docutils literal notranslate"><span class="pre">TODO</span></code> 注释。这是因为软件包 <code class="docutils literal notranslate"><span class="pre">description</span></code> 和 <code class="docutils literal notranslate"><span class="pre">license</span></code> 声明不会自动设置，但是如果您要释放软件包，则必须设置。<code class="docutils literal notranslate"><span class="pre">maintainer</span></code> 字段可能也需要填写。</p>
 <p>从 <code class="docutils literal notranslate"><span class="pre">dev_ws/src/my_package</span></code>，使用你喜欢的文本编辑器打开 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>：</p>
@@ -938,14 +940,14 @@ colcon build --merge-install
 <p>别忘了保存文件。</p>
 </div>
 </div>
-</section>
-</section>
-<section id="id11">
+</div>
+</div>
+<div class="section" id="id11">
 <h2>小结<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>您已经创建了一个包来组织您的代码并使其易于为他人使用。</p>
 <p>您的软件包将自动填充必要的文件，然后使用 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 进行构建，以便可以在本地环境中使用其可执行文件。</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -970,31 +972,22 @@ colcon build --merge-install
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="00_Creating-A-Workspace.html" title="上一页 页">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">创建一个工作区</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_Creating-A-Workspace.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">创建一个工作区</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">编写一个简单的发布者和订阅者（C++）</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html" title="下一页 页">
-            <div class="prevnext-info">
-                <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">编写一个简单的发布者和订阅者（C++）</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1020,8 +1013,7 @@ colcon build --merge-install
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
