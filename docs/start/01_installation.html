@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>安装</title>
+    <title>安装 ROS2</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -161,32 +161,12 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     安装
+     安装 ROS2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_docs-guide.html">
      文档指南
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_how-to-guides.html">
-     How-to 指南
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_concepts.html">
-     概念
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_contributing.html">
-     贡献
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_contact.html">
-     联系
     </a>
    </li>
    <li class="toctree-l2">
@@ -487,132 +467,6 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   从源代码构建
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   应该选择哪种安装?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubuntu-linux-ros-2">
-   在 Ubuntu Linux 上构建 ROS 2
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     系统需求
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     系统设置
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       设置语言环境
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ros-2-apt">
-       添加 ROS 2 apt 存储库
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ros">
-       安装开发工具和 ROS 工具
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ros-2">
-     获得 ROS 2 代码
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rosdep">
-     使用 rosdep 安装依赖项
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dds">
-     安装其他 DDS 实现（可选）
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     在工作区中构建代码
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#debian-packages-ros-2">
-   通过 Debian Packages 安装 ROS 2
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     安装 ROS 2 包
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     环境设置
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       获取安装脚本
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     尝试一些例子
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     安装后的后续步骤
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ros1">
-     使用 ROS1 桥接
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rmw">
-     其他 RMW 实现（可选）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id13">
-   卸载
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id14">
-   其他
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -621,94 +475,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ros-install">
-<span id="id1"></span><h1><a class="reference external" href="https://docs.ros.org/en/galactic/Installation.html">安装</a><a class="headerlink" href="#ros-install" title="永久链接至标题">¶</a></h1>
-<p>目前为以下平台提供 ROS 2 二进制包：</p>
-<ul class="simple">
-<li><p>Ubuntu Linux - Focal Fossa (20.04)</p>
-<ul>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html">Debian packages</a></p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Binary.html">“fat” archive</a></p></li>
-</ul>
-</li>
-<li><p>RHEL 8</p>
-<ul>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/RHEL-Install-RPMs.html">RPM packages</a></p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/RHEL-Install-Binary.html">“fat” archive</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Windows-Install-Binary.html">Windows</a></p></li>
-</ul>
-<div class="section" id="id2">
-<h2>从源代码构建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>我们支持在以下平台上从源头构建 ROS 2：</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html">Ubuntu Linux</a></p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/macOS-Development-Setup.html">macOS</a></p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/RHEL-Development-Setup.html">RHEL</a></p></li>
-<li><p><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Windows-Development-Setup.html">Windows</a></p></li>
-</ul>
-</div>
-<div class="section" id="id3">
-<h2>应该选择哪种安装?<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>从二进制包或源代码安装都会得到一个功能完整且可用的 ROS 2 安装。不同的选择取决于你计划如何处理 ROS 2。</p>
-<p><strong>二进制包</strong>是通用的，并提供一个已经构建的 ROS 2 安装。这对于那些想要立即开始使用 ROS 2 的人来说是非常棒的。</p>
-<p><strong>从源代码构建</strong>意味着开发者想要改变或明确省略部分 ROS 2 的基础。对于不支持二进制文件的平台，也推荐使用它。从源代码构建还可以让你选择安装绝对最新版本的 ROS 2。</p>
-</div>
-<div class="section" id="ubuntu-linux-ros-2">
-<h2>在 Ubuntu Linux 上构建 ROS 2<a class="headerlink" href="#ubuntu-linux-ros-2" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id4">
-<h3>系统需求<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-<p>Galactic Geochelone 目前基于 debian 的目标平台是：</p>
-<ul class="simple">
-<li><p>Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit</p></li>
-<li><p>Tier 3: Debian Linux - Bullseye (11) 64-bit</p></li>
-</ul>
-<p>其他支持级别不同的 Linux 平台包括：</p>
-<ul class="simple">
-<li><p>Arch Linux, see <a class="reference external" href="https://wiki.archlinux.org/index.php/ROS#ROS_2">alternate instructions</a></p></li>
-<li><p>Fedora Linux, see <a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Fedora-Development-Setup.html">alternate instructions</a></p></li>
-<li><p>OpenEmbedded / webOS OSE, see <a class="reference external" href="https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions">alternate instructions</a></p></li>
-</ul>
-<p>As defined in <a class="reference external" href="https://www.ros.org/reps/rep-2000.html">REP 2000</a>.</p>
-</div>
-<div class="section" id="id5">
-<h3>系统设置<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id6">
-<h4>设置语言环境<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
-<p>确保您有一个支持 <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> 的语言环境（locale）。如果您在一个最小的环境中（例如 docker 容器），locale 设置可能是 <code class="docutils literal notranslate"><span class="pre">POSIX</span></code> 这样的最小环境。我们使用以下设置进行测试。但是，如果您使用的是支持 UTF-8 的不同语言环境，那么这应该没问题。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>locale  <span class="c1"># check for UTF-8</span>
-
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-
-locale  <span class="c1"># verify settings</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="ros-2-apt">
-<h4>添加 ROS 2 apt 存储库<a class="headerlink" href="#ros-2-apt" title="永久链接至标题">¶</a></h4>
-<p>您需要将 ROS 2 apt 存储库添加到系统中。首先，通过检查这个命令的输出，确保 <a class="reference external" href="https://help.ubuntu.com/community/Repositories/Ubuntu">Ubuntu Universe</a> 存储库是启用的。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-cache policy <span class="p">|</span> grep universe
-</pre></div>
-</div>
-<p>输出：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="m">500</span> http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages
-     release <span class="nv">v</span><span class="o">=</span><span class="m">20</span>.04,o<span class="o">=</span>Ubuntu,a<span class="o">=</span>focal,n<span class="o">=</span>focal,l<span class="o">=</span>Ubuntu,c<span class="o">=</span>universe,b<span class="o">=</span>amd64
-</pre></div>
-</div>
-<p>如果您没有看到如上所示的输出行，那么使用以下指令启用 Universe 存储库。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install software-properties-common
-sudo add-apt-repository universe
-</pre></div>
-</div>
-<p>现在将 ROS 2 apt 存储库添加到系统中。首先用 apt 授权我们的 GPG 密钥。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install curl gnupg lsb-release
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
-</pre></div>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros2">
+<h1>安装 ROS2<a class="headerlink" href="#ros2" title="永久链接至标题">¶</a></h1>
+<p>详细安装方法见 <a class="reference external" href="https://daobook.github.io/ros2-docs/xin">ros2-docs</a>。</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
 <p>如果 <code class="docutils literal notranslate"><span class="pre">raw.githubusercontent.com</span></code> 报错，可以尝试：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo curl -sSL https://raw.staticdn.net/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 </pre></div>
@@ -718,138 +489,12 @@ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -
 </pre></div>
 </div>
 </div>
-<div class="section" id="ros">
-<h4>安装开发工具和 ROS 工具<a class="headerlink" href="#ros" title="永久链接至标题">¶</a></h4>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
-  build-essential <span class="se">\</span>
-  cmake <span class="se">\</span>
-  git <span class="se">\</span>
-  python3-colcon-common-extensions <span class="se">\</span>
-  python3-flake8 <span class="se">\</span>
-  python3-pip <span class="se">\</span>
-  python3-pytest-cov <span class="se">\</span>
-  python3-rosdep <span class="se">\</span>
-  python3-setuptools <span class="se">\</span>
-  python3-vcstool <span class="se">\</span>
-  wget
-<span class="c1"># install some pip packages needed for testing</span>
-python3 -m pip install -U <span class="se">\</span>
-  flake8-blind-except <span class="se">\</span>
-  flake8-builtins <span class="se">\</span>
-  flake8-class-newline <span class="se">\</span>
-  flake8-comprehensions <span class="se">\</span>
-  flake8-deprecated <span class="se">\</span>
-  flake8-docstrings <span class="se">\</span>
-  flake8-import-order <span class="se">\</span>
-  flake8-quotes <span class="se">\</span>
-  pytest-repeat <span class="se">\</span>
-  pytest-rerunfailures <span class="se">\</span>
-  pytest <span class="se">\</span>
-  setuptools
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>在国内 <code class="docutils literal notranslate"><span class="pre">wget</span></code> 网站的 <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com</span></code> 内容很慢，可以改用：<code class="docutils literal notranslate"><span class="pre">https://raw.staticdn.net</span></code>。</p>
+<p>比如 <code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://raw.githubusercontent.com/ros2/ros2/galactic/ros2.repos</span></code> 改用为：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget https://raw.staticdn.net/ros2/ros2/galactic/ros2.repos
 </pre></div>
-</div>
-<p>Ubuntu 18.04 不是官方支持的平台，但仍然可以工作。你至少需要以下额外的依赖项：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -U importlib-metadata importlib-resources
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="ros-2">
-<h3>获得 ROS 2 代码<a class="headerlink" href="#ros-2" title="永久链接至标题">¶</a></h3>
-<p>创建一个工作区并克隆所有 repo：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/ros2_galactic/src
-<span class="nb">cd</span> ~/ros2_galactic
-<span class="c1"># wget https://raw.githubusercontent.com/ros2/ros2/galactic/ros2.repos</span>
-wget https://raw.staticdn.net/ros2/ros2/galactic/ros2.repos
-vcs import src &lt; ros2.repos
-</pre></div>
-</div>
-</div>
-<div class="section" id="rosdep">
-<h3>使用 rosdep 安装依赖项<a class="headerlink" href="#rosdep" title="永久链接至标题">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rosdep init
-rosdep update
-rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys <span class="s2">&quot;console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="dds">
-<h3>安装其他 DDS 实现（可选）<a class="headerlink" href="#dds" title="永久链接至标题">¶</a></h3>
-<p>如果你想使用默认的 Eclipse Cyclone DDS 之外的其他 DDS 或 RTPS 供应商，你可以在<a class="reference external" href="https://docs.ros.org/en/galactic/Installation/DDS-Implementations.html">这里</a>找到说明。</p>
-</div>
-<div class="section" id="id7">
-<h3>在工作区中构建代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
-<p>如果您已经通过其他方式安装了 ROS 2（通过debian或二进制发行版），请确保在一个没有其他安装源的新环境中运行以下命令。还要确保你没有 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/${ROS_DISTRO}/setup.bash</span></code> 用你的 <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>。您可以使用 <code class="docutils literal notranslate"><span class="pre">printenv</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">ROS</span></code> 命令确保 ROS 2 没有来源。输出应该为空。</p>
-</div>
-</div>
-<div class="section" id="debian-packages-ros-2">
-<h2><a class="reference external" href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#id4">通过 Debian Packages 安装 ROS 2</a><a class="headerlink" href="#debian-packages-ros-2" title="永久链接至标题">¶</a></h2>
-<p>针对 ROS 2 Galactic Geochelone 的 Debian 软件包目前可以在 Ubuntu Focal 上使用。目标平台在 <a class="reference external" href="https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst">REP 2000</a> 中定义。</p>
-<div class="section" id="id8">
-<h3>安装 ROS 2 包<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<p>在设置存储库之后更新 apt 存储库缓存。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update
-</pre></div>
-</div>
-<p>桌面安装（推荐）：ROS，RViz，demos，tutorials。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-galactic-desktop
-</pre></div>
-</div>
-<p>ROS-Base 安装（Bare Bones）：通信库，消息包，命令行工具。没有 GUI 工具。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-galactic-ros-base
-</pre></div>
-</div>
-</div>
-<div class="section" id="id9">
-<h3>环境设置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id10">
-<h4>获取安装脚本<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
-<p>通过获取以下文件来设置环境。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id11">
-<h3>尝试一些例子<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>如果你安装了上面的 <code class="docutils literal notranslate"><span class="pre">ros-galactic-desktop</span></code>，你可以尝试一些例子。</p>
-<p>在一个终端中，获取安装文件的源代码，然后运行一个 C++ <code class="docutils literal notranslate"><span class="pre">talker</span></code>：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
-ros2 run demo_nodes_cpp talker
-</pre></div>
-</div>
-<p>在另一个终端源代码安装文件，然后运行 Python <code class="docutils literal notranslate"><span class="pre">listener</span></code>：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/galactic/setup.bash
-ros2 run demo_nodes_py listener
-</pre></div>
-</div>
-<p>你应该看到 <code class="docutils literal notranslate"><span class="pre">talker</span></code> 说它在 <code class="docutils literal notranslate"><span class="pre">Publishing</span></code> 消息，而 <code class="docutils literal notranslate"><span class="pre">listener</span></code> 说我<code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">heard</span></code> 那些消息。这将验证 C++ 和 Python api 是否正常工作。</p>
-</div>
-<div class="section" id="id12">
-<h3>安装后的后续步骤<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
-<p>继续使用<a class="reference external" href="https://docs.ros.org/en/galactic/Tutorials.html">教程和演示</a>来配置您的环境，创建您自己的工作空间和包，并学习 ROS 2 的核心概念。</p>
-</div>
-<div class="section" id="ros1">
-<h3>使用 ROS1 桥接<a class="headerlink" href="#ros1" title="永久链接至标题">¶</a></h3>
-<p>ROS 1 桥可以连接从 ROS 1 到 ROS 2 的主题，反之亦然。请参阅有关如何构建和使用 ROS1 桥接器的专门<a class="reference external" href="https://github.com/ros2/ros1_bridge/blob/master/README.md">文档</a>。</p>
-</div>
-<div class="section" id="rmw">
-<h3>其他 RMW 实现（可选）<a class="headerlink" href="#rmw" title="永久链接至标题">¶</a></h3>
-<p>ROS 2 使用的默认中间件是 <code class="docutils literal notranslate"><span class="pre">Cyclone</span> <span class="pre">DDS</span></code>，但是该中间件（RMW）可以在运行时被替换。请参阅关于如何使用多个 RMW 的<a class="reference external" href="https://docs.ros.org/en/galactic/How-To-Guides/Working-with-multiple-RMW-implementations.html">指南</a>。</p>
-</div>
-</div>
-<div class="section" id="id13">
-<h2>卸载<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
-<p>如果您需要卸载 ROS 2 或切换到基于源代码的安装，一旦您已经从二进制文件安装，运行以下命令：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt remove ~nros-galactic-* <span class="o">&amp;&amp;</span> sudo apt autoremove
-</pre></div>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>其他<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
-<div class="admonition seealso">
-<p class="admonition-title">参见</p>
-<p><a class="reference external" href="https://www.jianshu.com/p/5d63c0c93f56">ROS2 基础 - 简书 (jianshu.com)</a></p>
 </div>
 </div>
 </div>

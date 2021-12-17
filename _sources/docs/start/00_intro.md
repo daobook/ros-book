@@ -1,7 +1,5 @@
 # ROS 简介
 
-参考：[Documentation - ROS Wiki](http://wiki.ros.org/)
-
 ROS（Robot Operating System）是一种用于编写机器人软件的灵活框架。它是一个工具（tools）、库（libraries）和约定（conventions）的集合，旨在简化在各种机器人平台上创建复杂而健壮的机器人行为的任务。
 
 ROS

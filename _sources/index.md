@@ -13,4 +13,5 @@
 
 - [ROS2 中文版本](https://daobook.github.io/ros2-docs/)
 - [古月居](https://www.guyuehome.com/)：全球中文地区领先的 ROS 机器人知识分享社区。
+- [ROS2 基础 - 简书 (jianshu.com)](https://www.jianshu.com/p/5d63c0c93f56)
 ```
