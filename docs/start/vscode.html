@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>高级教程</title>
+    <title>VSCode ROS2 Workspace Template</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -93,12 +93,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://daobook.github.io/ros-book/docs/principle/topic.html" />
+    <link rel="canonical" href="https://daobook.github.io/ros-book/docs/start/vscode.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
     <link rel="next" title="colcon" href="../colcon/index.html" />
-    <link rel="prev" title="解释" href="index.html" />
+    <link rel="prev" title="ROS 专有词汇中英对照列表" href="naming.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -138,123 +138,41 @@ commentsRunWhenDOMLoaded(addUtterances);
   教程
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
    ROS2 手册
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../start/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    快速上手
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/00_intro.html">
+    <a class="reference internal" href="00_intro.html">
      ROS 简介
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/01_installation.html">
+    <a class="reference internal" href="01_installation.html">
      安装 ROS2
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/02_docs-guide.html">
-     文档指南
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../start/naming.html">
+    <a class="reference internal" href="naming.html">
      ROS 专有词汇中英对照列表
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tutorials/index.html">
-   教程
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tutorials/beginner/cli.html">
-     CLI 工具
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     VSCode ROS2 Workspace Template
     </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../tutorials/client-libraries/index.html">
-     客户端库
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/00_Creating-A-Workspace.html">
-       创建一个工作区
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/01_Creating-Your-First-ROS2-Package.html">
-       创建你的第一个 ROS 2 包
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/02_Writing-A-Simple-Cpp-Publisher-And-Subscriber.html">
-       编写一个简单的发布者和订阅者（C++）
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/03_Writing-A-Simple-Py-Publisher-And-Subscriber.html">
-       Writing a simple publisher and subscriber (Python)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/04_Writing-A-Simple-Cpp-Service-And-Client.html">
-       Writing a simple service and client (C++)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/client-libraries/05_Writing-A-Simple-Py-Service-And-Client.html">
-       Writing a simple service and client (Python)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../tutorials/intermediate/index.html">
-     中级教程
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorials/intermediate/Colcon-Tutorial.html">
-       使用
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         colcon
-        </span>
-       </code>
-       构建包
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -264,30 +182,13 @@ commentsRunWhenDOMLoaded(addUtterances);
   原理
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="index.html">
-   解释
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     高级教程
-    </a>
-   </li>
-  </ul>
- </li>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../colcon/index.html">
    colcon
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -296,8 +197,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal" href="../colcon/user-doc/index.html">
      用户文档
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -322,8 +223,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -349,8 +250,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../other/index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -426,7 +327,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/principle/topic.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/start/vscode.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -446,7 +347,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/daobook/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/principle/topic.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/daobook/ros-book/issues/new?title=Issue%20on%20page%20%2Fdocs/start/vscode.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -467,6 +368,53 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   特性
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     风格
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks">
+     Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     调试
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     持续集成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   如何使用该模板
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     先决条件
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -475,8 +423,52 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>高级教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="vscode-ros2-workspace-template">
+<h1>VSCode ROS2 Workspace Template<a class="headerlink" href="#vscode-ros2-workspace-template" title="永久链接至标题">¶</a></h1>
+<p>参考 <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace">athackst/vscode_ros2_workspace: A template for using VSCode as an IDE for ROS2 development. (github.com)</a>。</p>
+<p>此模板将帮助您使用 ROS2 和 VSCode 作为 IDE 进行设置。</p>
+<p>阅读<a class="reference external" href="https://www.allisonthackston.com/articles/vscode_docker_ros2.html">如何用 VSCode 和 ROS2 开发</a>，以更深入地了解如何使用这个工作区。</p>
+<div class="section" id="id1">
+<h2>特性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>风格<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>ROS2 批准的格式化程序包括在 IDE 中。</p>
+<ul class="simple">
+<li><p>C++ uncrustify：配置 <code class="docutils literal notranslate"><span class="pre">ament_uncrustify</span></code></p></li>
+<li><p>Python autopep8：与<a class="reference external" href="https://index.ros.org/doc/ros2/Contributing/Code-Style-Language-Versions/">样式指南</a>一致的 VSCode 设置</p></li>
+</ul>
+</div>
+<div class="section" id="tasks">
+<h3>Tasks<a class="headerlink" href="#tasks" title="永久链接至标题">¶</a></h3>
+<p>有许多预定义的任务，见 <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace/blob/foxy/.vscode/tasks.json"><code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code></a> 的完整清单。请随意调整它们以满足您的需要。</p>
+<p>阅读<a class="reference external" href="https://www.allisonthackston.com/articles/vscode_tasks.html">如何使用任务进行开发的</a>，以了解我如何在开发中使用任务。</p>
+</div>
+<div class="section" id="id3">
+<h3>调试<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>这个模板设置了 Python 文件的调试和 cpp 程序的 gdb。阅读 <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace/blob/foxy/.vscode/launch.json"><code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code></a> 配置细节。</p>
+</div>
+<div class="section" id="id4">
+<h3>持续集成<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>该模板还附带了基本的持续集成设置。看 <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace/blob/foxy/.github/workflows/ros.yaml"><code class="docutils literal notranslate"><span class="pre">.github/workflows/ros.yaml</span></code></a>。</p>
+<p>要删除 <code class="docutils literal notranslate"><span class="pre">linter</span></code>，只需从这一行中删除它的名称：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>      <span class="nt">matrix</span><span class="p">:</span>
+          <span class="nt">linter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cppcheck</span><span class="p p-Indicator">,</span> <span class="nv">cpplint</span><span class="p p-Indicator">,</span> <span class="nv">uncrustify</span><span class="p p-Indicator">,</span> <span class="nv">lint_cmake</span><span class="p p-Indicator">,</span> <span class="nv">xmllint</span><span class="p p-Indicator">,</span> <span class="nv">flake8</span><span class="p p-Indicator">,</span> <span class="nv">pep257</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>如何使用该模板<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>先决条件<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>你应该已经在你的系统上安装了：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.docker.com/engine/install/">docker</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/">vscode</a></p></li>
+<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">vscode remote containers plugin</a></p></li>
+</ul>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -492,7 +484,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/principle"
+            path: "./docs/start"
         },
         predefinedOutput: true
     }
@@ -504,11 +496,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="naming.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">解释</p>
+            <p class="prev-next-title">ROS 专有词汇中英对照列表</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../colcon/index.html" title="下一页 页">

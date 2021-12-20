@@ -1,5 +1,7 @@
 # 安装 ROS2
 
+> {sub-ref}`today` | 阅读时长 {sub-ref}`wordcount-minutes` 分
+
 详细安装方法见 [ros2-docs](https://daobook.github.io/ros2-docs/xin)。
 
 ````{hint}
