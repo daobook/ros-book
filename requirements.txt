@@ -5,7 +5,7 @@ ipywidgets
 nbclient
 jupyter-book
 ghp-import
-sphinx_inline_tabs
+sphinx-inline-tabs
 sphinx-click
 # sphinxext-rediraffe
 sympy

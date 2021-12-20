@@ -7,21 +7,15 @@ parts:
   - file: docs/start/index
     sections:
     - glob: docs/start/**
-  - file: docs/basics/index
-    sections:
-    - glob: docs/basics/**
-
-- caption: 主题
-  chapters:
-  - file: docs/topics/index
-    sections:
-    - glob: docs/topics/**
 
 - caption: 原理
   chapters:
-  - file: docs/principle/index
+  - file: docs/colcon/index
     sections:
-    - glob: docs/principle/**
+      - file: docs/colcon/user-doc/index
+        sections:
+        - glob: docs/colcon/user-doc/**
+  
 
 - caption: 混沌
   chapters:
